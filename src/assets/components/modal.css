@@ -1,0 +1,11 @@
+.fade-enter-active, .fade-leave-active {
+  transition: font-size 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  font-size: 0.75rem; /* 初始大小 */
+}
+
+.fade-enter-to, .fade-leave {
+  font-size: 1rem; /* 目标大小 */
+}
