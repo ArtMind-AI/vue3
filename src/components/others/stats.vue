@@ -113,7 +113,7 @@ const isRotated = ref(false);
 const handleScroll = () => {
   const bottomOffset =
     document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
-  isRotated.value = bottomOffset < 20;
+  isRotated.value = bottomOffset < 200;
   console.log(bottomOffset)
 };
 

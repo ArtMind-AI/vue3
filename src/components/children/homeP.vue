@@ -289,21 +289,11 @@ import { ref, onMounted, onUnmounted } from "vue";
 import team from "@/components/others/team.vue";
 import stats from "@/components/others/stats.vue";
 
-const currentnum = ref(0);
 const funpage = ref(0);
-
-// 定义函数,每3秒执行一次,currentnum递增,大于4时重置为1
-const updateCurrentNum = () => {
-  currentnum.value++;
-  currentnum.value = currentnum.value % 4;
-};
 
 const changepage = (page) => {
   funpage.value = page;
 };
-
-// 每3秒调用一次updateCurrentNum函数
-setInterval(updateCurrentNum, 4000);
 
 const isRotatedSe = ref(false);
 
@@ -324,5 +314,4 @@ onUnmounted(() => {
 
 <style scoped>
 /* Your scoped styles go here */
-@import "../../assets/components/homeP.css";
 </style>
