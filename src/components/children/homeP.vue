@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex flex-col">
+    <div class="flex flex-col bg-[#c1caf4]">
       <!-- begin 1 yes-->
       <div class="bg-[#1a1b26] py-48">
         <div class="mx-auto flex max-w-5xl gap-48">

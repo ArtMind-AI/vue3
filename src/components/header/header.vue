@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed left-0 right-0 z-20 flex items-center justify-between px-4 py-3 bg-[#1a1b26]"
+  <div class="fixed left-0 right-0 z-20 flex items-center justify-between px-4 py-3 bg-[#1a1b26] border-b-2 border-black"
     :class="{ ' shadow-md': isShadow }">
     <div class="p-1 text-xl tracking-widest flex gap-8 text-[#c1caf4]"> 
       <!-- begin default -->

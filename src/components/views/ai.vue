@@ -1,15 +1,80 @@
 <template>
   <div class="relative flex min-h-screen bg-[#1a1b26]">
     <Header />
-    <div
-      class="mx-auto flex max-w-7xl items-center gap-24 px-8 max-lg:flex-col mt-[60px]"
-    >
+    <div class="mx-auto mt-[60px] flex max-w-7xl flex-col justify-center px-16">
+      <div class="pt-8 flex text-2xl font-bold">
+        <router-link
+          to="/startFun"
+          class="text-[#c1caf4] decoration-white hover:underline"
+        >
+          components
+        </router-link>
+        <span class="text-[#c1caf4]">/ai Chat</span>
+      </div>
+      <div class="pt-8 flex flex-1 gap-8 max-lg:flex-col">
+        <!-- chat -->
+        <div class="flex flex-col gap-8">
+          <div
+            class="flex flex-1 flex-col rounded-t-xl bg-[#414868] p-4 max-lg:rounded-b-xl flexbox gap-8"
+          >
+            <div class="scrollable-div flex flex-1 flex-col overflow-y-auto">
+              <div class="other-message text-lg">
+                AI Chat is an innovative platform that leverages artificial
+                intelligence to facilitate seamless and intelligent
+                conversations.
+              </div>
+              <div
+                v-for="(message, index) in messages"
+                :key="index"
+                :class="
+                  message.sender === 'user' ? 'user-message' : 'other-message'
+                "
+                class="py-1 text-lg"
+              >
+                {{ message.text }}
+              </div>
+            </div>
+            <div class="flex flex-0 items-center">
+              <div
+                class="flex h-12 w-full items-center rounded-lg bg-[#c1caf4]"
+              >
+                <textarea
+                  class="mx-4 w-full resize-none bg-[#c1caf4] text-lg text-black outline-none"
+                  placeholder="输入信息"
+                  v-model="chat"
+                  :rows="rows"
+                  @keydown.enter.prevent="addBox"
+                ></textarea>
+              </div>
+              <button
+                @click="addBox1"
+                class="btn btn-md ml-2 rounded-md border-0 bg-[#1a1b26] text-[#bb9af7]"
+              >
+                发送
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- video -->
+        <div class="flex min-w-128 flex-col gap-4 max-lg:mb-8">
+          <div class="text-[#c1caf4]">video</div>
+          <video
+            ref="videoPlayer"
+            id="media"
+            autoplay
+            class="h-128 w-128 rounded-lg bg-[#414868]"
+            :src="videoUrl"
+          ></video>
+          <div class="text-[#c1caf4]">choice</div>
+          <button class="rounded-md bg-[#c1caf4] p-2">save</button>
+        </div>
+      </div>
       <!-- 1个性化 -->
       <div
-        class="fixed left-0 flex h-128 transform flex-col justify-center rounded-r-3xl border-y-2 border-r-2 border-white bg-[#c1caf4] px-2 text-black duration-300 hover:px-4"
+        class="fixed left-0 flex h-128 transform flex-col justify-center rounded-r-xl border-y-2 border-r-2 border-black bg-[#c1caf4] px-2 text-black duration-300 hover:px-4 max-lg:top-1/3"
         @click="store.toggleShow()"
         v-if="!store.show"
-      >  
+      >
         <!-- 按钮文字在 y 轴上排列 -->
         <div>
           <div class="whitespace-nowrap">个</div>
@@ -19,7 +84,7 @@
       </div>
       <!-- 2个性化展开 -->
       <div
-        class="fixed left-0 flex h-128 w-128 flex-col gap-4 rounded-r-3xl border-b-4 border-r-4 border-t-4 border-black bg-[#c1caf4] px-4 pt-8"
+        class="fixed left-0 flex h-128 w-128 flex-col gap-4 rounded-r-xl border-y-2 border-r-2 border-black bg-[#c1caf4] p-8 max-lg:top-1/3"
         v-if="store.show"
       >
         <button
@@ -62,7 +127,7 @@
           </button>
         </div>
         <!-- begin：img -->
-        <div class="grid grid-cols-3 gap-4 overflow-y-auto p-4">
+        <div class="grid grid-cols-4 gap-4 overflow-y-auto">
           <div
             v-for="(image, index) in images"
             :key="index"
@@ -77,63 +142,6 @@
             />
           </div>
         </div>
-      </div>
-      <!-- chat -->
-      <div class="flex h-full flex-col gap-8">
-        <div class="mt-8 flex text-2xl font-bold">
-          <router-link
-            to="/startFun"
-            class="text-[#c1caf4] decoration-white hover:underline"
-          >
-            components
-          </router-link>
-          <span class="text-[#c1caf4]">/ai Chat</span>
-        </div>
-        <div
-          class="scrollable-div flex h-168 flex-col overflow-y-auto rounded-xl bg-[#414868] p-8"
-        >
-          <div class="other-message text-lg">
-            AI Chat is an innovative platform that leverages artificial
-            intelligence to facilitate seamless and intelligent conversations.
-          </div>
-          <div
-            v-for="(message, index) in messages"
-            :key="index"
-            :class="
-              message.sender === 'user' ? 'user-message' : 'other-message'
-            "
-            class="py-1 text-lg"
-          >
-            {{ message.text }}
-          </div>
-        </div>
-        <div class="flex flex-1 items-center">
-          <div class="flex h-12 w-full items-center rounded-lg bg-[#c1caf4]">
-            <textarea
-              class="mx-4 w-full resize-none bg-[#c1caf4] text-lg text-black outline-none"
-              placeholder="输入信息"
-              v-model="chat"
-              :rows="rows"
-              @keydown.enter.prevent="addBox"
-            ></textarea>
-          </div>
-          <button
-            @click="addBox1"
-            class="btn btn-md ml-2 rounded-md border-0 bg-[#414868] text-[#bb9af7]"
-          >
-            发送
-          </button>
-        </div>
-      </div>
-      <!-- video -->
-      <div class="flex min-w-128">
-        <video
-          ref="videoPlayer"
-          id="media"
-          autoplay
-          class="h-128 w-128 rounded-lg border-4 border-white bg-[#414868]"
-          :src="videoUrl"
-        ></video>
       </div>
     </div>
   </div>

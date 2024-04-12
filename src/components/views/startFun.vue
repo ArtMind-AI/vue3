@@ -6,7 +6,7 @@
     >
       <div class="text-4xl font-bold text-[#c1caf4]">components</div>
       <!-- begin:title -->
-      <div class="flex gap-4">
+      <div class="lg:flex gap-4 max-lg:grid max-lg:grid-cols-2 max-lg:mx-auto">
         <!-- 1 -->
         <div
           class="w-48 cursor-pointer rounded-md p-4 shadow transition-colors duration-500"
