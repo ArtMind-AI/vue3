@@ -1,0 +1,95 @@
+/* 为深色主题设置黑色背景颜色 */
+[data-theme="dark"] {
+  --bg-btw: #1a1b26;
+
+  --bg-grey: #414868;
+
+  --bg-dg: #414868;
+
+  --bg-ptg: #c1caf4;
+
+  --bg-ptb: #c1caf4;
+
+  --text-ptw: #c1caf4;
+
+  --text-ptb: #c1caf4;
+
+  --text-ptg: #c1caf4;
+
+  --text-gtb: #414868;
+
+  --text-grey: #414868;
+
+}
+
+/* 为浅色主题设置粉色背景颜色 */
+[data-theme="light"] {
+  --bg-btw: #fff;
+
+  --bg-grey: #f0f3f8;
+
+  --bg-dg: #858585;
+
+  --bg-ptg: #f5f5f5;
+
+  --bg-ptb: #94a3b8;
+
+  --text-ptw: #fff;
+
+  --text-ptb: #000;
+
+  --text-ptg: #858585;
+
+  --text-gtb: #000;
+
+  --text-grey: #f0f3f8;
+
+}
+
+/* 宇宙黑/白 */
+.bg-btw {
+  background-color: var(--bg-btw);
+}
+
+/* 背景灰 */
+.bg-grey {
+  background-color: var(--bg-grey);
+}
+
+/* 背景深灰 */
+.bg-dg {
+  background-color: var(--bg-dg);
+}
+
+/* 粉/灰白 */
+.bg-ptg {
+  background-color: var(--bg-ptg);
+}
+
+/* 粉/黑 */
+.bg-ptb {
+  background-color: var(--bg-ptb);
+}
+
+/* 粉/白 */
+.text-ptw {
+  color: var(--text-ptw);
+}
+
+/* 粉/黑 */
+.text-ptb {
+  color: var(--text-ptb);
+}
+
+/* 粉/灰 */
+.text-ptg {
+  color: var(--text-ptg);
+}
+
+.text-gtb {
+  color: var(--text-gtb);
+}
+
+.text-grey{
+  color: var(--text-grey);
+}

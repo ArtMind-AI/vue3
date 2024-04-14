@@ -1,21 +1,23 @@
 <template>
   <div>
-    <div class="flex flex-col bg-[#c1caf4]">
+    <div class="flex flex-col">
       <!-- begin 1 yes-->
-      <div class="bg-[#1a1b26] py-48">
+      <div class="bg-btw py-48">
         <div class="mx-auto flex max-w-5xl gap-48">
           <div class="flex max-w-96 flex-col justify-center gap-8">
-            <div class="text-4xl font-bold text-[#c1caf4]">Art Mind</div>
-            <div class="text-2xl text-[#c1caf4]">
+            <div class="text-ptb text-4xl font-bold">Art Mind</div>
+            <div class="text-ptb text-2xl">
               Interstellar Development Experience
             </div>
-            <div class="text-lg text-[#c1caf4]">
+            <div class="text-ptb text-lg">
               An IDE layer for Neovim with sane defaults. Completely free and
               community driven.
             </div>
             <div class="flex gap-8">
               <router-link to="/startFun">
-                <button class="w-32 rounded-md bg-[#bb9af7] p-2 text-center">
+                <button
+                  class="text-ptw w-32 rounded-md bg-[#bb9af7] p-2 text-center"
+                >
                   开始
                 </button>
               </router-link>
@@ -34,17 +36,19 @@
         </div>
       </div>
       <!-- begin effects yes-->
-      <article class="flex bg-[#c1caf4] py-32">
+      <article class="bg-ptb flex py-32">
         <div
           class="mx-auto flex w-full items-center max-lg:flex-col max-lg:px-4 max-lg:py-28 lg:max-w-3xl"
         >
           <div class="px-4 lg:w-2/5">
             <div
-              class="pb-4 text-4xl font-bold tracking-wide max-lg:text-center"
+              class="pb-4 text-4xl font-bold tracking-wide text-gtb max-lg:text-center"
             >
               数字人
             </div>
-            <div class="break-words text-lg tracking-wider max-lg:text-center">
+            <div
+              class="break-words text-lg tracking-wider text-gtb max-lg:text-center"
+            >
               Effortlessly transform your sketches into polished designs with
               our innovative AI processing. No skills required, no reshaping
               needed.
@@ -63,10 +67,10 @@
       </article>
       <!-- begin function tes-->
       <article
-        class="flex flex-col items-center justify-center bg-[#1a1b26] px-4 py-32"
+        class="bg-btw flex flex-col items-center justify-center px-4 py-32"
       >
         <div
-          class="mx-auto text-center text-4xl font-bold tracking-wider text-[#c1caf4]"
+          class="mx-auto text-center text-4xl font-bold tracking-wider text-ptb"
         >
           功能
         </div>
@@ -75,18 +79,18 @@
             <!-- 1 -->
             <div
               class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="funpage === 0 ? 'bg-[#c1caf4]' : 'bg-[#414868]'"
+              :class="funpage === 0 ? 'bg-ptb' : 'bg-grey'"
               @click="changepage(0)"
             >
               <div
                 class="py-2 text-xl font-bold"
-                :class="funpage === 0 ? 'text-black' : 'text-[#c1caf4]'"
+                :class="funpage === 0 ? 'text-grey' : 'text-ptb'"
               >
                 aiChat
               </div>
               <p
                 class="max-w-48 break-words"
-                :class="funpage === 0 ? 'text-black' : 'text-[#c1caf4]'"
+                :class="funpage === 0 ? 'text-grey' : 'text-ptb'"
               >
                 11111111111111111111111
               </p>
@@ -94,18 +98,18 @@
             <!-- 2 -->
             <div
               class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="funpage === 1 ? 'bg-[#c1caf4]' : 'bg-[#414868]'"
+              :class="funpage === 1 ? 'bg-ptb' : 'bg-grey'"
               @click="changepage(1)"
             >
               <div
                 class="py-2 text-xl font-bold"
-                :class="funpage === 1 ? 'text-black' : 'text-[#c1caf4]'"
+                :class="funpage === 1 ? 'text-grey' : 'text-ptb'"
               >
                 aiChat
               </div>
               <p
                 class="max-w-48 break-words"
-                :class="funpage === 1 ? 'text-black' : 'text-[#c1caf4]'"
+                :class="funpage === 1 ? 'text-grey' : 'text-ptb'"
               >
                 11111111111111111111111
               </p>
@@ -113,18 +117,18 @@
             <!-- 3 -->
             <div
               class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="funpage === 2 ? 'bg-[#c1caf4]' : 'bg-[#414868]'"
+              :class="funpage === 2 ? 'bg-ptb' : 'bg-grey'"
               @click="changepage(2)"
             >
               <div
                 class="py-2 text-xl font-bold"
-                :class="funpage === 2 ? 'text-black' : 'text-[#c1caf4]'"
+                :class="funpage === 2 ? 'text-grey' : 'text-ptb'"
               >
                 aiChat
               </div>
               <p
                 class="max-w-48 break-words"
-                :class="funpage === 2 ? 'text-black' : 'text-[#c1caf4]'"
+                :class="funpage === 2 ? 'text-grey' : 'text-ptb'"
               >
                 11111111111111111111111
               </p>
@@ -132,18 +136,18 @@
             <!-- 4 -->
             <div
               class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="funpage === 3 ? 'bg-[#c1caf4]' : 'bg-[#414868]'"
+              :class="funpage === 3 ? 'bg-ptb' : 'bg-grey'"
               @click="changepage(3)"
             >
               <div
                 class="py-2 text-xl font-bold"
-                :class="funpage === 3 ? 'text-black' : 'text-[#c1caf4]'"
+                :class="funpage === 3 ? 'text-grey' : 'text-ptb'"
               >
                 aiChat
               </div>
               <p
                 class="max-w-48 break-words"
-                :class="funpage === 3 ? 'text-black' : 'text-[#c1caf4]'"
+                :class="funpage === 3 ? 'text-grey' : 'text-ptb'"
               >
                 11111111111111111111111
               </p>
@@ -178,7 +182,7 @@
       <!-- begin stats yes-->
       <stats />
       <!-- begin footer yes-->
-      <footer class="bg-[#1a1b26]">
+      <footer class="bg-btw">
         <div class="container mx-auto flex flex-col p-4 md:p-8 lg:flex-row">
           <ul
             class="flex flex-1 justify-start gap-4 py-6 text-center max-lg:justify-center"

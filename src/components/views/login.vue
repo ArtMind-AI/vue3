@@ -1,10 +1,10 @@
 <template>
-  <div class="flex min-h-screen">
+  <div class="flex min-h-screen bg-[#1a1b26]">
     <!-- Container -->
     <div class="flex w-full flex-row">
       <!-- Sidebar -->
       <div
-        class="hidden flex-col justify-between bg-emerald-500 lg:flex lg:max-w-sm lg:p-8 xl:max-w-lg xl:p-12"
+        class="hidden flex-col justify-between bg-[#c1caf4] lg:flex lg:max-w-sm lg:p-8 xl:max-w-lg xl:p-12"
       >
         <div class="flex items-center justify-start space-x-3">
           <span class="h-8 w-8 rounded-full bg-black"></span>

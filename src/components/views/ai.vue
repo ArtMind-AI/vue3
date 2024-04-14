@@ -1,24 +1,24 @@
 <template>
-  <div class="relative flex min-h-screen bg-[#1a1b26]">
+  <div class="bg-btw relative flex min-h-screen">
     <Header />
     <div class="mx-auto mt-[60px] flex max-w-7xl flex-col justify-center px-16">
-      <div class="pt-8 flex text-2xl font-bold">
+      <div class="flex pt-8 text-2xl font-bold">
         <router-link
           to="/startFun"
-          class="text-[#c1caf4] decoration-white hover:underline"
+          class="text-ptb decoration-white hover:underline"
         >
           components
         </router-link>
-        <span class="text-[#c1caf4]">/ai Chat</span>
+        <span class="text-ptb">/ai Chat</span>
       </div>
-      <div class="pt-8 flex flex-1 gap-8 max-lg:flex-col">
+      <div class="flex flex-1 gap-8 pt-8 max-lg:flex-col">
         <!-- chat -->
         <div class="flex flex-col gap-8">
           <div
-            class="flex flex-1 flex-col rounded-t-xl bg-[#414868] p-4 max-lg:rounded-b-xl flexbox gap-8"
+            class="bg-grey flexbox flex flex-1 flex-col gap-8 rounded-t-xl p-4 max-lg:rounded-b-xl"
           >
             <div class="scrollable-div flex flex-1 flex-col overflow-y-auto">
-              <div class="other-message text-lg">
+              <div class="other-message text-ptb text-lg">
                 AI Chat is an innovative platform that leverages artificial
                 intelligence to facilitate seamless and intelligent
                 conversations.
@@ -29,17 +29,15 @@
                 :class="
                   message.sender === 'user' ? 'user-message' : 'other-message'
                 "
-                class="py-1 text-lg"
+                class="text-ptb py-1 text-lg"
               >
                 {{ message.text }}
               </div>
             </div>
-            <div class="flex flex-0 items-center">
-              <div
-                class="flex h-12 w-full items-center rounded-lg bg-[#c1caf4]"
-              >
+            <div class="flex-0 flex items-center">
+              <div class="bg-ptb flex h-12 w-full items-center rounded-lg">
                 <textarea
-                  class="mx-4 w-full resize-none bg-[#c1caf4] text-lg text-black outline-none"
+                  class="bg-ptb mx-4 w-full resize-none text-lg text-black outline-none"
                   placeholder="输入信息"
                   v-model="chat"
                   :rows="rows"
@@ -48,7 +46,7 @@
               </div>
               <button
                 @click="addBox1"
-                class="btn btn-md ml-2 rounded-md border-0 bg-[#1a1b26] text-[#bb9af7]"
+                class="bg-btw text-ptg btn btn-md ml-2 rounded-md border-0"
               >
                 发送
               </button>
@@ -57,21 +55,21 @@
         </div>
         <!-- video -->
         <div class="flex min-w-128 flex-col gap-4 max-lg:mb-8">
-          <div class="text-[#c1caf4]">video</div>
+          <div class="text-ptb">video</div>
           <video
             ref="videoPlayer"
             id="media"
             autoplay
-            class="h-128 w-128 rounded-lg bg-[#414868]"
+            class="bg-grey h-128 w-128 rounded-lg"
             :src="videoUrl"
           ></video>
-          <div class="text-[#c1caf4]">choice</div>
-          <button class="rounded-md bg-[#c1caf4] p-2">save</button>
+          <div class="text-ptb">choice</div>
+          <button class="bg-ptb text-grey rounded-md p-2">save</button>
         </div>
       </div>
       <!-- 1个性化 -->
       <div
-        class="fixed left-0 flex h-128 transform flex-col justify-center rounded-r-xl border-y-2 border-r-2 border-black bg-[#c1caf4] px-2 text-black duration-300 hover:px-4 max-lg:top-1/3"
+        class="bg-ptg fixed left-0 flex h-128 transform flex-col justify-center rounded-r-xl border-y-2 border-r-2 border-black px-2 text-black duration-300 hover:px-4 max-lg:top-1/3"
         @click="store.toggleShow()"
         v-if="!store.show"
       >
@@ -84,7 +82,7 @@
       </div>
       <!-- 2个性化展开 -->
       <div
-        class="fixed left-0 flex h-128 w-128 flex-col gap-4 rounded-r-xl border-y-2 border-r-2 border-black bg-[#c1caf4] p-8 max-lg:top-1/3"
+        class="bg-ptg fixed left-0 flex h-128 w-128 flex-col gap-4 rounded-r-xl border-y-2 border-r-2 border-black p-8 max-lg:top-1/3"
         v-if="store.show"
       >
         <button
@@ -98,7 +96,7 @@
           <select
             id="selectFruit"
             v-model="selectedFruit"
-            class="h-10 w-1/2 rounded-sm border-2 border-gray-300 text-center outline-none transition-colors duration-300 hover:border-blue-500"
+            class="text-[#414868] h-10 w-1/2 rounded-sm border-2 border-gray-300 bg-white text-center outline-none transition-colors duration-300 hover:border-blue-500"
           >
             <option value="普通话女声">普通话女声</option>
             <option value="粤语男声">粤语男声</option>

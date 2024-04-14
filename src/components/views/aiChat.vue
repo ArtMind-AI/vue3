@@ -1,23 +1,23 @@
 <template>
-  <div class="relative flex min-h-screen bg-[#1a1b26]">
+  <div class="bg-btw relative flex min-h-screen">
     <Header />
-    <div class="mx-auto mt-[60px] flex max-w-7xl flex-col px-8">
+    <div class="mx-auto mt-[60px] flex max-w-7xl flex-col px-16">
       <div class="mt-8 flex text-2xl font-bold">
         <router-link
           to="/startFun"
-          class="text-[#c1caf4] decoration-white hover:underline"
+          class="text-ptb decoration-white hover:underline"
         >
           components
         </router-link>
-        <span class="text-[#c1caf4]">/Video Generation</span>
+        <span class="text-ptb">/Video Generation</span>
       </div>
       <div class="mt-8 flex flex-1 gap-8 max-lg:flex-col">
         <!-- chat -->
         <div
-          class="flexbox flex flex-1 flex-col gap-4 rounded-t-xl bg-[#414868] p-8 max-lg:rounded-b-xl"
+          class="flexbox bg-grey flex flex-1 flex-col gap-4 rounded-t-xl p-8 max-lg:rounded-b-xl"
         >
           <button
-            class="h-10 w-16 rounded-md bg-[#c1caf4] hover:bg-opacity-80"
+            class="bg-ptb text-grey h-10 w-16 rounded-md hover:bg-opacity-80"
             @click="changefunction"
           >
             切换
@@ -28,7 +28,7 @@
               v-if="funpage === 0"
               id="selectFruit"
               v-model="selectedFruit"
-              class="h-10 w-1/2 rounded-sm border-2 border-gray-300 text-center outline-none transition-colors duration-300 hover:border-blue-500"
+              class="h-10 w-1/2 rounded-sm border-2 border-gray-300 bg-white text-center text-[#414868] outline-none transition-colors duration-300 hover:border-blue-500"
             >
               <option value="普通话女声">普通话女声</option>
               <option value="粤语男声">粤语男声</option>
@@ -74,14 +74,14 @@
           <!-- begin：生成 -->
           <div>
             <button
-              class="w-full rounded-md bg-[#c1caf4] p-2 text-center text-black hover:bg-opacity-80"
+              class="w-full rounded-md bg-ptb p-2 text-center text-black hover:bg-opacity-80"
               @click="uploadbyWord()"
               v-if="funpage === 0"
             >
               生成
             </button>
             <button
-              class="w-full rounded-md bg-[#c1caf4] p-2 text-center text-black hover:bg-opacity-80"
+              class="w-full rounded-md bg-ptb p-2 text-center text-black hover:bg-opacity-80"
               @click="uploadbyaudio()"
               v-if="funpage === 1"
             >
@@ -91,7 +91,7 @@
           <!-- begin: text -->
           <div v-if="funpage === 0">
             <textarea
-              class="w-full resize-none rounded-lg border-4 border-white bg-[#c1caf4] p-4 text-white outline-none"
+              class="w-full resize-none rounded-lg border-4 border-white bg-ptb p-4 text-black outline-none"
               placeholder="输入信息"
               v-model="chat"
               :rows="rows"
@@ -99,7 +99,7 @@
             ></textarea>
           </div>
           <!-- begin：img -->
-            <div class="grid grid-cols-4 gap-2 overflow-y-auto scrollable-div">
+          <div class="scrollable-div grid grid-cols-4 gap-2 overflow-y-auto">
             <div
               v-for="(image, index) in images"
               :key="index"
@@ -117,16 +117,16 @@
         </div>
         <!-- video -->
         <div class="flex min-w-128 flex-col gap-4 max-lg:pb-8">
-          <div class="text-[#c1caf4]">video</div>
+          <div class="text-ptb">video</div>
           <video
             ref="videoPlayer"
             id="media"
             autoplay
-            class="h-128 w-128 rounded-lg bg-[#414868]"
+            class="h-128 w-128 rounded-lg bg-grey"
             :src="videoUrl"
           ></video>
-          <div class="text-[#c1caf4]">choice</div>
-          <button class="rounded-md bg-[#c1caf4] p-2">save</button>
+          <div class="text-ptb">choice</div>
+          <button class="rounded-md bg-ptb p-2 text-grey">save</button>
         </div>
       </div>
     </div>

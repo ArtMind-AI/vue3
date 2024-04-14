@@ -1,5 +1,4 @@
 .user-message {
-  color: #c1caf4;
   margin-bottom: 0.5rem;
   word-wrap: break-word;
   word-break: break-all;
@@ -7,7 +6,6 @@
 }
 
 .other-message {
-  color: #bb9af7;
   margin-bottom: 0.5rem; /* 保持与用户聊天框的间距一致 */
   word-wrap: break-word;
   word-break: break-all;

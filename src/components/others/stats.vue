@@ -1,22 +1,22 @@
 <template>
-  <section class="bg-[#1a1b26] py-32">
-    <div class="mx-auto max-w-96 bg-[#414868] p-4 rounded-3xl">
+  <section class="bg-btw py-32">
+    <div class="mx-auto max-w-96 bg-grey p-4 rounded-3xl">
       <img
         src="../../assets/svg/coffee.svg"
         :class="{ ' rotate-12': isRotated }"
-        class="transition-transform duration-1000 bg-[#c1caf4] rounded-3xl"
+        class="transition-transform duration-1000 bg-ptg rounded-3xl"
       />
     </div>
     <div
       class="mx-auto max-w-5xl p-6 text-center lg:space-y-4 py-8"
     >
-      <h2 class="text-4xl font-bold text-[#c1caf4]">{{ $t("poweredBy") }}</h2>
+      <h2 class="text-4xl font-bold text-pt">{{ $t("poweredBy") }}</h2>
       <div class="flex flex-wrap justify-center pt-4 lg:justify-between">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Angular"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-[#414868]"
+          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
         >
           <title>Angular</title>
           <path
@@ -27,7 +27,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Gatsby"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-[#414868]"
+          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
         >
           <title>Gatsby</title>
           <path
@@ -38,7 +38,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Plain HTML"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-[#414868]"
+          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
         >
           <title>Plain HTML</title>
           <path
@@ -49,7 +49,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Next.js"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-[#414868]"
+          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
         >
           <title>Next.js</title>
           <path
@@ -60,7 +60,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Nuxt.js"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-[#414868]"
+          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
         >
           <title>Nuxt.js</title>
           <path
@@ -71,7 +71,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="React"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-[#414868]"
+          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
         >
           <title>React</title>
           <path
@@ -82,7 +82,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Svelte"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-[#414868]"
+          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
         >
           <title>Svelte</title>
           <path
@@ -93,7 +93,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Vue.js"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-[#414868]"
+          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
         >
           <title>Vue.js</title>
           <path
