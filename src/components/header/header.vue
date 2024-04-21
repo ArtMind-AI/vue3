@@ -58,19 +58,18 @@
         </div>
         <ul
           tabindex="0"
-          class="menu dropdown-content z-[1] mt-5 w-32 rounded-box bg-[#414868] p-2 shadow"
+          class="bg-grey menu dropdown-content z-[1] mt-5 w-32 rounded-box p-2 shadow"
         >
-          <li><a class="text-ptg">中文简体</a></li>
-          <li><a class="text-ptg">English</a></li>
+          <li>
+            <a class="text-ptg" @click="switchLanguage('zh')">中文简体</a>
+          </li>
+          <li><a class="text-ptg" @click="switchLanguage('en')">English</a></li>
         </ul>
       </div>
       <!-- begin avator -->
       <img src="../../assets/img/0.jpg" class="h-10 w-10 rounded-full" />
       <!-- begin login -->
-      <router-link
-        to="/login"
-        class="bg-dg rounded-3xl px-8 py-1 text-ptw"
-      >
+      <router-link to="/login" class="bg-dg text-ptw rounded-3xl text-center py-1 w-24">
         <span>{{ $t("login in") }}</span>
       </router-link>
     </div>
@@ -80,7 +79,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { themeChange } from "theme-change";
+import { useI18n } from "vue-i18n";
+const { locale } = useI18n();
 
+//控制header是否显示shadow
 const isShadow = ref(false);
 
 const handleScroll = () => {
@@ -90,6 +92,13 @@ const handleScroll = () => {
     bottomOffset < document.documentElement.scrollHeight - window.innerHeight;
 };
 
+
+//切换语言
+const switchLanguage = (lang) => {
+  locale.value = lang;
+};
+
+//theme记忆棒
 const theme = localStorage.getItem("theme");
 const themeref = ref(false);
 
