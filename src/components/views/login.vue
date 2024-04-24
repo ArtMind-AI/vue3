@@ -4,17 +4,19 @@
     <div class="flex w-full flex-row">
       <!-- Sidebar -->
       <div
-        class="hidden flex-col justify-between bg-[#c1caf4] lg:flex lg:max-w-sm lg:p-8 xl:max-w-lg xl:p-12"
+        class="bg-ptg hidden flex-col justify-between lg:flex lg:max-w-sm lg:p-8 xl:max-w-lg xl:p-12"
       >
         <div class="flex items-center justify-start space-x-3">
           <span class="h-8 w-8 rounded-full bg-black"></span>
-          <a href="#" class="text-xl font-medium">Brand</a>
+          <a href="#" class="text-gtb text-xl font-medium">Brand</a>
         </div>
         <div class="space-y-5">
-          <h1 class="font-extrabold lg:text-3xl xl:text-5xl xl:leading-snug">
+          <h1
+            class="text-gtb font-extrabold lg:text-3xl xl:text-5xl xl:leading-snug"
+          >
             Enter your account and discover new experiences
           </h1>
-          <p class="text-lg">You do not have an account?</p>
+          <p class="text-gtb text-lg">You do not have an account?</p>
           <button
             class="inline-block flex-none rounded-lg border-2 border-black bg-black px-4 py-3 font-medium text-white"
             @click="toregister"
@@ -22,12 +24,12 @@
             Create account here
           </button>
         </div>
-        <p class="font-medium">© 2022 Company</p>
+        <p class="text-gtb font-medium">© 2022 Company</p>
       </div>
 
       <!-- Login -->
       <div
-        class="relative flex flex-1 flex-col items-center justify-center px-10"
+        class="bg-btw relative flex flex-1 flex-col items-center justify-center px-10"
       >
         <div class="flex w-full items-center justify-between py-4 lg:hidden">
           <div class="flex items-center justify-start space-x-3">
@@ -35,13 +37,13 @@
             <a href="#" class="text-lg font-medium">Brand</a>
           </div>
           <div class="flex items-center space-x-2">
-            <span v-if="currentpage === 1">Not a member? </span>
-            <span v-if="currentpage === 2">has account aleardy?</span>
+            <span v-if="currentPage === 1">Not a member? </span>
+            <span v-if="currentPage === 2">has account aleardy?</span>
             <a
               href="#"
               class="font-medium text-[#070eff] underline"
               @click="toregister"
-              v-if="currentpage === 1"
+              v-if="currentPage === 1"
             >
               Sign up now
             </a>
@@ -49,7 +51,7 @@
               href="#"
               class="font-medium text-[#070eff] underline"
               @click="tologin"
-              v-if="currentpage === 2"
+              v-if="currentPage === 2"
             >
               Sign in now
             </a>
@@ -58,11 +60,13 @@
         <!-- Sign up box -->
         <div
           class="flex max-w-md flex-1 flex-col justify-center space-y-5"
-          v-if="currentpage === 2"
+          v-if="currentPage === 2"
         >
           <div class="flex flex-col space-y-2 text-center">
-            <h2 class="text-3xl font-bold md:text-4xl">Sign up to account</h2>
-            <p class="text-md md:text-xl">
+            <h2 class="text-ptg text-3xl font-bold md:text-4xl">
+              Sign up to account
+            </h2>
+            <p class="text-md text-ptg md:text-xl">
               Sign up or log in to place the order,no password require!
             </p>
           </div>
@@ -72,13 +76,13 @@
                 type="text"
                 placeholder="Username"
                 class="flex rounded-lg border-2 border-black px-3 py-2 font-medium placeholder:font-normal md:px-4 md:py-3"
-                v-model="username"
+                v-model="useName"
               />
               <input
                 type="text"
                 placeholder="Password"
                 class="flex rounded-lg border-2 border-black px-3 py-2 font-medium placeholder:font-normal md:px-4 md:py-3"
-                v-model="password"
+                v-model="passWord"
               />
               <div class="grid grid-cols-2 gap-5">
                 <button
@@ -136,12 +140,14 @@
         <!-- Sign in box -->
         <div
           class="flex max-w-md flex-1 flex-col justify-center space-y-5"
-          v-if="currentpage === 1"
+          v-if="currentPage === 1"
         >
           <div class="flex flex-col space-y-2 text-center">
-            <h2 class="text-3xl font-bold md:text-4xl">Sign in to account</h2>
-            <p class="text-md md:text-xl">
-              Sign in or log in to place the order,no password require!
+            <h2 class="text-ptg text-3xl font-bold md:text-4xl">
+              Sign in to account
+            </h2>
+            <p class="text-md text-ptg md:text-xl">
+              Sign in or log in to place the order,no passWord require!
             </p>
           </div>
           <div class="flex max-w-md flex-col space-y-5">
@@ -150,13 +156,13 @@
                 type="text"
                 placeholder="Username"
                 class="flex rounded-lg border-2 border-neutral px-3 py-2 font-medium outline-none placeholder:font-normal md:px-4 md:py-3"
-                v-model="username"
+                v-model="useName"
               />
               <input
                 type="text"
                 placeholder="Password"
                 class="flex rounded-lg border-2 border-neutral px-3 py-2 font-medium outline-none placeholder:font-normal md:px-4 md:py-3"
-                v-model="password"
+                v-model="passWord"
               />
               <button
                 type="submit"
@@ -212,34 +218,37 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from "axios";
 
-const username = ref("");
-const password = ref("");
-const currentpage = ref(1);
+const useName = ref("");
+const passWord = ref("");
+const currentPage = ref(1);
 const router = useRouter();
 
+//转注册
 const toregister = () => {
-  currentpage.value = 2;
+  currentPage.value = 2;
 };
 
+//转登录
 const tologin = () => {
-  currentpage.value = 1;
+  currentPage.value = 1;
 };
 
+//注册
 const register = async () => {
-  if (username.value != "" && password.value != "") {
+  if (useName.value != "" && passWord.value != "") {
     try {
       const response = await axios.post("http://localhost:3000/register", {
-        username: username.value,
-        password: password.value,
+        useName: useName.value,
+        passWord: passWord.value,
       });
       console.log(response.data.message);
       console.log(response);
       // 注册成功，跳转到登录页面
       if (response.status === 200) {
         // 跳转到登录页面的代码，例如使用 Vue Router 的方式跳转
-        currentpage.value = 1;
-        username.value = "";
-        password.value = "";
+        currentPage.value = 1;
+        useName.value = "";
+        passWord.value = "";
         alert("sign up successfully");
       }
     } catch (error) {
@@ -250,13 +259,13 @@ const register = async () => {
   }
 };
 
-// 在 Vue 组件中使用 Axios 发送登录请求
+//注册
 const login = async () => {
-  if (username.value != "" && password.value != "") {
+  if (useName.value != "" && passWord.value != "") {
     try {
       const response = await axios.post("http://localhost:3000/login", {
-        username: username.value,
-        password: password.value,
+        useName: useName.value,
+        passWord: passWord.value,
       });
       console.log(response.data.message);
       // 在这里处理登录成功的逻辑，例如保存用户信息到本地存储

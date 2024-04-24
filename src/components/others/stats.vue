@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-btw py-32">
+  <section class="bg-btw h-screen flex max-lg:flex-col items-center">
     <div class="mx-auto max-w-96 bg-grey p-4 rounded-3xl">
       <img
         src="../../assets/svg/coffee.svg"

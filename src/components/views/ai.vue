@@ -2,7 +2,7 @@
   <div class="bg-btw relative flex min-h-screen">
     <Header />
     <div class="mx-auto mt-[60px] flex max-w-7xl flex-col justify-center px-16">
-      <div class="flex pt-8 text-2xl font-bold">
+      <div class="flex pt-12 text-3xl font-bold">
         <router-link
           to="/startFun"
           class="text-ptb decoration-white hover:underline"
@@ -15,7 +15,7 @@
         <!-- chat -->
         <div class="flex flex-col gap-8">
           <div
-            class="bg-grey flexbox flex flex-1 flex-col gap-8 rounded-t-xl p-4 max-lg:rounded-b-xl"
+            class="bg-grey flexbox flex flex-1 flex-col gap-8 rounded-t-xl p-6 max-lg:rounded-b-xl"
           >
             <div class="scrollable-div flex flex-1 flex-col overflow-y-auto">
               <div class="other-message text-ptb text-lg">
@@ -96,7 +96,7 @@
           <select
             id="selectFruit"
             v-model="selectedFruit"
-            class="text-[#414868] h-10 w-1/2 rounded-sm border-2 border-gray-300 bg-white text-center outline-none transition-colors duration-300 hover:border-blue-500"
+            class="h-10 w-1/2 rounded-sm border-2 border-gray-300 bg-white text-center text-[#414868] outline-none transition-colors duration-300 hover:border-blue-500"
           >
             <option value="普通话女声">普通话女声</option>
             <option value="粤语男声">粤语男声</option>
@@ -329,7 +329,6 @@ const addBox1 = async () => {
     send.value = chat.value;
     console.log("send.value = " + send.value);
     chat.value = "";
-
     // 发送 POST 请求
     await axios
       .post(

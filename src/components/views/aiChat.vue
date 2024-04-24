@@ -2,7 +2,7 @@
   <div class="bg-btw relative flex min-h-screen">
     <Header />
     <div class="mx-auto mt-[60px] flex max-w-7xl flex-col px-16">
-      <div class="mt-8 flex text-2xl font-bold">
+      <div class="mt-12 flex text-3xl font-bold">
         <router-link
           to="/startFun"
           class="text-ptb decoration-white hover:underline"
@@ -14,7 +14,7 @@
       <div class="mt-8 flex flex-1 gap-8 max-lg:flex-col">
         <!-- chat -->
         <div
-          class="flexbox bg-grey flex flex-1 flex-col gap-4 rounded-t-xl p-8 max-lg:rounded-b-xl"
+          class="flexbox bg-grey flex flex-1 flex-col gap-4 rounded-t-xl p-6 max-lg:rounded-b-xl"
         >
           <button
             class="bg-ptb text-grey h-10 w-16 rounded-md hover:bg-opacity-80"

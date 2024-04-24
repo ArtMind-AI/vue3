@@ -1,12 +1,12 @@
 <template>
-  <div class="flex min-h-screen bg-btw">
+  <div class="bg-btw flex min-h-screen">
     <Header />
     <div
       class="mx-auto mt-[60px] flex min-h-screen max-w-7xl flex-1 flex-col gap-8 p-8"
     >
-      <div class="text-4xl font-bold text-ptb">components</div>
+      <div class="text-ptb mt-16 text-4xl font-bold">components</div>
       <!-- begin:title -->
-      <div class="lg:flex gap-4 max-lg:grid max-lg:grid-cols-2 max-lg:mx-auto">
+      <div class="gap-4 max-lg:mx-auto max-lg:grid max-lg:grid-cols-2 lg:flex">
         <!-- 1 -->
         <div
           class="w-48 cursor-pointer rounded-md p-4 shadow transition-colors duration-500"
@@ -85,13 +85,13 @@
         </div>
       </div>
       <!-- begin text&img -->
-      <div class="flex gap-32 max-md:flex-col max-md:items-center">
-        <div class="flex h-96 max-w-96 flex-col justify-center gap-4">
+      <div class="flex gap-32 py-16 max-md:flex-col max-md:items-center">
+        <div class="flex h-96 max-w-128 flex-col justify-center gap-8">
           <div>
-            <div class="pb-2 text-4xl font-bold text-ptb">
+            <div class="text-ptb pb-8 text-5xl font-bold">
               {{ currentData.title }}
             </div>
-            <div class="text-lg tracking-wide text-ptb">
+            <div class="text-ptb text-2xl tracking-wide">
               {{ currentData.text }}
             </div>
           </div>
@@ -110,7 +110,7 @@
       </div>
       <!-- begin step -->
       <div class="flex flex-col gap-8">
-        <div class="text-4xl font-bold text-ptb">step</div>
+        <div class="text-ptb text-4xl font-bold">step</div>
         <!-- begin:step0-->
         <div
           class="mx-auto grid max-w-5xl gap-8 md:grid-cols-3"
@@ -122,7 +122,7 @@
             class="flex flex-col items-center gap-4"
           >
             <img :src="item.image" class="h-60" />
-            <span class="text-xl text-ptb">{{ item.text }}</span>
+            <span class="text-ptb text-xl">{{ item.text }}</span>
           </div>
         </div>
         <!-- begin:step1-->
@@ -136,7 +136,7 @@
             class="flex flex-col items-center"
           >
             <img :src="item.image" class="h-60" />
-            <span class="text-xl text-ptb">{{ item.text }}</span>
+            <span class="text-ptb text-xl">{{ item.text }}</span>
           </div>
         </div>
       </div>
@@ -149,12 +149,6 @@ import { ref } from "vue";
 import Header from "../header/header.vue";
 
 const title = ref(0);
-
-const changepage = (index) => {
-  title.value = index;
-  currentData.value = data[index];
-  currentImage.value = images[index];
-};
 
 const data = [
   {
@@ -199,6 +193,13 @@ const itemsTitle1 = [
 const currentData = ref(data[title.value]);
 
 const currentImage = ref(images[title.value]);
+
+//转功能页
+const changepage = (index) => {
+  title.value = index;
+  currentData.value = data[index];
+  currentImage.value = images[index];
+};
 </script>
 
 <style></style>

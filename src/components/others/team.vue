@@ -1,9 +1,9 @@
 <template>
-  <section class="bg-ptb py-32">
+  <section class="bg-ptb h-screen flex items-center">
     <div
       class="container mx-auto flex flex-col items-center justify-center space-y-4 px-4"
     >
-      <h1 class="text-center text-4xl font-bold leading-none tracking-wide text-gtb">
+      <h1 class="text-center text-4xl font-bold leading-none tracking-wide text-gtb mb-16">
         {{ $t("tuanDui") }}
       </h1>
       <div class="grid lg:grid-cols-4 grid-cols-2 gap-4 justify-center">

@@ -3,7 +3,7 @@
     class="bg-btw fixed left-0 right-0 z-20 flex items-center justify-between px-4 py-3"
     :class="{ ' shadow-md': isShadow }"
   >
-    <div class="text-ptg flex gap-8 p-1 text-xl">
+    <div class="text-ptg flex gap-8 p-1 text-xl z-20">
       <!-- begin default -->
       <router-link to="/" class="">Art Mind</router-link>
       <!-- begin chat -->
@@ -69,7 +69,10 @@
       <!-- begin avator -->
       <img src="../../assets/img/0.jpg" class="h-10 w-10 rounded-full" />
       <!-- begin login -->
-      <router-link to="/login" class="bg-dg text-ptw rounded-3xl text-center py-1 w-24">
+      <router-link
+        to="/login"
+        class="bg-dg text-ptw w-24 rounded-3xl py-1 text-center"
+      >
         <span>{{ $t("login in") }}</span>
       </router-link>
     </div>
@@ -91,7 +94,6 @@ const handleScroll = () => {
   isShadow.value =
     bottomOffset < document.documentElement.scrollHeight - window.innerHeight;
 };
-
 
 //切换语言
 const switchLanguage = (lang) => {

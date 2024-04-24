@@ -2,18 +2,18 @@
   <div>
     <div class="flex flex-col">
       <!-- begin 1 yes-->
-      <div class="bg-btw py-48">
+      <div class="bg-btw h-screen flex items-center">
         <div class="mx-auto flex max-w-5xl gap-48">
-          <div class="flex max-w-96 flex-col justify-center gap-8">
-            <div class="text-ptb text-4xl font-bold">Art Mind</div>
-            <div class="text-ptb text-2xl">
+          <div class="flex max-w-128 flex-col justify-center gap-8">
+            <div class="text-ptb text-5xl font-bold text-center">Art Mind</div>
+            <div class="text-ptb text-3xl text-center">
               Interstellar Development Experience
             </div>
-            <div class="text-ptb text-lg">
+            <div class="text-ptb text-xl text-center">
               An IDE layer for Neovim with sane defaults. Completely free and
               community driven.
             </div>
-            <div class="flex gap-8">
+            <div class="flex gap-8 justify-center mt-8">
               <router-link to="/startFun">
                 <button
                   class="text-ptw w-32 rounded-md bg-[#bb9af7] p-2 text-center"
@@ -30,13 +30,10 @@
               </router-link>
             </div>
           </div>
-          <div>
-            <img src="../../assets/img/logo_transparent.png" class="h-96" />
-          </div>
         </div>
       </div>
       <!-- begin effects yes-->
-      <article class="bg-ptb flex py-32">
+      <article class="bg-ptb h-screen flex items-center">
         <div
           class="mx-auto flex w-full items-center max-lg:flex-col max-lg:px-4 max-lg:py-28 lg:max-w-3xl"
         >
@@ -67,30 +64,30 @@
       </article>
       <!-- begin function tes-->
       <article
-        class="bg-btw flex flex-col items-center justify-center px-4 py-32"
+        class="bg-btw flex flex-col items-center justify-center px-4 h-screen"
       >
         <div
-          class="mx-auto text-center text-4xl font-bold tracking-wider text-ptb"
+          class="mx-auto text-center text-4xl font-bold tracking-wider text-ptb mb-16"
         >
           功能
         </div>
-        <div class="mx-auto mt-8 flex items-center gap-16">
+        <div class="mx-auto mt-8 flex items-center gap-32">
           <div class="grid grid-rows-4 gap-8">
             <!-- 1 -->
             <div
               class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="funpage === 0 ? 'bg-ptb' : 'bg-grey'"
+              :class="selectFunction === 0 ? 'bg-ptb' : 'bg-grey'"
               @click="changepage(0)"
             >
               <div
                 class="py-2 text-xl font-bold"
-                :class="funpage === 0 ? 'text-grey' : 'text-ptb'"
+                :class="selectFunction === 0 ? 'text-grey' : 'text-ptb'"
               >
                 aiChat
               </div>
               <p
                 class="max-w-48 break-words"
-                :class="funpage === 0 ? 'text-grey' : 'text-ptb'"
+                :class="selectFunction === 0 ? 'text-grey' : 'text-ptb'"
               >
                 11111111111111111111111
               </p>
@@ -98,18 +95,18 @@
             <!-- 2 -->
             <div
               class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="funpage === 1 ? 'bg-ptb' : 'bg-grey'"
+              :class="selectFunction === 1 ? 'bg-ptb' : 'bg-grey'"
               @click="changepage(1)"
             >
               <div
                 class="py-2 text-xl font-bold"
-                :class="funpage === 1 ? 'text-grey' : 'text-ptb'"
+                :class="selectFunction === 1 ? 'text-grey' : 'text-ptb'"
               >
                 aiChat
               </div>
               <p
                 class="max-w-48 break-words"
-                :class="funpage === 1 ? 'text-grey' : 'text-ptb'"
+                :class="selectFunction === 1 ? 'text-grey' : 'text-ptb'"
               >
                 11111111111111111111111
               </p>
@@ -117,18 +114,18 @@
             <!-- 3 -->
             <div
               class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="funpage === 2 ? 'bg-ptb' : 'bg-grey'"
+              :class="selectFunction === 2 ? 'bg-ptb' : 'bg-grey'"
               @click="changepage(2)"
             >
               <div
                 class="py-2 text-xl font-bold"
-                :class="funpage === 2 ? 'text-grey' : 'text-ptb'"
+                :class="selectFunction === 2 ? 'text-grey' : 'text-ptb'"
               >
                 aiChat
               </div>
               <p
                 class="max-w-48 break-words"
-                :class="funpage === 2 ? 'text-grey' : 'text-ptb'"
+                :class="selectFunction === 2 ? 'text-grey' : 'text-ptb'"
               >
                 11111111111111111111111
               </p>
@@ -136,18 +133,18 @@
             <!-- 4 -->
             <div
               class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="funpage === 3 ? 'bg-ptb' : 'bg-grey'"
+              :class="selectFunction === 3 ? 'bg-ptb' : 'bg-grey'"
               @click="changepage(3)"
             >
               <div
                 class="py-2 text-xl font-bold"
-                :class="funpage === 3 ? 'text-grey' : 'text-ptb'"
+                :class="selectFunction === 3 ? 'text-grey' : 'text-ptb'"
               >
                 aiChat
               </div>
               <p
                 class="max-w-48 break-words"
-                :class="funpage === 3 ? 'text-grey' : 'text-ptb'"
+                :class="selectFunction === 3 ? 'text-grey' : 'text-ptb'"
               >
                 11111111111111111111111
               </p>
@@ -157,22 +154,22 @@
             <img
               src="/src/assets/svg/op/peep-91.svg"
               class="h-96"
-              v-if="funpage === 0"
+              v-if="selectFunction === 0"
             />
             <img
               src="/src/assets/svg/op/peep-92.svg"
               class="h-96"
-              v-if="funpage === 1"
+              v-if="selectFunction === 1"
             />
             <img
               src="/src/assets/svg/op/peep-93.svg"
               class="h-96"
-              v-if="funpage === 2"
+              v-if="selectFunction === 2"
             />
             <img
               src="/src/assets/svg/op/peep-94.svg"
               class="h-96"
-              v-if="funpage === 3"
+              v-if="selectFunction === 3"
             />
           </div>
         </div>
@@ -293,10 +290,10 @@ import { ref, onMounted, onUnmounted } from "vue";
 import team from "@/components/others/team.vue";
 import stats from "@/components/others/stats.vue";
 
-const funpage = ref(0);
+const selectFunction = ref(0);
 
 const changepage = (page) => {
-  funpage.value = page;
+  selectFunction.value = page;
 };
 
 const isRotatedSe = ref(false);
