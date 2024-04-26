@@ -8,6 +8,7 @@ import "../global.css"; // 引入全局 CSS 文件
 import axios from "axios"
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 import { CoLanguage } from "oh-vue-icons/icons";
+
 addIcons(CoLanguage);
 
 const app = createApp(App);
