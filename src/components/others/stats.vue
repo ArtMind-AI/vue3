@@ -1,22 +1,20 @@
 <template>
-  <section class="bg-btw h-screen flex max-lg:flex-col items-center">
-    <div class="mx-auto max-w-96 bg-grey p-4 rounded-3xl">
+  <section class="bg-btw flex flex-col py-24">
+    <div class="bg-grey mx-auto max-w-96 rounded-3xl p-4">
       <img
         src="../../assets/svg/coffee.svg"
         :class="{ ' rotate-12': isRotated }"
-        class="transition-transform duration-1000 bg-ptg rounded-3xl"
+        class="bg-ptg rounded-3xl transition-transform duration-1000"
       />
     </div>
-    <div
-      class="mx-auto max-w-5xl p-6 text-center lg:space-y-4 py-8"
-    >
-      <h2 class="text-4xl font-bold text-pt">{{ $t("poweredBy") }}</h2>
-      <div class="flex flex-wrap justify-center pt-4 lg:justify-between">
+    <div class="mx-auto text-center pt-12 space-y-4">
+      <h2 class="text-pt text-4xl font-bold">{{ $t("poweredBy") }}</h2>
+      <div class="flex max-w-96 flex-wrap justify-center gap-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Angular"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
         >
           <title>Angular</title>
           <path
@@ -27,7 +25,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Gatsby"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
         >
           <title>Gatsby</title>
           <path
@@ -38,7 +36,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Plain HTML"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
         >
           <title>Plain HTML</title>
           <path
@@ -49,7 +47,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Next.js"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
         >
           <title>Next.js</title>
           <path
@@ -60,7 +58,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Nuxt.js"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
         >
           <title>Nuxt.js</title>
           <path
@@ -71,7 +69,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="React"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
         >
           <title>React</title>
           <path
@@ -82,7 +80,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Svelte"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
         >
           <title>Svelte</title>
           <path
@@ -93,7 +91,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Vue.js"
-          class="mx-10 my-6 h-16 w-16 fill-current md:mx-12 lg:m-0 p-2 rounded-full bg-grey"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
         >
           <title>Vue.js</title>
           <path
@@ -114,7 +112,7 @@ const handleScroll = () => {
   const bottomOffset =
     document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
   isRotated.value = bottomOffset < 200;
-  console.log(bottomOffset)
+  console.log(bottomOffset);
 };
 
 onMounted(() => {

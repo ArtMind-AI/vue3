@@ -1,9 +1,10 @@
 <template>
   <div>
+    <Header />
     <div class="flex flex-col">
       <!-- begin 1 yes-->
-      <div class="bg-btw flex h-screen items-center">
-        <div class="mx-auto flex max-w-5xl gap-48">
+      <div class="bg-btw mt-[60px] flex">
+        <div class="mx-auto flex gap-48 py-48">
           <div class="flex max-w-128 flex-col justify-center gap-8">
             <div class="text-ptb text-center text-5xl font-bold">Art Mind</div>
             <div class="text-ptb text-center text-3xl">
@@ -13,7 +14,7 @@
               An IDE layer for Neovim with sane defaults. Completely free and
               community driven.
             </div>
-            <div class="mt-8 flex justify-center gap-8">
+            <div class="mt-4 flex justify-center gap-8">
               <router-link to="/startFun">
                 <button
                   class="text-ptw w-32 rounded-md bg-[#bb9af7] p-2 text-center"
@@ -33,25 +34,25 @@
         </div>
       </div>
       <!-- begin effects yes-->
-      <article class="bg-ptb flex h-screen items-center">
+      <article class="bg-ptb ptb my-[125px]">
         <div
-          class="mx-auto flex w-full items-center max-lg:flex-col max-lg:px-4 max-lg:py-28 lg:max-w-3xl"
+          class="mx-auto flex w-full max-w-3xl items-center py-12 max-lg:flex-col"
         >
-          <div class="px-4 lg:w-2/5">
+          <!-- text -->
+          <div class="px-4 lg:w-1/2">
             <div
               class="text-gtb pb-4 text-4xl font-bold tracking-wide max-lg:text-center"
             >
               数字人
             </div>
-            <div
-              class="text-gtb break-words text-lg tracking-wider max-lg:text-center"
-            >
+            <div class="text-gtb break-words text-lg max-lg:text-center">
               Effortlessly transform your sketches into polished designs with
               our innovative AI processing. No skills required, no reshaping
               needed.
             </div>
           </div>
-          <div class="relative max-lg:flex-1 lg:w-3/5">
+          <!-- img -->
+          <div class="relative max-lg:flex-1 lg:w-1/2">
             <div class="break-words text-lg text-gray-400">
               <img src="/src/assets/svg/1.svg" />
             </div>
@@ -63,16 +64,14 @@
         </div>
       </article>
       <!-- begin function tes-->
-      <article
-        class="bg-btw flex h-screen flex-col items-center justify-center px-4"
-      >
+      <article class="bg-btw flex flex-col py-24">
         <div
-          class="text-ptb mx-auto mb-16 text-center text-4xl font-bold tracking-wider"
+          class="text-ptb mx-auto text-center text-4xl font-bold tracking-wider"
         >
           功能
         </div>
-        <div class="mx-auto mt-8 flex items-center gap-32">
-          <div class="grid grid-rows-4 gap-8">
+        <div class="mx-auto flex gap-12 pt-16">
+          <div class="grid grid-rows-4 gap-4">
             <!-- 1 -->
             <div
               class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
@@ -150,7 +149,7 @@
               </p>
             </div>
           </div>
-          <div class="mx-auto mt-4 max-w-120">
+          <div class="mx-auto">
             <img
               src="/src/assets/svg/op/peep-91.svg"
               class="h-96"
@@ -215,4 +214,39 @@ onUnmounted(() => {
 
 <style scoped>
 /* Your scoped styles go here */
+.ptb {
+  position: relative;
+}
+
+.ptb:before {
+  content: "";
+  transform: translateY(calc(-100%));
+  position: absolute;
+  height: 125px;
+  background-image: url("/src/assets/avif/cloud.avif");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: contain;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  z-index: 1;
+  background-color: var(--bg-btw);
+}
+
+.ptb:after {
+  content: "";
+  transform: rotate(180deg) scaleX(-1);
+  position: absolute;
+  height: 125px;
+  background-image: url("/src/assets/avif/cloud.avif");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: contain;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  z-index: 1;
+  background-color: var(--bg-btw);
+}
 </style>

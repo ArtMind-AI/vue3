@@ -1,13 +1,16 @@
 <template>
   <div
-    class="bg-btw fixed left-0 right-0 z-20 flex items-center justify-between px-4 py-3"
+    class="bg-btw fixed left-0 right-0 z-20 flex items-center justify-between px-8 py-4"
     :class="{ ' shadow-md': isShadow }"
   >
-    <div class="text-ptg flex gap-8 p-1 text-xl z-20">
+    <div class="text-ptg z-20 flex gap-6 text-lg">
       <!-- begin default -->
-      <router-link to="/" class="">Art Mind</router-link>
+      <div class="flex items-center gap-2">
+        <v-icon name="fc-linux" class="h-7 w-7" />
+        <router-link to="/" class="text-ptg font-bold">Art Mind</router-link>
+      </div>
       <!-- begin chat -->
-      <router-link to="/startFun" class="text-ptg">
+      <router-link to="/test" class="text-ptg">
         <span>{{ $t("docs") }}</span>
       </router-link>
       <!-- begin function -->
@@ -20,7 +23,7 @@
       </router-link>
     </div>
     <!-- begin header-right -->
-    <div class="flex items-center gap-8 max-sm:hidden">
+    <div class="flex items-center gap-5 max-sm:hidden">
       <!-- begin theme -->
       <label class="swap swap-rotate">
         <!-- this hidden checkbox controls the state -->
@@ -32,7 +35,7 @@
         />
         <!-- sun icon -->
         <svg
-          class="text-ptg swap-on h-8 w-8 fill-current"
+          class="text-ptg swap-on h-6 w-6 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -42,7 +45,7 @@
         </svg>
         <!-- moon icon -->
         <svg
-          class="text-ptg swap-off h-8 w-8 fill-current"
+          class="text-ptg swap-off h-6 w-6 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -54,7 +57,7 @@
       <!-- begin: language -->
       <div class="dropdown">
         <div tabindex="0" role="button" class="text-ptg">
-          <v-icon name="co-language" class="h-8 w-8" />
+          <v-icon name="co-language" class="h-7 w-7" />
         </div>
         <ul
           tabindex="0"
@@ -67,7 +70,7 @@
         </ul>
       </div>
       <!-- begin avator -->
-      <img src="../../assets/img/0.jpg" class="h-10 w-10 rounded-full" />
+      <img src="../../assets/img/0.jpg" class="h-7 w-7 rounded-full" />
       <!-- begin login -->
       <router-link
         to="/login"
