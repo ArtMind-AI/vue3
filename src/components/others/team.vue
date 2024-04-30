@@ -1,6 +1,6 @@
 <template>
   <section class="bg-ptb ptb my-[125px]">
-    <div class="mx-auto flex max-w-5xl flex-col py-12">
+    <div class="mx-auto flex max-w-5xl flex-col py-24">
       <h1
         class="text-gtb text-center text-4xl font-bold leading-none tracking-wide"
       >

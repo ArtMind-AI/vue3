@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-btw flex min-h-screen">
+  <div class="bg-ptb flex min-h-screen">
     <Header />
     <div
       class="mx-auto mt-[60px] flex min-h-screen max-w-7xl flex-1 flex-col gap-8 p-8"

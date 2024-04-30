@@ -20,6 +20,8 @@
 
   --text-grey: #414868;
 
+  --border-ptb: #c1caf4;
+
 }
 
 /* 为浅色主题设置粉色背景颜色 */
@@ -43,6 +45,8 @@
   --text-gtb: #000;
 
   --text-grey: #f0f3f8;
+
+  --border-ptb: #94a3b8;
 
 }
 
@@ -92,4 +96,8 @@
 
 .text-grey{
   color: var(--text-grey);
+}
+
+.border-ptb{
+  border-color: var(--border-ptb);
 }

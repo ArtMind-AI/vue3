@@ -5,7 +5,8 @@ import aiChat from "@/components/views/aiChat.vue";
 import login from "@/components/views/login.vue";
 import startFun from "@/components/views/startFun.vue";
 import ai from "@/components/views/ai.vue";
-import community from "@/components/views/community.vue"
+import community from "@/components/views/community.vue";
+import carousel from "@/components/views/carousel.vue";
 // 创建路由实例
 const router = createRouter({
   history: createWebHistory(),
@@ -17,6 +18,7 @@ const router = createRouter({
     { path: "/startFun", component: startFun },
     { path: "/ai", component: ai },
     { path: "/community", component: community },
+    { path: "/carousel", component: carousel },
   ],
 });
 

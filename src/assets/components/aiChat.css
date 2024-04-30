@@ -12,17 +12,15 @@
   max-width: fit-content;
 }
 
-  
-  .scrollable-div::-webkit-scrollbar {
-    width: 8px; /* 滚动条宽度 */
-    height: 8px; /* 滚动条高度 */
-    display: none; /* 初始状态隐藏滚动条 */
-  }
+.scrollable-div::-webkit-scrollbar {
+  width: 8px; /* 滚动条宽度 */
+  height: 8px; /* 滚动条高度 */
+  display: none; /* 初始状态隐藏滚动条 */
+}
 
-  .back{
-    background-image: url(../svg/composition-9.svg);
-  }
+.back{
+  background: #2b5876;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  .flexbox{
-    max-height: calc(100vh - 156px);
-  }
+}
