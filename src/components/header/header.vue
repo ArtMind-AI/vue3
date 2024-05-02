@@ -10,11 +10,11 @@
         <router-link to="/" class="text-ptg font-bold">Art Mind</router-link>
       </div>
       <!-- begin chat -->
-      <router-link to="/test" class="text-ptg">
+      <router-link to="/documents" class="text-ptg">
         <span>{{ $t("docs") }}</span>
       </router-link>
       <!-- begin function -->
-      <router-link to="/startFun" class="text-ptg">
+      <router-link to="/carousel" class="text-ptg">
         <span>{{ $t("function") }}</span>
       </router-link>
       <!-- begin function -->

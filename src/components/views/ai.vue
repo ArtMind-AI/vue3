@@ -1,87 +1,67 @@
 <template>
   <Header class="hidden" />
   <div class="back relative flex min-h-screen">
-    <div class="mx-auto flex max-w-7xl flex-col justify-center px-8">
+    <!-- header -->
+    <ul class="absolute left-12 top-32 w-28">
+      <router-link to="/ai">
+        <li class="text-xl border-b-2 border-ptb py-2 pl-4 cursor-pointer hover:text-blue-300"
+          :class="{ 'text-blue-300': $route.path === '/ai' }">ai Chat</li>
+      </router-link>
+      <router-link to="/aiChat">
+        <li class="text-xl border-b-2 border-ptb py-2 pl-4 cursor-pointer hover:text-yellow-300"
+          :class="{ 'text-yellow-300': $route.path === '/aiChat' }">Item 2</li>
+      </router-link>
+      <li class="text-xl border-b-2 border-ptb py-2 pl-4 cursor-pointer hover:text-green-300"
+        :class="{ 'text-green-300': $route.path === '/' }"><a>Item 3</a></li>
+    </ul>
+    <div class="mx-auto flex max-w-6xl flex-col justify-center px-8 w-full">
       <div class="flex items-end">
         <!-- chat -->
-        <div class="border-ptb flex h-128 flex-1 flex-col gap-8 border-4">
+        <div class="border-ptb flex h-128 w-2/5 flex-1 flex-col gap-8 border-l-4 border-t-4 border-b-4">
           <div class="bg-grey flex flex-1 flex-col gap-8 p-6">
-            <div
-              class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto"
-            >
+            <div class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto">
               <div class="other-message text-ptb text-lg">
-                AI Chat is an innovative platform that leverages artificial
-                intelligence to facilitate seamless and intelligent
-                conversations.
+                AI C
               </div>
-              <div
-                v-for="(message, index) in messages"
-                :key="index"
-                :class="
-                  message.sender === 'user' ? 'user-message' : 'other-message'
-                "
-                class="text-ptb py-1 text-lg"
-              >
+              <div v-for="(message, index) in messages" :key="index" :class="message.sender === 'user' ? 'user-message' : 'other-message'
+            " class="text-ptb py-1 text-lg">
                 {{ message.text }}
               </div>
             </div>
             <div class="flex-0 flex items-center">
               <div class="bg-ptb flex h-12 w-full items-center rounded-lg">
-                <textarea
-                  class="bg-ptb mx-4 w-full resize-none text-lg text-black outline-none"
-                  placeholder="输入信息"
-                  v-model="chat"
-                  :rows="rows"
-                  @keydown.enter.prevent="addBox"
-                ></textarea>
+                <textarea class="bg-ptb mx-4 w-full resize-none text-lg text-black outline-none" placeholder="输入信息"
+                  v-model="chat" :rows="rows" @keydown.enter.prevent="addBox"></textarea>
               </div>
-              <button
-                @click="addBox1"
-                class="bg-btw text-ptg btn btn-md ml-2 rounded-md border-0"
-              >
+              <button @click="addBox1" class="bg-btw text-ptg btn btn-md ml-2 rounded-md border-0">
                 发送
               </button>
             </div>
           </div>
         </div>
         <!-- video -->
-        <div class="border-ptb flex gap-4 border-4 max-lg:mb-8">
-          <video
-            ref="videoPlayer"
-            id="media"
-            autoplay
-            class="bg-grey h-168 w-168"
-            :src="videoUrl"
-          ></video>
+        <div class="border-ptb flex aspect-square w-3/5 gap-4 border-4">
+          <video ref="videoPlayer" id="media" autoplay class="bg-grey" :src="videoUrl"></video>
         </div>
       </div>
       <!-- select -->
       <div
-        class="bg-grey border-ptb mx-auto mt-8 flex w-3/5 items-center justify-center gap-4 rounded-3xl border-4 p-4"
-      >
-        <router-link to="/"
-          ><v-icon name="hi-solid-home" class="h-7 w-7 text-white"
-        /></router-link>
+        class="bg-grey border-ptb mx-auto mt-8 flex items-center justify-center gap-4 rounded-3xl border-4 p-4 lg:w-3/5">
+        <router-link to="/"><v-icon name="hi-solid-home" class="h-7 w-7 text-white" /></router-link>
         <span class="text-xl font-bold text-white">Art Mind</span>
         <v-icon name="hi-solid-arrow-left" class="h-7 w-7 text-white" />
         <div class="relative w-28">
-          <router-link
-            to="/startFun"
-            class="bg-grey border-ptb absolute -top-[56px] flex h-28 w-28 flex-col items-center justify-center border-4"
-          >
+          <router-link to="/startFun"
+            class="bg-grey border-ptb absolute -top-[56px] flex h-28 w-28 flex-col items-center justify-center border-4">
             <v-icon name="ai-academia" class="text-ptb z-20 h-16 w-16" />
             <span class="text-ptb text-lg">docs</span>
           </router-link>
         </div>
-        <router-link to="/aiChat"
-          ><v-icon name="hi-solid-arrow-right" class="h-7 w-7 text-white"
-        /></router-link>
+        <router-link to="/aiChat"><v-icon name="hi-solid-arrow-right" class="h-7 w-7 text-white" /></router-link>
         <router-link to="/startFun">
           <span class="text-xl font-bold text-white">tools</span>
         </router-link>
-        <router-link to="/carousel"
-          ><v-icon name="ri-apps-fill" class="h-7 w-7 text-white"
-        /></router-link>
+        <router-link to="/carousel"><v-icon name="ri-apps-fill" class="h-7 w-7 text-white" /></router-link>
       </div>
     </div>
   </div>

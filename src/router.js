@@ -3,7 +3,7 @@ import test from "@/components/others/test.vue";
 import deFault from "@/components/views/default.vue";
 import aiChat from "@/components/views/aiChat.vue";
 import login from "@/components/views/login.vue";
-import startFun from "@/components/views/startFun.vue";
+import documents from "@/components/views/documents.vue";
 import ai from "@/components/views/ai.vue";
 import community from "@/components/views/community.vue";
 import carousel from "@/components/views/carousel.vue";
@@ -15,7 +15,7 @@ const router = createRouter({
     { path: "/test", component: test },
     { path: "/aiChat", component: aiChat },
     { path: "/login", component: login },
-    { path: "/startFun", component: startFun },
+    { path: "/documents", component: documents },
     { path: "/ai", component: ai },
     { path: "/community", component: community },
     { path: "/carousel", component: carousel },

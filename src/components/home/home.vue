@@ -15,7 +15,7 @@
               community driven.
             </div>
             <div class="mt-4 flex justify-center gap-8">
-              <router-link to="/startFun">
+              <router-link to="/ai">
                 <button
                   class="text-ptw w-32 rounded-md bg-[#bb9af7] p-2 text-center"
                 >
