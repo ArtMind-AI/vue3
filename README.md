@@ -16,4 +16,6 @@ cd vite C:\Users\14653\Desktop\vite-main\vite-main (If you download the zip file
 npm install
 npm run dev
 ```
-
+## 5月5日进度
+完成文档架构 完成首页
+ai个性化未完成 aichat页面改写未完成 轮播图页面是否保留待定
