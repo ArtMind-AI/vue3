@@ -1,23 +1,23 @@
 <template>
   <Header class="hidden" />
-  <div class="back relative flex min-h-screen">
+  <div class="back relative flex h-screen overflow-auto">
     <!-- header -->
-    <ul class="absolute left-12 top-32 w-28">
+    <ul class="absolute left-12 top-12 w-28">
       <router-link to="/ai">
-        <li class="text-xl border-b-2 border-ptb py-2 pl-4 cursor-pointer hover:text-blue-300"
+        <li class="text-xl border-b-4 border-ptb py-2 pl-4 cursor-pointer hover:text-blue-300"
           :class="{ 'text-blue-300': $route.path === '/ai' }">ai Chat</li>
       </router-link>
-      <router-link to="/aiChat">
-        <li class="text-xl border-b-2 border-ptb py-2 pl-4 cursor-pointer hover:text-yellow-300"
-          :class="{ 'text-yellow-300': $route.path === '/aiChat' }">Item 2</li>
+      <router-link to="/makeVideo">
+        <li class="text-xl border-b-4 border-ptb py-2 pl-4 cursor-pointer hover:text-yellow-300"
+          :class="{ 'text-yellow-300': $route.path === '/makeVideo' }">make Video</li>
       </router-link>
-      <li class="text-xl border-b-2 border-ptb py-2 pl-4 cursor-pointer hover:text-green-300"
+      <li class="text-xl border-b-4 border-ptb py-2 pl-4 cursor-pointer hover:text-green-300"
         :class="{ 'text-green-300': $route.path === '/' }"><a>Item 3</a></li>
     </ul>
-    <div class="mx-auto flex max-w-6xl flex-col justify-center px-8 w-full">
+    <div class="mx-auto flex flex-col justify-center px-8">
       <div class="flex items-end">
         <!-- chat -->
-        <div class="border-ptb flex h-128 w-2/5 flex-1 flex-col gap-8 border-l-4 border-t-4 border-b-4">
+        <div class="border-ptb flex h-128 w-128 flex-col gap-8 border-l-4 border-t-4 border-b-4">
           <div class="bg-grey flex flex-1 flex-col gap-8 p-6">
             <div class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto">
               <div class="other-message text-ptb text-lg">
@@ -40,7 +40,7 @@
           </div>
         </div>
         <!-- video -->
-        <div class="border-ptb flex aspect-square w-3/5 gap-4 border-4">
+        <div class="border-ptb flex aspect-square w-168 gap-4 border-4">
           <video ref="videoPlayer" id="media" autoplay class="bg-grey" :src="videoUrl"></video>
         </div>
       </div>
@@ -51,7 +51,7 @@
         <span class="text-xl font-bold text-white">Art Mind</span>
         <v-icon name="hi-solid-arrow-left" class="h-7 w-7 text-white" />
         <div class="relative w-28">
-          <router-link to="/startFun"
+          <router-link to="/documents"
             class="bg-grey border-ptb absolute -top-[56px] flex h-28 w-28 flex-col items-center justify-center border-4">
             <v-icon name="ai-academia" class="text-ptb z-20 h-16 w-16" />
             <span class="text-ptb text-lg">docs</span>

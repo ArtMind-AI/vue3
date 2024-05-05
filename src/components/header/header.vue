@@ -14,7 +14,7 @@
         <span>{{ $t("docs") }}</span>
       </router-link>
       <!-- begin function -->
-      <router-link to="/carousel" class="text-ptg">
+      <router-link to="/ai" class="text-ptg">
         <span>{{ $t("function") }}</span>
       </router-link>
       <!-- begin function -->

@@ -22,7 +22,7 @@
                   开始
                 </button>
               </router-link>
-              <router-link to="/startFun">
+              <router-link to="/documents">
                 <button
                   class="w-32 rounded-md border-2 border-[#bb9af7] p-2 text-center text-[#bb9af7] transition-colors duration-300 hover:bg-[#bb9af7] hover:text-black"
                 >
