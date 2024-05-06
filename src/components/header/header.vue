@@ -10,15 +10,23 @@
         <router-link to="/" class="text-ptg font-bold">Art Mind</router-link>
       </div>
       <!-- begin chat -->
-      <router-link to="/documents" class="text-ptg">
+      <router-link
+        to="/documents"
+        class="hover:text-[#7480ff]"
+        :class="{ 'text-[#7480ff]': $route.path === '/documents' }"
+      >
         <span>{{ $t("docs") }}</span>
       </router-link>
       <!-- begin function -->
-      <router-link to="/ai" class="text-ptg">
+      <router-link to="ai">
         <span>{{ $t("function") }}</span>
       </router-link>
       <!-- begin function -->
-      <router-link to="/community" class="text-ptg">
+      <router-link
+        to="/community"
+        class="hover:text-[#7480ff]"
+        :class="{ 'text-[#7480ff]': $route.path === '/community' }"
+      >
         <span>{{ $t("community") }}</span>
       </router-link>
     </div>

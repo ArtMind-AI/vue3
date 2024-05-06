@@ -1,6 +1,6 @@
 /* 为深色主题设置黑色背景颜色 */
 [data-theme="dark"] {
-  --bg-btw: #1a1b26;
+  --bg-btw: #282a36;
 
   --bg-grey: #414868;
 

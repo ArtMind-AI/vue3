@@ -64,114 +64,8 @@
         </div>
       </article>
       <!-- begin function tes-->
-      <article class="bg-btw flex flex-col py-24">
-        <div
-          class="text-ptb mx-auto text-center text-4xl font-bold tracking-wider"
-        >
-          功能
-        </div>
-        <div class="mx-auto flex gap-12 pt-16">
-          <div class="grid grid-rows-4 gap-4">
-            <!-- 1 -->
-            <div
-              class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="selectFunction === 0 ? 'bg-ptb' : 'bg-grey'"
-              @click="changepage(0)"
-            >
-              <div
-                class="py-2 text-xl font-bold"
-                :class="selectFunction === 0 ? 'text-grey' : 'text-ptb'"
-              >
-                aiChat
-              </div>
-              <p
-                class="max-w-48 break-words"
-                :class="selectFunction === 0 ? 'text-grey' : 'text-ptb'"
-              >
-                11111111111111111111111
-              </p>
-            </div>
-            <!-- 2 -->
-            <div
-              class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="selectFunction === 1 ? 'bg-ptb' : 'bg-grey'"
-              @click="changepage(1)"
-            >
-              <div
-                class="py-2 text-xl font-bold"
-                :class="selectFunction === 1 ? 'text-grey' : 'text-ptb'"
-              >
-                aiChat
-              </div>
-              <p
-                class="max-w-48 break-words"
-                :class="selectFunction === 1 ? 'text-grey' : 'text-ptb'"
-              >
-                11111111111111111111111
-              </p>
-            </div>
-            <!-- 3 -->
-            <div
-              class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="selectFunction === 2 ? 'bg-ptb' : 'bg-grey'"
-              @click="changepage(2)"
-            >
-              <div
-                class="py-2 text-xl font-bold"
-                :class="selectFunction === 2 ? 'text-grey' : 'text-ptb'"
-              >
-                aiChat
-              </div>
-              <p
-                class="max-w-48 break-words"
-                :class="selectFunction === 2 ? 'text-grey' : 'text-ptb'"
-              >
-                11111111111111111111111
-              </p>
-            </div>
-            <!-- 4 -->
-            <div
-              class="w-48 cursor-pointer rounded-md p-2 shadow transition-colors duration-500"
-              :class="selectFunction === 3 ? 'bg-ptb' : 'bg-grey'"
-              @click="changepage(3)"
-            >
-              <div
-                class="py-2 text-xl font-bold"
-                :class="selectFunction === 3 ? 'text-grey' : 'text-ptb'"
-              >
-                aiChat
-              </div>
-              <p
-                class="max-w-48 break-words"
-                :class="selectFunction === 3 ? 'text-grey' : 'text-ptb'"
-              >
-                11111111111111111111111
-              </p>
-            </div>
-          </div>
-          <div class="mx-auto">
-            <img
-              src="/src/assets/svg/op/peep-91.svg"
-              class="h-96"
-              v-if="selectFunction === 0"
-            />
-            <img
-              src="/src/assets/svg/op/peep-92.svg"
-              class="h-96"
-              v-if="selectFunction === 1"
-            />
-            <img
-              src="/src/assets/svg/op/peep-93.svg"
-              class="h-96"
-              v-if="selectFunction === 2"
-            />
-            <img
-              src="/src/assets/svg/op/peep-94.svg"
-              class="h-96"
-              v-if="selectFunction === 3"
-            />
-          </div>
-        </div>
+      <article class="bg-btw flex flex-col py-16">
+        <carousel />
       </article>
       <!-- begin team yes-->
       <team />
@@ -188,6 +82,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import team from "@/components/others/team.vue";
 import stats from "@/components/others/stats.vue";
 import Footer from "../others/footer.vue";
+import carousel from "../views/carousel.vue"
 
 const selectFunction = ref(0);
 

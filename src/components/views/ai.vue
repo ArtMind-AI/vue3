@@ -1,67 +1,170 @@
 <template>
   <Header class="hidden" />
-  <div class="back relative flex h-screen overflow-auto">
-    <!-- header -->
-    <ul class="absolute left-12 top-12 w-28">
-      <router-link to="/ai">
-        <li class="text-xl border-b-4 border-ptb py-2 pl-4 cursor-pointer hover:text-blue-300"
-          :class="{ 'text-blue-300': $route.path === '/ai' }">ai Chat</li>
-      </router-link>
-      <router-link to="/makeVideo">
-        <li class="text-xl border-b-4 border-ptb py-2 pl-4 cursor-pointer hover:text-yellow-300"
-          :class="{ 'text-yellow-300': $route.path === '/makeVideo' }">make Video</li>
-      </router-link>
-      <li class="text-xl border-b-4 border-ptb py-2 pl-4 cursor-pointer hover:text-green-300"
-        :class="{ 'text-green-300': $route.path === '/' }"><a>Item 3</a></li>
-    </ul>
+  <div class="bg-btw relative flex h-screen overflow-auto">
     <div class="mx-auto flex flex-col justify-center px-8">
-      <div class="flex items-end">
+      <div class="flex items-end gap-2">
         <!-- chat -->
-        <div class="border-ptb flex h-128 w-128 flex-col gap-8 border-l-4 border-t-4 border-b-4">
-          <div class="bg-grey flex flex-1 flex-col gap-8 p-6">
-            <div class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto">
-              <div class="other-message text-ptb text-lg">
-                AI C
-              </div>
-              <div v-for="(message, index) in messages" :key="index" :class="message.sender === 'user' ? 'user-message' : 'other-message'
-            " class="text-ptb py-1 text-lg">
+        <div class="relative flex h-128 w-128 flex-col gap-8">
+          <!-- 选项卡 -->
+          <div role="tablist" class="tabs-boxed tabs absolute -top-12">
+            <a
+              role="tab"
+              class="tab"
+              :class="{ 'tab-active': currentNum === 0 }"
+              @click="changenum(0)"
+              >对话</a
+            >
+            <a
+              role="tab"
+              class="tab"
+              :class="{ 'tab-active': currentNum === 1 }"
+              @click="changenum(1)"
+              >个性化</a
+            >
+          </div>
+          <!-- 对话 -->
+          <div
+            class="bg-grey border-ptb flex flex-1 flex-col gap-8 rounded-xl border-2 p-6"
+            :class="{ hidden: currentNum != 0 }"
+          >
+            <div
+              class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto"
+            >
+              <div class="other-message text-ptb text-lg">AI C</div>
+              <div
+                v-for="(message, index) in messages"
+                :key="index"
+                :class="
+                  message.sender === 'user' ? 'user-message' : 'other-message'
+                "
+                class="text-ptb py-1 text-lg"
+              >
                 {{ message.text }}
               </div>
             </div>
             <div class="flex-0 flex items-center">
               <div class="bg-ptb flex h-12 w-full items-center rounded-lg">
-                <textarea class="bg-ptb mx-4 w-full resize-none text-lg text-black outline-none" placeholder="输入信息"
-                  v-model="chat" :rows="rows" @keydown.enter.prevent="addBox"></textarea>
+                <textarea
+                  class="bg-ptb mx-4 w-full resize-none text-lg text-black outline-none"
+                  placeholder="输入信息"
+                  v-model="chat"
+                  :rows="rows"
+                  @keydown.enter.prevent="addBox"
+                ></textarea>
               </div>
-              <button @click="addBox1" class="bg-btw text-ptg btn btn-md ml-2 rounded-md border-0">
+              <button
+                @click="addBox1"
+                class="bg-btw text-ptg btn btn-md ml-2 rounded-md border-0"
+              >
                 发送
               </button>
             </div>
           </div>
+          <!-- 个性化 -->
+          <div
+            class="bg-grey border-ptb flex flex-1 flex-col gap-4 rounded-xl border-2 p-6"
+            :class="{ hidden: currentNum != 1 }"
+          >
+            <!-- begin：声线 -->
+            <div class="flex gap-8">
+              <select
+                id="selectFruit"
+                v-model="selectedFruit"
+                class="bg-ptb text-grey h-10 w-1/2 rounded-lg text-center outline-none transition-colors duration-300 hover:border-blue-500"
+              >
+                <option value="普通话女声">普通话女声</option>
+                <option value="粤语男声">粤语男声</option>
+              </select>
+              <!-- begin：添加图片 -->
+              <input
+                ref="fileInput"
+                type="file"
+                @change="handleFileChange"
+                style="display: none"
+              />
+              <button
+                class="bg-ptb text-grey h-10 w-1/2 rounded-lg text-center"
+                @click="$refs.fileInput.click()"
+              >
+                添加图片
+              </button>
+            </div>
+            <!-- begin：生成 -->
+            <div>
+              <button
+                class="bg-ptb text-grey w-full rounded-lg p-2 text-center hover:bg-opacity-80"
+                @click="uploadImg()"
+              >
+                生成
+              </button>
+            </div>
+            <!-- begin：img -->
+            <div class="grid grid-cols-4 gap-4 overflow-y-auto">
+              <div
+                v-for="(image, index) in images"
+                :key="index"
+                class="aspect-square select-none rounded-lg border-2 transition-colors duration-300"
+                :class="{ 'border-ptb': selectimg === index }"
+                @click="selectImage(index)"
+              >
+                <img
+                  :src="image"
+                  alt="image"
+                  class="aspect-square w-full rounded-lg object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <!-- video -->
-        <div class="border-ptb flex aspect-square w-168 gap-4 border-4">
-          <video ref="videoPlayer" id="media" autoplay class="bg-grey" :src="videoUrl"></video>
+        <div class="flex aspect-square w-168 gap-4">
+          <video
+            ref="videoPlayer"
+            id="media"
+            autoplay
+            class="bg-grey border-ptb rounded-xl border-2"
+            :src="videoUrl"
+          ></video>
         </div>
       </div>
       <!-- select -->
       <div
-        class="bg-grey border-ptb mx-auto mt-8 flex items-center justify-center gap-4 rounded-3xl border-4 p-4 lg:w-3/5">
-        <router-link to="/"><v-icon name="hi-solid-home" class="h-7 w-7 text-white" /></router-link>
-        <span class="text-xl font-bold text-white">Art Mind</span>
-        <v-icon name="hi-solid-arrow-left" class="h-7 w-7 text-white" />
-        <div class="relative w-28">
-          <router-link to="/documents"
-            class="bg-grey border-ptb absolute -top-[56px] flex h-28 w-28 flex-col items-center justify-center border-4">
-            <v-icon name="ai-academia" class="text-ptb z-20 h-16 w-16" />
+        class="bg-grey border-ptb mx-auto mt-10 flex items-center justify-center gap-6 rounded-3xl border-2 p-2 lg:w-2/5"
+      >
+        <router-link to="/" class="flex items-center"
+          ><span class="text-ptb">home</span></router-link
+        >
+        <v-icon name="hi-solid-arrow-left" class="text-ptb h-7 w-7" />
+        <div class="relative w-24">
+          <router-link
+            to="/documents"
+            class="bg-grey border-ptb absolute -top-[48px] flex h-24 w-24 flex-col items-center justify-center rounded-lg border-2"
+          >
+            <v-icon name="ai-academia" class="text-ptb z-20 h-12 w-12" />
             <span class="text-ptb text-lg">docs</span>
           </router-link>
         </div>
-        <router-link to="/aiChat"><v-icon name="hi-solid-arrow-right" class="h-7 w-7 text-white" /></router-link>
-        <router-link to="/startFun">
-          <span class="text-xl font-bold text-white">tools</span>
-        </router-link>
-        <router-link to="/carousel"><v-icon name="ri-apps-fill" class="h-7 w-7 text-white" /></router-link>
+        <router-link to="/aiChat" class="flex items-center"
+          ><v-icon name="hi-solid-arrow-right" class="text-ptb h-7 w-7"
+        /></router-link>
+        <div class="dropdown dropdown-top">
+          <div tabindex="0" role="button" class="text-ptb">Ai Chat</div>
+          <ul
+            tabindex="0"
+            class="bg-grey border-ptb menu dropdown-content z-30 w-52 rounded-box border-4 shadow"
+          >
+            <li>
+              <router-link to="/ai" class="flex items-center"
+                >Ai Chat</router-link
+              >
+            </li>
+            <li>
+              <router-link to="/aiChat" class="flex items-center"
+                >Video</router-link
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -83,6 +186,11 @@ const rows = ref(1); //输入栏列数
 const selectedFruit = ref("普通话女声"); //默认音色
 const selectimg = ref(0); //选择图片
 const images = ref([]); //图片墙
+const currentNum = ref(0);
+
+const changenum = (index) => {
+  currentNum.value = index;
+};
 
 const handleVideoEnded = () => {
   // 当视频播放结束时，将视频设置为默认视频

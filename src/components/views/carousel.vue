@@ -1,26 +1,23 @@
 <template>
-  <div class="bg-btw flex h-screen overflow-auto">
-    <Header class="hidden" />
+  <div class="bg-btw flex">
     <div class="mx-auto flex flex-col items-center justify-center">
+      <span class="text-ptb pb-8 text-4xl font-bold">模块</span>
       <carousel v-model="currentSlide" :items="carouselItems" :transition="600">
         <slide v-for="item in carouselItems" :key="item.id">
-          <!-- <router-link :to="{ path: item.routepath }">
-            <img :src="item.src" class="h-168 w-288 rounded-lg" />
-          </router-link> -->
-          <img :src="item.src" class="h-168 w-288 rounded-lg" />
+          <img :src="item.src" class="h-128 w-256 rounded-xl border-4 border-ptb" />
         </slide>
       </carousel>
-      <div class="mt-4 flex w-288 gap-6 px-4">
+      <div class="mt-4 flex w-256 gap-6 px-4">
         <button
           v-for="n in 4"
           :key="n"
-          class="bg-grey w-1/4 rounded-lg py-8 transition-transform hover:scale-105"
+          class="bg-grey w-1/4 rounded-lg py-4 transition-transform hover:scale-105"
           :class="{ 'scale-105': currentSlide === n - 1 }"
           @click="currentSlide = n - 1"
         >
           <v-icon
             :name="carouselItems[n - 1].iconName"
-            class="text-ptb z-20 h-16 w-16"
+            class="text-ptb z-20 h-12 w-12"
           />
         </button>
       </div>
@@ -32,12 +29,11 @@
 import { ref } from "vue";
 import { Carousel, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-import Header from "../header/header.vue";
 
 const carouselItems = [
   {
     id: 1,
-    src: "/src/assets/img/1.png",
+    src: "/src/assets/img/chat.png",
     iconName: "ai-academia",
     // routepath: "/ai",
   },

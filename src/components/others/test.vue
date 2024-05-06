@@ -4,16 +4,14 @@
     <div class="mx-auto mt-[60px] flex max-w-7xl flex-col justify-center px-16">
       <div class="flex items-end">
         <!-- chat -->
-        <div class="flex h-128 flex-col gap-8 border-4">
+        <div class="relative flex h-128 w-128 flex-col gap-8">
           <div
-            class="bg-grey flex flex-1 flex-col gap-8 p-6"
+            class="bg-grey border-ptb flex flex-1 flex-col gap-8 rounded-xl border-2 p-6"
           >
-            <div class="scrollable-div flex flex-1 flex-col overflow-y-auto max-h-[370px]">
-              <div class="other-message text-ptb text-lg">
-                AI Chat is an innovative platform that leverages artificial
-                intelligence to facilitate seamless and intelligent
-                conversations.
-              </div>
+            <div
+              class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto"
+            >
+              <div class="other-message text-ptb text-lg">AI C</div>
               <div
                 v-for="(message, index) in messages"
                 :key="index"

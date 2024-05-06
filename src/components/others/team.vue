@@ -11,7 +11,7 @@
         <div class="flex flex-col text-center">
           <img
             alt=""
-            class="flex-shrink-0 self-center rounded-full bg-cover bg-center"
+            class="flex-shrink-0 self-center rounded-full bg-cover bg-center hover:scale-105"
             src="../../assets/svg/op/op1.svg"
           />
           <p class="text-gtb text-xl font-semibold leading-tight">
@@ -23,7 +23,7 @@
         <div class="flex flex-col text-center">
           <img
             alt=""
-            class="flex-shrink-0 self-center rounded-full bg-cover bg-center"
+            class="flex-shrink-0 self-center rounded-full bg-cover bg-center hover:scale-105"
             src="../../assets/svg/op/op2.svg"
           />
           <p class="text-gtb text-xl font-semibold leading-tight">
@@ -35,7 +35,7 @@
         <div class="flex flex-col text-center">
           <img
             alt=""
-            class="flex-shrink-0 self-center rounded-full bg-cover bg-center"
+            class="flex-shrink-0 self-center rounded-full bg-cover bg-center hover:scale-105"
             src="../../assets/svg/op/op3.svg"
           />
           <p class="text-gtb text-xl font-semibold leading-tight">
@@ -47,7 +47,7 @@
         <div class="flex flex-col text-center">
           <img
             alt=""
-            class="flex-shrink-0 self-center rounded-full bg-cover bg-center"
+            class="flex-shrink-0 self-center rounded-full bg-cover bg-center hover:scale-105"
             src="../../assets/svg/op/op4.svg"
           />
           <p class="text-gtb text-xl font-semibold leading-tight">
