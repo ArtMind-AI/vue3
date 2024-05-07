@@ -1,134 +1,171 @@
 <template>
-  <div class="bg-btw relative flex min-h-screen">
-    <Header />
-    <div class="mx-auto mt-[60px] flex max-w-7xl flex-col px-16">
-      <div class="mt-12 flex text-3xl font-bold">
-        <router-link
-          to="/startFun"
-          class="text-ptb decoration-white hover:underline"
-        >
-          components
-        </router-link>
-        <span class="text-ptb">/Video Generation</span>
-      </div>
-      <div class="mt-8 flex flex-1 gap-8 max-lg:flex-col">
-        <!-- chat -->
-        <div
-          class="flexbox bg-grey flex flex-1 flex-col gap-4 rounded-t-xl p-6 max-lg:rounded-b-xl"
-        >
-          <button
-            class="bg-ptb text-grey h-10 w-16 rounded-md hover:bg-opacity-80"
-            @click="changefunction"
-          >
-            切换
-          </button>
-          <!-- begin: voice -->
-          <div class="flex gap-8">
-            <select
-              v-if="funpage === 0"
-              id="selectFruit"
-              v-model="selectedFruit"
-              class="h-10 w-1/2 rounded-sm border-2 border-gray-300 bg-white text-center text-[#414868] outline-none transition-colors duration-300 hover:border-blue-500"
+  <Header class="hidden" />
+  <div class="back relative flex h-screen overflow-auto">
+    <div class="mx-auto flex flex-col justify-center px-8">
+      <div class="flex items-end gap-2">
+        <div class="relative flex h-128 w-128 flex-col">
+          <!-- 选项卡 -->
+          <div role="tablist" class="tabs-boxed tabs absolute -top-12">
+            <a
+              role="tab"
+              class="tab"
+              :class="{ 'tab-active': currentNum === 0 }"
+              @click="changenum(0)"
+              >文字生成</a
             >
-              <option value="普通话女声">普通话女声</option>
-              <option value="粤语男声">粤语男声</option>
-            </select>
-            <input
-              v-if="funpage === 1"
-              ref="audioInput"
-              type="file"
-              @change="handleAudioChange"
-              style="display: none"
-            />
-            <button
-              class="h-10 w-1/2 rounded-md bg-[#A979FF] text-center text-white"
-              v-if="funpage === 1"
-              @click="$refs.audioInput.click()"
+            <a
+              role="tab"
+              class="tab"
+              :class="{ 'tab-active': currentNum === 1 }"
+              @click="changenum(1)"
+              >音频生成</a
             >
-              选择音频素材
-            </button>
-            <!-- begin：添加图片 -->
-            <input
-              ref="fileInput"
-              type="file"
-              @change="handleFileChange"
-              style="display: none"
-            />
-            <button
-              class="h-10 w-1/2 rounded-md border-2 border-[#A979FF] text-center text-[#A979FF] transition-colors duration-300 hover:bg-[#A979FF] hover:text-black"
-              @click="$refs.fileInput.click()"
-            >
-              添加图片
-            </button>
           </div>
+          <!-- 文字生成 -->
           <div
-            class="flex h-10 w-full items-center rounded-md border-2 border-[#A979FF] px-2"
-            v-if="funpage === 1"
+            class="bg-grey border-ptb flex flex-1 flex-col gap-2 rounded-xl border-2 p-2"
+            :class="{ hidden: currentNum != 0 }"
           >
-            <input
-              v-if="selectedaudio"
-              v-model="selectedaudio.name"
-              class="bg-[#414868] text-white outline-none"
-            />
-          </div>
-          <!-- begin：生成 -->
-          <div>
-            <button
-              class="w-full rounded-md bg-ptb p-2 text-center text-black hover:bg-opacity-80"
-              @click="uploadbyWord()"
-              v-if="funpage === 0"
-            >
-              生成
-            </button>
-            <button
-              class="w-full rounded-md bg-ptb p-2 text-center text-black hover:bg-opacity-80"
-              @click="uploadbyaudio()"
-              v-if="funpage === 1"
-            >
-              生成
-            </button>
-          </div>
-          <!-- begin: text -->
-          <div v-if="funpage === 0">
+            <!-- begin: voice -->
+            <div class="flex gap-2">
+              <select
+                id="selectFruit"
+                v-model="selectedFruit"
+                class="bg-ptb text-grey h-10 w-1/2 rounded-lg text-center outline-none transition-colors duration-300 hover:border-blue-500"
+              >
+                <option value="普通话女声">普通话女声</option>
+                <option value="粤语男声">粤语男声</option>
+              </select>
+              <!-- begin：添加图片 -->
+              <input
+                ref="fileInput"
+                type="file"
+                @change="handleFileChange"
+                style="display: none"
+              />
+              <button
+                class="bg-ptb text-grey h-10 w-1/2 rounded-lg text-center"
+                @click="$refs.fileInput.click()"
+              >
+                添加图片
+              </button>
+            </div>
+            <!-- begin: text -->
             <textarea
-              class="w-full resize-none rounded-lg border-4 border-white bg-ptb p-4 text-black outline-none"
-              placeholder="输入信息"
+              class="bg-ptb w-full resize-none rounded-lg p-2 text-black outline-none"
+              placeholder="特征"
               v-model="chat"
               :rows="rows"
-              @keydown.enter.prevent="addBox"
             ></textarea>
+            <!-- begin：生成 -->
+            <div>
+              <button
+                class="bg-ptb w-full rounded-lg p-2 text-center text-black hover:bg-opacity-80"
+                @click="uploadbyWord()"
+              >
+                生成
+              </button>
+            </div>
+            <!-- begin：img -->
+            <div class="grid max-h-72 grid-cols-4 gap-4 overflow-auto">
+              <div
+                v-for="(image, index) in images"
+                :key="index"
+                class="aspect-square select-none rounded-lg border-2 transition-colors duration-300"
+                :class="{ 'border-ptb': selectimg === index }"
+                @click="selectImage(index)"
+              >
+                <img
+                  :src="image"
+                  alt="image"
+                  class="aspect-square w-full rounded-lg object-cover"
+                />
+              </div>
+            </div>
           </div>
-          <!-- begin：img -->
-          <div class="scrollable-div grid grid-cols-4 gap-2 overflow-y-auto">
-            <div
-              v-for="(image, index) in images"
-              :key="index"
-              class="aspect-square select-none rounded-md border-2 border-[#bb9af7] p-1 transition-colors duration-300"
-              :class="{ 'bg-[#bb9af7]': selectimg === index }"
-              @click="selectImage(index)"
-            >
-              <img
-                :src="image"
-                alt="image"
-                class="aspect-square w-full rounded-md object-cover"
+          <!-- 音频生成 -->
+          <div
+            class="bg-grey border-ptb flex flex-1 flex-col gap-2 rounded-xl border-2 p-2"
+            :class="{ hidden: currentNum != 1 }"
+          >
+            <!-- begin: voice -->
+            <div class="flex gap-4">
+              <input
+                ref="audioInput"
+                type="file"
+                @change="handleAudioChange"
+                style="display: none"
               />
+              <button
+                class="h-10 w-1/2 rounded-lg bg-[#A979FF] text-center text-white"
+                @click="$refs.audioInput.click()"
+              >
+                选择音频素材
+              </button>
+              <!-- begin：添加图片 -->
+              <input
+                ref="fileInput"
+                type="file"
+                @change="handleFileChange"
+                style="display: none"
+              />
+              <button
+                class="bg-ptb text-grey h-10 w-1/2 rounded-lg text-center"
+                @click="$refs.fileInput.click()"
+              >
+                添加图片
+              </button>
+            </div>
+            <!-- 音频文件详细 -->
+            <div
+              class="flex h-10 w-full items-center rounded-lg border-2 border-[#A979FF] px-2"
+            >
+              <input
+                v-if="selectedaudio"
+                v-model="selectedaudio.name"
+                class="bg-[#414868] text-white outline-none"
+              />
+            </div>
+            <!-- 生成按钮 -->
+            <div>
+              <button
+                class="bg-ptb w-full rounded-lg p-2 text-center text-black hover:bg-opacity-80"
+                @click="uploadbyaudio()"
+              >
+                生成
+              </button>
+            </div>
+            <!-- img -->
+            <div class="grid max-h-72 grid-cols-4 gap-4 overflow-auto">
+              <div
+                v-for="(image, index) in images"
+                :key="index"
+                class="aspect-square select-none rounded-lg border-2 transition-colors duration-300"
+                :class="{ 'border-ptb': selectimg === index }"
+                @click="selectImage(index)"
+              >
+                <img
+                  :src="image"
+                  alt="image"
+                  class="aspect-square w-full rounded-lg object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
         <!-- video -->
-        <div class="flex min-w-128 flex-col gap-4 max-lg:pb-8">
-          <div class="text-ptb">video</div>
+        <div class="flex aspect-square w-168 gap-4">
           <video
             ref="videoPlayer"
             id="media"
             autoplay
-            class="h-128 w-128 rounded-lg bg-grey"
+            class="bg-grey border-ptb rounded-xl border-2"
             :src="videoUrl"
           ></video>
-          <div class="text-ptb">choice</div>
-          <button class="rounded-md bg-ptb p-2 text-grey">save</button>
         </div>
       </div>
+      <!-- select -->
+      <Menu />
     </div>
   </div>
 </template>
@@ -136,25 +173,21 @@
 <script setup>
 import { ref } from "vue";
 import Header from "../header/header.vue";
+import Menu from "../others/menu.vue";
 import axios from "axios";
 
 const videoUrl = ref(null);
 const videoPlayer = ref(null);
 const chat = ref(""); //用户输入
-const rows = ref(4); //输入栏列数
+const rows = ref(3); //输入栏列数
 const selectedFruit = ref("普通话女声"); //默认音色
 const selectedaudio = ref(null); //默认音色
 const selectimg = ref(0); //选择图片
 const images = ref([]); //图片墙
-const funpage = ref(0);
+const currentNum = ref(0);
 
-//切换功能 yes
-const changefunction = () => {
-  if (funpage.value === 0) {
-    funpage.value = 1;
-  } else {
-    funpage.value = 0;
-  }
+const changenum = (index) => {
+  currentNum.value = index;
 };
 
 // 使用 fetch 获取本地图片文件内容 yes

@@ -1,6 +1,6 @@
 <template>
   <Header class="hidden" />
-  <div class="bg-btw relative flex h-screen overflow-auto">
+  <div class="back relative flex h-screen overflow-auto">
     <div class="mx-auto flex flex-col justify-center px-8">
       <div class="flex items-end gap-2">
         <!-- chat -->
@@ -46,7 +46,7 @@
               <div class="bg-ptb flex h-12 w-full items-center rounded-lg">
                 <textarea
                   class="bg-ptb mx-4 w-full resize-none text-lg text-black outline-none"
-                  placeholder="输入信息"
+                  placeholder=""
                   v-model="chat"
                   :rows="rows"
                   @keydown.enter.prevent="addBox"
@@ -62,11 +62,11 @@
           </div>
           <!-- 个性化 -->
           <div
-            class="bg-grey border-ptb flex flex-1 flex-col gap-4 rounded-xl border-2 p-6"
+            class="bg-grey border-ptb flex flex-1 flex-col gap-2 rounded-xl border-2 p-2"
             :class="{ hidden: currentNum != 1 }"
           >
             <!-- begin：声线 -->
-            <div class="flex gap-8">
+            <div class="flex gap-2">
               <select
                 id="selectFruit"
                 v-model="selectedFruit"
@@ -99,7 +99,7 @@
               </button>
             </div>
             <!-- begin：img -->
-            <div class="grid grid-cols-4 gap-4 overflow-y-auto">
+            <div class="grid max-h-96 grid-cols-4 gap-4 overflow-y-auto">
               <div
                 v-for="(image, index) in images"
                 :key="index"
@@ -128,44 +128,7 @@
         </div>
       </div>
       <!-- select -->
-      <div
-        class="bg-grey border-ptb mx-auto mt-10 flex items-center justify-center gap-6 rounded-3xl border-2 p-2 lg:w-2/5"
-      >
-        <router-link to="/" class="flex items-center"
-          ><span class="text-ptb">home</span></router-link
-        >
-        <v-icon name="hi-solid-arrow-left" class="text-ptb h-7 w-7" />
-        <div class="relative w-24">
-          <router-link
-            to="/documents"
-            class="bg-grey border-ptb absolute -top-[48px] flex h-24 w-24 flex-col items-center justify-center rounded-lg border-2"
-          >
-            <v-icon name="ai-academia" class="text-ptb z-20 h-12 w-12" />
-            <span class="text-ptb text-lg">docs</span>
-          </router-link>
-        </div>
-        <router-link to="/aiChat" class="flex items-center"
-          ><v-icon name="hi-solid-arrow-right" class="text-ptb h-7 w-7"
-        /></router-link>
-        <div class="dropdown dropdown-top">
-          <div tabindex="0" role="button" class="text-ptb">Ai Chat</div>
-          <ul
-            tabindex="0"
-            class="bg-grey border-ptb menu dropdown-content z-30 w-52 rounded-box border-4 shadow"
-          >
-            <li>
-              <router-link to="/ai" class="flex items-center"
-                >Ai Chat</router-link
-              >
-            </li>
-            <li>
-              <router-link to="/aiChat" class="flex items-center"
-                >Video</router-link
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
+      <Menu />
     </div>
   </div>
 </template>
@@ -174,6 +137,7 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import Header from "../header/header.vue";
+import Menu from "../others/menu.vue";
 
 const messages = ref([]); //聊天板文字
 const defaultVideoUrl = ref(""); // 你需要提前定义 defaultVideoUrl 的值

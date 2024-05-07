@@ -7,10 +7,10 @@ import i18n from "./lang";
 import "../global.css"; // 引入全局 CSS 文件
 import axios from "axios";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { CoLanguage, FcLinux, HiSolidHome, HiSolidArrowLeft, HiSolidArrowRight, AiAcademia, RiAppsFill } from "oh-vue-icons/icons";
+import { CoLanguage, FcLinux, HiSolidHome, HiSolidArrowLeft, HiSolidArrowRight, AiAcademia, RiAppsFill, AiCv } from "oh-vue-icons/icons";
 import VueKinesis from "vue-kinesis";
 
-addIcons(CoLanguage, FcLinux, HiSolidHome, HiSolidArrowLeft, HiSolidArrowRight, AiAcademia, RiAppsFill);
+addIcons(CoLanguage, FcLinux, HiSolidHome, HiSolidArrowLeft, HiSolidArrowRight, AiAcademia, RiAppsFill, AiCv);
 
 const app = createApp(App);
 app.provide("$axios", axios);

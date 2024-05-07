@@ -82,7 +82,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import team from "@/components/others/team.vue";
 import stats from "@/components/others/stats.vue";
 import Footer from "../others/footer.vue";
-import carousel from "../views/carousel.vue"
+import carousel from "../others/carousel.vue"
 
 const selectFunction = ref(0);
 
