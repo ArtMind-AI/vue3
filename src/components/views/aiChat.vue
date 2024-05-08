@@ -24,7 +24,7 @@
           <!-- 文字生成 -->
           <div
             class="bg-grey border-ptb flex flex-1 flex-col gap-2 rounded-xl border-2 p-2"
-            :class="{ hidden: currentNum != 0 }"
+            v-if="currentNum === 0"
           >
             <!-- begin: voice -->
             <div class="flex gap-2">
@@ -86,7 +86,7 @@
           <!-- 音频生成 -->
           <div
             class="bg-grey border-ptb flex flex-1 flex-col gap-2 rounded-xl border-2 p-2"
-            :class="{ hidden: currentNum != 1 }"
+            v-if="currentNum === 1"
           >
             <!-- begin: voice -->
             <div class="flex gap-4">

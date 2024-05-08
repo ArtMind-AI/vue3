@@ -14,14 +14,14 @@
       </div>
       <!-- container -->
       <div class="container p-8 lg:w-168">
-        <div class="divide-y" :class="{ hidden: currentnum != 0 }">
+        <div class="divide-y" v-if="currentnum === 0">
           <div class="py-8 text-5xl text-ptb">简介</div>
           <div class="space-y-2 py-8">
             <span class="text-3xl text-ptb">什么是数字人</span>
             <div class="text-wrap"></div>
           </div>
         </div>
-        <div class="divide-y" :class="{ hidden: currentnum != 1 }">
+        <div class="divide-y" v-if="currentnum === 1">
           <div class="py-8 text-5xl text-ptb">Ai对话</div>
           <div class="space-y-4 py-8">
             <span class="text-3xl text-ptb">基础</span>
@@ -35,7 +35,7 @@
             <span class="text-2xl text-ptb">定制</span>
           </div>
         </div>
-        <div class="divide-y" :class="{ hidden: currentnum != 2 }">
+        <div class="divide-y" v-if="currentnum === 2">
           <div class="py-8 text-5xl text-ptb">视频生成</div>
           <div class="space-y-4 py-8">
             <span class="text-3xl text-ptb">基础</span>

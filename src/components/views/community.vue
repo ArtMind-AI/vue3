@@ -35,9 +35,8 @@ const images = [
   { url: "/src/assets/img/6.png", text: "3" },
   { url: "/src/assets/img/8.jpg", text: "4" },
   { url: "/src/assets/img/0797.png", text: "5" },
-  { url: "/src/assets/img/1.png", text: "6" },
-  { url: "/src/assets/img/4.jpg", text: "7" },
-  { url: "/src/assets/img/3.png", text: "8" },
+  { url: "/src/assets/img/4.jpg", text: "6" },
+  { url: "/src/assets/img/3.png", text: "7" },
 ];
 </script>
 

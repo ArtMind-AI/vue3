@@ -25,7 +25,7 @@
           <!-- 对话 -->
           <div
             class="bg-grey border-ptb flex flex-1 flex-col gap-8 rounded-xl border-2 p-6"
-            :class="{ hidden: currentNum != 0 }"
+            v-if="currentNum === 0"
           >
             <div
               class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto"
@@ -63,7 +63,7 @@
           <!-- 个性化 -->
           <div
             class="bg-grey border-ptb flex flex-1 flex-col gap-2 rounded-xl border-2 p-2"
-            :class="{ hidden: currentNum != 1 }"
+            v-if="currentNum === 1"
           >
             <!-- begin：声线 -->
             <div class="flex gap-2">

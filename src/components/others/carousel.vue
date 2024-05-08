@@ -4,7 +4,7 @@
       <span class="text-ptb pb-8 text-4xl font-bold">模块</span>
       <carousel v-model="currentSlide" :items="carouselItems" :transition="600">
         <slide v-for="item in carouselItems" :key="item.id">
-          <img :src="item.src" class="h-128 w-256 rounded-xl border-4 border-ptb" />
+          <img :src="item.src" class=" aspect-video w-256 rounded-xl border-4 border-ptb" />
         </slide>
       </carousel>
       <div class="mt-4 flex w-256 gap-6 px-4">
@@ -33,7 +33,7 @@ import "vue3-carousel/dist/carousel.css";
 const carouselItems = [
   {
     id: 1,
-    src: "/src/assets/img/chat.png",
+    src: "/src/assets/img/ai1.png",
     iconName: "ai-academia",
     // routepath: "/ai",
   },

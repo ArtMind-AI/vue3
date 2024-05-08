@@ -13,7 +13,16 @@
         to="/documents"
         class="bg-grey border-ptb absolute -top-[48px] flex h-24 w-24 flex-col items-center justify-center rounded-lg border-2"
       >
-        <v-icon name="ai-cv" class="text-ptb z-20 h-12 w-12" />
+        <v-icon
+          name="ai-academia"
+          class="text-ptb z-20 h-12 w-12"
+          v-if="$route.path === '/ai'"
+        />
+        <v-icon
+          name="ai-cv"
+          class="text-ptb z-20 h-12 w-12"
+          v-if="$route.path === '/aiChat'"
+        />
         <span class="text-ptb text-lg">文档</span>
       </router-link>
     </div>
