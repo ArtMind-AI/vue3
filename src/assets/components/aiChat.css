@@ -36,3 +36,14 @@
   opacity: 0;
 }
 
+.sidecursor{
+  cursor: pointer;
+}
+
+.sidecursor:hover{
+  color: white;
+}
+
+.active{
+  color: #7480ff !important;
+}

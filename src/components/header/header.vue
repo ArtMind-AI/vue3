@@ -1,9 +1,9 @@
 <template>
   <div
-    class="bg-btw fixed left-0 right-0 z-20 flex items-center justify-between px-8 py-4"
-    :class="{ ' shadow-md': isShadow }"
+    class="bg-btw fixed left-0 right-0 z-20 border-b border-gray-500 h-16"
   >
-    <div class="text-ptg z-20 flex gap-6 text-lg">
+    <div class="flex h-full justify-between items-center max-w-7xl mx-auto lg:pl-8 px-4">
+      <div class="text-ptg z-20 flex gap-6 text-lg">
       <!-- begin default -->
       <div class="flex items-center gap-2">
         <v-icon name="fc-linux" class="h-7 w-7" />
@@ -87,24 +87,25 @@
         <span>{{ $t("login in") }}</span>
       </router-link>
     </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted } from "vue";
 import { themeChange } from "theme-change";
 import { useI18n } from "vue-i18n";
 const { locale } = useI18n();
 
-//控制header是否显示shadow
-const isShadow = ref(false);
+// //控制header是否显示shadow
+// const isShadow = ref(false);
 
-const handleScroll = () => {
-  const bottomOffset =
-    document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
-  isShadow.value =
-    bottomOffset < document.documentElement.scrollHeight - window.innerHeight;
-};
+// const handleScroll = () => {
+//   const bottomOffset =
+//     document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
+//   isShadow.value =
+//     bottomOffset < document.documentElement.scrollHeight - window.innerHeight;
+// };
 
 //切换语言
 const switchLanguage = (lang) => {
@@ -125,13 +126,13 @@ onMounted(() => {
   themeChange(false);
 });
 
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
+// onMounted(() => {
+//   window.addEventListener("scroll", handleScroll);
+// });
 
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
+// onUnmounted(() => {
+//   window.removeEventListener("scroll", handleScroll);
+// });
 </script>
 
 <style scoped></style>

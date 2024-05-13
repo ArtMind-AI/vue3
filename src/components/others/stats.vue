@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-btw flex flex-col pb-12 pt-24">
+  <section class="bg-btw flex flex-col py-12">
     <div class="bg-grey mx-auto max-w-96 rounded-3xl p-4">
       <img
         src="../../assets/svg/coffee.svg"
