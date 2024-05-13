@@ -2,7 +2,7 @@
   <footer class="bg-btw">
     <div class="container mx-auto flex flex-col p-4 md:p-8 lg:flex-row">
       <ul
-        class="flex flex-1 justify-start gap-4 py-6 text-center max-lg:justify-center"
+        class="text-ptb flex flex-1 justify-start gap-4 py-6 text-center max-lg:justify-center"
       >
         <li>{{ $t("shop") }}</li>
         <li>{{ $t("about") }}</li>
@@ -16,7 +16,7 @@
             rel="noopener noreferrer"
             href="#"
             title="Instagram"
-            class="flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
+            class="text-ptb flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@
             rel="noopener noreferrer"
             href="#"
             title="Pinterest"
-            class="flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
+            class="text-ptb flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@
             rel="noopener noreferrer"
             href="#"
             title="Twitter"
-            class="flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
+            class="text-ptb flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@
             rel="noopener noreferrer"
             href="#"
             title="Facebook"
-            class="flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
+            class="text-ptb flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@
             rel="noopener noreferrer"
             href="#"
             title="Gmail"
-            class="flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
+            class="text-ptb flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

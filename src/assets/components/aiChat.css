@@ -18,6 +18,21 @@
   display: none; /* 初始状态隐藏滚动条 */
 }
 
-.back{
- background-image: url('../img/backimg.jpg');
+.back {
+  background-image: url("../img/backimg.jpg");
 }
+
+.nested-enter-active, .nested-leave-active {
+	transition: all 0.2s ease-in-out;
+}
+/* delay leave of parent element */
+.nested-leave-active {
+  transition-delay: 0.15s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+  transform: translateX(-100px);
+  opacity: 0;
+}
+

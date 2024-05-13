@@ -8,13 +8,13 @@
       />
     </div>
     <div class="mx-auto text-center pt-12 space-y-4">
-      <h2 class="text-pt text-4xl font-bold">{{ $t("poweredBy") }}</h2>
+      <h2 class="text-pt text-4xl font-bold text-ptb">{{ $t("poweredBy") }}</h2>
       <div class="flex max-w-96 flex-wrap justify-center gap-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Angular"
-          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2 text-ptb"
         >
           <title>Angular</title>
           <path
@@ -25,7 +25,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Gatsby"
-          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2 text-ptb"
         >
           <title>Gatsby</title>
           <path
@@ -36,7 +36,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Plain HTML"
-          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2 text-ptb"
         >
           <title>Plain HTML</title>
           <path
@@ -47,7 +47,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Next.js"
-          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2 text-ptb"
         >
           <title>Next.js</title>
           <path
@@ -58,7 +58,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Nuxt.js"
-          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2 text-ptb"
         >
           <title>Nuxt.js</title>
           <path
@@ -69,7 +69,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="React"
-          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2 text-ptb"
         >
           <title>React</title>
           <path
@@ -80,7 +80,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Svelte"
-          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2 text-ptb"
         >
           <title>Svelte</title>
           <path
@@ -91,7 +91,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           aria-label="Vue.js"
-          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2"
+          class="bg-grey m-0 h-16 w-16 rounded-full fill-current p-2 text-ptb"
         >
           <title>Vue.js</title>
           <path
