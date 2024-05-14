@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-btw flex flex-col py-12">
+  <section class="bg-btw flex flex-col py-12 max-lg:pb-0">
     <div class="bg-grey mx-auto max-w-96 rounded-3xl p-4">
       <img
         src="../../assets/svg/coffee.svg"
@@ -9,7 +9,7 @@
     </div>
     <div class="mx-auto text-center pt-12 space-y-4">
       <h2 class="text-pt text-4xl font-bold text-ptb">{{ $t("poweredBy") }}</h2>
-      <div class="flex max-w-96 flex-wrap justify-center gap-4">
+      <div class="flex max-w-128 flex-wrap justify-center gap-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"

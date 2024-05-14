@@ -1,12 +1,12 @@
 <template>
   <section class="bg-ptb ptb my-[125px]">
-    <div class="mx-auto flex max-w-5xl flex-col py-12">
+    <div class="mx-auto flex max-w-5xl flex-col lg:py-12">
       <h1
         class="text-gtb text-center text-4xl font-bold leading-none tracking-wide"
       >
         {{ $t("tuanDui") }}
       </h1>
-      <div class="grid grid-cols-2 gap-4 pt-8 lg:grid-cols-4">
+      <div class="grid gap-4 pt-8 grid-cols-4 max-lg:max-w-168  mx-auto">
         <!-- 1 -->
         <div class="flex flex-col text-center">
           <img

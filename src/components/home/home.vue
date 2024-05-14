@@ -3,9 +3,9 @@
     <Header />
     <div class="flex flex-col">
       <!-- begin 1 yes-->
-      <div class="bg-btw mt-[60px] flex">
-        <div class="mx-auto flex gap-48 py-48">
-          <div class="flex max-w-128 flex-col justify-center gap-8">
+      <div class="bg-btw mt-[64px] flex">
+        <div class="mx-auto flex gap-48 py-60">
+          <div class="flex max-w-168 flex-col justify-center gap-8">
             <div class="text-ptb text-center text-5xl font-bold">Art Mind</div>
             <div class="text-ptb text-center text-3xl">
               Interstellar Development Experience
@@ -36,7 +36,7 @@
       <!-- begin effects yes-->
       <article class="bg-ptb ptb my-[125px]">
         <div
-          class="mx-auto flex w-full max-w-3xl items-center py-12 max-lg:flex-col"
+          class="mx-auto flex w-full max-lg:max-w-168 max-w-3xl items-center lg:py-12 max-lg:flex-col"
         >
           <!-- text -->
           <div class="px-4 lg:w-1/2">
@@ -58,13 +58,13 @@
             </div>
             <img
               src="/src/assets/svg/ice-cream.svg"
-              class="absolute left-12 top-32"
+              class="absolute left-12 top-24"
             />
           </div>
         </div>
       </article>
       <!-- begin function tes-->
-      <article class="bg-btw flex flex-col py-12">
+      <article class="bg-btw py-16">
         <carousel />
       </article>
       <!-- begin team yes-->

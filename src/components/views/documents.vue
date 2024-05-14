@@ -53,7 +53,7 @@
       <div class="mx-auto max-w-7xl px-4 lg:px-8">
         <!-- side -->
         <div
-          class="bg-btw fixed inset-0 bottom-0 left-[max(0px,calc(50%-40rem))] right-auto top-[64px] w-48 space-y-4 overflow-y-scroll border-r border-gray-500 pl-8 pt-8 max-lg:hidden"
+          class="bg-btw fixed inset-0 bottom-0 left-[max(0px,calc(50%-40rem))] right-auto top-[64px] w-48 space-y-4 border-r border-gray-500 pl-8 pt-8 max-lg:hidden"
         >
           <div class="space-y-1">
             <div class="text-white">介绍</div>
