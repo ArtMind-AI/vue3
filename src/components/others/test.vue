@@ -74,14 +74,14 @@
           <!-- begin：生成 -->
           <div>
             <button
-              class="w-full rounded-md bg-ptb p-2 text-center text-black hover:bg-opacity-80"
+              class="bg-ptb w-full rounded-md p-2 text-center text-black hover:bg-opacity-80"
               @click="uploadbyWord()"
               v-if="funpage === 0"
             >
               生成
             </button>
             <button
-              class="w-full rounded-md bg-ptb p-2 text-center text-black hover:bg-opacity-80"
+              class="bg-ptb w-full rounded-md p-2 text-center text-black hover:bg-opacity-80"
               @click="uploadbyaudio()"
               v-if="funpage === 1"
             >
@@ -91,7 +91,7 @@
           <!-- begin: text -->
           <div v-if="funpage === 0">
             <textarea
-              class="w-full resize-none rounded-lg border-4 border-white bg-ptb p-4 text-black outline-none"
+              class="bg-ptb w-full resize-none rounded-lg border-4 border-white p-4 text-black outline-none"
               placeholder="输入信息"
               v-model="chat"
               :rows="rows"
@@ -122,11 +122,11 @@
             ref="videoPlayer"
             id="media"
             autoplay
-            class="h-128 w-128 rounded-lg bg-grey"
+            class="bg-grey h-128 w-128 rounded-lg"
             :src="videoUrl"
           ></video>
           <div class="text-ptb">choice</div>
-          <button class="rounded-md bg-ptb p-2 text-grey">save</button>
+          <button class="bg-ptb text-grey rounded-md p-2">save</button>
         </div>
       </div>
     </div>

@@ -2,9 +2,17 @@
   <div class="bg-btw flex">
     <div class="mx-auto flex flex-col items-center justify-center px-8">
       <span class="text-ptb pb-8 text-4xl font-bold">模块</span>
-      <carousel v-model="currentSlide" :items="carouselItems" :transition="600" class="max-w-256 max-lg:min-w-128 max-lg:max-w-168 mx-auto">
+      <carousel
+        v-model="currentSlide"
+        :items="carouselItems"
+        :transition="600"
+        class="mx-auto max-w-256 max-lg:min-w-128 max-lg:max-w-168"
+      >
         <slide v-for="item in carouselItems" :key="item.id">
-          <img :src="item.src" class=" aspect-video w-full rounded-xl border-4 border-ptb" />
+          <img
+            :src="item.src"
+            class="border-ptb aspect-video w-full rounded-xl border-4"
+          />
         </slide>
       </carousel>
       <div class="mt-4 flex w-2/3 gap-4">

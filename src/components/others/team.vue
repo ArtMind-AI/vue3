@@ -6,7 +6,7 @@
       >
         {{ $t("tuanDui") }}
       </h1>
-      <div class="grid gap-4 pt-8 grid-cols-4 max-lg:max-w-168  mx-auto">
+      <div class="mx-auto grid grid-cols-4 gap-4 pt-8 max-lg:max-w-168">
         <!-- 1 -->
         <div class="flex flex-col text-center">
           <img

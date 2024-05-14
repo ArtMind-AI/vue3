@@ -15,7 +15,9 @@
                 alt="Image description"
                 class="object-fit aspect-square w-full cursor-pointer rounded-lg object-center"
               />
-              <div class="mt-1 h-9 cursor-pointer text-ptb">{{ item.text }}</div>
+              <div class="text-ptb mt-1 h-9 cursor-pointer">
+                {{ item.text }}
+              </div>
             </div>
           </li>
         </ul>
@@ -26,7 +28,6 @@
 
 <script setup>
 import Header from "../header/header.vue";
-
 
 // 假设 images 数据是一个包含图片 URL 的数组
 const images = [

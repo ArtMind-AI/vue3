@@ -111,7 +111,7 @@
                 </p>
               </div>
             </div>
-            <div class=" divide-y divide-gray-500" v-if="currentnum === 1">
+            <div class="divide-y divide-gray-500" v-if="currentnum === 1">
               <div class="text-ptb py-8 text-5xl">Ai对话</div>
               <div class="space-y-4 py-8">
                 <div class="text-ptb text-3xl">基础</div>

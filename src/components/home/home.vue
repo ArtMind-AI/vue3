@@ -36,7 +36,7 @@
       <!-- begin effects yes-->
       <article class="bg-ptb ptb my-[125px]">
         <div
-          class="mx-auto flex w-full max-lg:max-w-168 max-w-3xl items-center lg:py-12 max-lg:flex-col"
+          class="mx-auto flex w-full max-w-3xl items-center max-lg:max-w-168 max-lg:flex-col lg:py-12"
         >
           <!-- text -->
           <div class="px-4 lg:w-1/2">
@@ -82,7 +82,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import team from "@/components/others/team.vue";
 import stats from "@/components/others/stats.vue";
 import Footer from "../others/footer.vue";
-import carousel from "../others/carousel.vue"
+import carousel from "../others/carousel.vue";
 
 const selectFunction = ref(0);
 
