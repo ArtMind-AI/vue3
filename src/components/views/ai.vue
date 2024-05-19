@@ -1,8 +1,8 @@
 <template>
   <Header class="hidden" />
   <div class="back relative flex h-screen overflow-auto">
-    <div class="flex flex-1 flex-col items-center justify-center px-4">
-      <div class="flex items-end gap-2">
+    <div class="flex flex-1 flex-col justify-center px-4">
+      <div class="flex max-xl:w-full justify-center items-end gap-2">
         <!-- chat -->
         <div class="relative flex h-128 w-2/5 min-w-80 flex-col xl:w-128">
           <!-- 选项卡 -->
