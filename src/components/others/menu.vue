@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-grey border-ptb mx-auto mt-10 flex items-center justify-center gap-6 rounded-3xl border-2 p-2 lg:w-2/5"
+    class="bg-grey border-ptb mt-12 flex w-128 items-center justify-center gap-6 rounded-xl border-2 p-2"
   >
     <router-link to="/" class="flex w-16 items-center justify-center"
       ><span class="text-ptb">主页</span></router-link

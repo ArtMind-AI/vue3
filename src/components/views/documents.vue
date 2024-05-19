@@ -47,8 +47,8 @@
     </div>
     <Header />
     <div class="mt-[64px] w-full">
-      <div class="border-b border-gray-500 px-4 py-1 lg:hidden">
-        <v-icon name="bi-justify-left" class="h-8 w-8" @click="show = !show" />
+      <div class="border-b border-gray-500 px-4 py-2 lg:hidden">
+        <v-icon name="bi-justify-left" class="h-8 w-8 cursor-pointer" @click="show = !show" />
       </div>
       <div class="mx-auto max-w-7xl px-4 lg:px-8">
         <!-- side -->
@@ -87,14 +87,13 @@
           <div class="text-white">费用</div>
           <div class="text-white">社区</div>
         </div>
-
         <!-- container -->
-        <div class="lg:pl-56">
+        <div class="lg:pl-48">
           <div class="mx-auto max-w-4xl lg:ml-0">
-            <div class="divide-y-" v-if="currentnum === 0">
-              <div class="text-ptb py-8 text-5xl">简介</div>
-              <div class="space-y-4 py-8">
-                <div class="text-ptb text-3xl">什么是数字人</div>
+            <div class="divide-y divide-gray-500" v-if="currentnum === 0">
+              <div class="text-ptb py-6 text-4xl font-bold">简介</div>
+              <div class="space-y-2 py-6">
+                <div class="text-ptb text-3xl font-bold">什么是数字人</div>
                 <p>
                   数字人是指存在于非物理世界中，由计算机手段创造及使用，并具有多重人类特征（外貌特征、人类表演能力、交互能力等）的综合产物。
                   数字人可以分为以下几类：
@@ -112,31 +111,34 @@
               </div>
             </div>
             <div class="divide-y divide-gray-500" v-if="currentnum === 1">
-              <div class="text-ptb py-8 text-5xl">Ai对话</div>
-              <div class="space-y-4 py-8">
-                <div class="text-ptb text-3xl">基础</div>
+              <div class="text-ptb py-6 text-4xl font-bold">Ai对话</div>
+              <div class="space-y-2 py-6">
+                <div class="text-ptb text-3xl font-bold">基础</div>
                 <div class="text-wrap">
                   和普通gpt一样,你可以通过对话获得回复,在此基础上我们提供数字人来加强交互.
                 </div>
               </div>
-              <div class="space-y-4 py-8">
-                <div class="text-ptb text-3xl">个性化</div>
-                <div class="text-wrap"></div>
-                <div class="text-ptb text-2xl">定制</div>
-                <div class="text-wrap">
-                  在选项卡中选择个性化模块,在该选项下,通过下拉菜单自选音色,添加本地图片自定义数字人形象,
-                  然后点击生成即可得到自定义数字人.
+              <div class="space-y-4 py-6">
+                <div class="text-ptb text-3xl font-bold">个性化</div>
+                <div class="space-y-2">
+                  <div class="text-ptb text-2xl font-bold">定制</div>
+                  <div class="text-wrap">
+                    在选项卡中选择个性化模块,在该选项下,通过下拉菜单自选音色,添加本地图片自定义数字人形象,
+                    然后点击生成即可得到自定义数字人.
+                  </div>
                 </div>
-                <div class="text-ptb text-2xl">仓库(待开发)</div>
-                <div class="text-wrap">
-                  将自定义数字人添加到仓库中,即可通过在选项卡中选择仓库模块,快速选择自定义数字人进行交互.
+                <div class="space-y-2">
+                  <div class="text-ptb text-2xl font-bold">仓库(待开发)</div>
+                  <div class="text-wrap">
+                    将自定义数字人添加到仓库中,即可通过在选项卡中选择仓库模块,快速选择自定义数字人进行交互.
+                  </div>
                 </div>
               </div>
             </div>
             <div class="divide-y" v-if="currentnum === 2">
-              <div class="text-ptb py-8 text-5xl">视频生成</div>
-              <div class="space-y-4 py-8">
-                <div class="text-ptb text-3xl">基础</div>
+              <div class="text-ptb py-6 text-4xl font-bold">视频生成</div>
+              <div class="space-y-2 py-6">
+                <div class="text-ptb text-3xl font-bold">基础</div>
                 <div class="text-wrap"></div>
               </div>
             </div>

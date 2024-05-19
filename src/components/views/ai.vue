@@ -1,12 +1,12 @@
 <template>
   <Header class="hidden" />
   <div class="back relative flex h-screen overflow-auto">
-    <div class="mx-auto flex flex-col justify-center px-8">
+    <div class="flex flex-1 flex-col items-center justify-center px-4">
       <div class="flex items-end gap-2">
         <!-- chat -->
-        <div class="relative flex h-128 w-128 flex-col gap-8">
+        <div class="relative flex h-128 w-2/5 min-w-80 flex-col xl:w-128">
           <!-- 选项卡 -->
-          <div role="tablist" class="tabs-boxed tabs absolute -top-12">
+          <div role="tablist" class="tabs-boxed tabs absolute -top-12 z-50">
             <a
               role="tab"
               class="tab"
@@ -30,7 +30,7 @@
             <div
               class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto"
             >
-              <div class="other-message text-ptb text-lg">AI C</div>
+              <div class="other-message text-ptb text-lg">AI</div>
               <div
                 v-for="(message, index) in messages"
                 :key="index"
@@ -117,7 +117,9 @@
           </div>
         </div>
         <!-- video -->
-        <div class="flex aspect-square w-168 gap-4">
+        <div
+          class="flex aspect-square w-3/5 min-w-128 max-w-168 gap-4 xl:w-168"
+        >
           <video
             ref="videoPlayer"
             id="media"
