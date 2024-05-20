@@ -1,147 +1,128 @@
 <template>
   <div>
     <Header />
-    <div class="flex flex-col">
-      <!-- begin 1 yes-->
-      <div class="bg-btw mt-[64px] flex">
-        <div class="mx-auto flex gap-48 py-60">
-          <div class="flex max-w-168 flex-col justify-center gap-8">
-            <div class="text-ptb text-center text-5xl font-bold">Art Mind</div>
-            <div class="text-ptb text-center text-3xl">
-              Interstellar Development Experience
-            </div>
-            <div class="text-ptb text-center text-xl">
-              An IDE layer for Neovim with sane defaults. Completely free and
-              community driven.
-            </div>
-            <div class="mt-4 flex justify-center gap-8">
-              <router-link to="/ai">
-                <button
-                  class="text-ptw w-32 rounded-md bg-[#bb9af7] p-2 text-center"
-                >
-                  开始
-                </button>
-              </router-link>
-              <router-link to="/documents">
-                <button
-                  class="w-32 rounded-md border-2 border-[#bb9af7] p-2 text-center text-[#bb9af7] transition-colors duration-300 hover:bg-[#bb9af7] hover:text-black"
-                >
-                  文档
-                </button>
-              </router-link>
+    <div class="bg-btw">
+      <div class="mx-auto max-w-[88rem] px-6">
+        <!-- top -->
+        <div class="flex">
+          <div class="mx-auto mt-6 flex">
+            <div class="flex flex-col justify-center gap-4">
+              <div class="text-center text-5xl font-bold text-white">
+                <span class="text-sky-500">Art</span> Mind
+              </div>
+              <div class="text-center text-3xl font-bold text-white">
+                Interstellar Development Experience
+              </div>
+              <div class="mt-4 flex justify-center gap-4">
+                <router-link to="/ai">
+                  <button
+                    class="group relative flex h-14 w-52 cursor-pointer items-center justify-center overflow-hidden rounded-md border bg-sky-800 p-2 font-extrabold text-sky-50 duration-500 hover:border-sky-600"
+                  >
+                    <div
+                      class="absolute z-10 h-48 w-48 rounded-full bg-sky-900 transition-all delay-150 duration-500 ease-in-out group-hover:scale-150 group-hover:delay-75"
+                    ></div>
+                    <div
+                      class="absolute z-10 h-40 w-40 rounded-full bg-sky-800 transition-all delay-150 duration-500 ease-in-out group-hover:scale-150 group-hover:delay-100"
+                    ></div>
+                    <div
+                      class="absolute z-10 h-32 w-32 rounded-full bg-sky-700 transition-all delay-150 duration-500 ease-in-out group-hover:scale-150 group-hover:delay-150"
+                    ></div>
+                    <div
+                      class="absolute z-10 h-24 w-24 rounded-full bg-sky-600 transition-all delay-150 duration-500 ease-in-out group-hover:scale-150 group-hover:delay-200"
+                    ></div>
+                    <div
+                      class="absolute z-10 h-16 w-16 rounded-full bg-sky-500 transition-all delay-150 duration-500 ease-in-out group-hover:scale-150 group-hover:delay-300"
+                    ></div>
+                    <p class="z-10">Get started</p>
+                  </button>
+                </router-link>
+                <router-link to="/documents">
+                  <button
+                    class="before:content[''] after:content[''] group relative h-14 w-52 origin-left overflow-hidden rounded-lg border bg-sky-800 p-3 text-left text-base font-bold text-gray-50 underline underline-offset-2 duration-500 before:absolute before:right-1 before:top-1 before:z-10 before:h-12 before:w-12 before:rounded-full before:bg-sky-400 before:blur-lg before:duration-500 after:absolute after:right-8 after:top-3 after:z-10 after:h-20 after:w-20 after:rounded-full after:bg-cyan-600 after:blur after:duration-500 hover:border-sky-300 hover:bg-sky-300 hover:text-sky-900 hover:underline hover:decoration-2 hover:underline-offset-4 hover:duration-500 hover:before:-bottom-8 hover:before:right-16 hover:before:top-8 hover:before:blur-none hover:after:-right-2 hover:after:scale-150 hover:after:blur-none group-hover:before:duration-500 group-hover:after:duration-1000"
+                  >
+                    Docs
+                  </button>
+                </router-link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- begin effects yes-->
-      <article class="bg-ptb ptb my-[125px]">
+        <!-- carousel -->
+        <article class="mt-6">
+          <carousel />
+        </article>
         <div
-          class="mx-auto flex w-full max-w-3xl items-center max-lg:max-w-168 max-lg:flex-col lg:py-12"
+          class="mt-4 flex w-full rounded-xl bg-[#1d232a] shadow max-lg:flex-col max-lg:divide-y-2 lg:divide-x"
         >
-          <!-- text -->
-          <div class="px-4 lg:w-1/2">
-            <div
-              class="text-gtb pb-4 text-4xl font-bold tracking-wide max-lg:text-center"
-            >
-              数字人
+          <div class="stat">
+            <div class="stat-figure text-primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="inline-block h-8 w-8 stroke-current"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                ></path>
+              </svg>
             </div>
-            <div class="text-gtb break-words text-lg max-lg:text-center">
-              Effortlessly transform your sketches into polished designs with
-              our innovative AI processing. No skills required, no reshaping
-              needed.
-            </div>
+            <div class="stat-title">Total Likes</div>
+            <div class="stat-value text-primary">25.6K</div>
+            <div class="stat-desc">21% more than last month</div>
           </div>
-          <!-- img -->
-          <div class="relative max-lg:flex-1 lg:w-1/2">
-            <div class="break-words text-lg text-gray-400">
-              <img src="/src/assets/svg/1.svg" />
+
+          <div class="stat">
+            <div class="stat-figure text-secondary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="inline-block h-8 w-8 stroke-current"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
             </div>
-            <img
-              src="/src/assets/svg/ice-cream.svg"
-              class="absolute left-12 top-24"
-            />
+            <div class="stat-title">Page Views</div>
+            <div class="stat-value text-secondary">2.6M</div>
+            <div class="stat-desc">21% more than last month</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-figure text-secondary">
+              <div class="avatar online">
+                <div class="w-16 rounded-full">
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="stat-value">86%</div>
+            <div class="stat-title">Tasks done</div>
+            <div class="stat-desc text-secondary">31 tasks remaining</div>
           </div>
         </div>
-      </article>
-      <!-- begin function tes-->
-      <article class="bg-btw py-16">
-        <carousel />
-      </article>
-      <!-- begin team yes-->
-      <team />
-      <!-- begin stats yes-->
-      <stats />
-      <!-- begin footer yes-->
-      <Footer />
+        <Footer />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-import team from "@/components/others/team.vue";
-import stats from "@/components/others/stats.vue";
+import { ref } from "vue";
 import Footer from "../others/footer.vue";
 import carousel from "../others/carousel.vue";
-
-const selectFunction = ref(0);
-
-const changepage = (page) => {
-  selectFunction.value = page;
-};
-
-const isRotatedSe = ref(false);
-
-const handleScroll = () => {
-  const bottomOffset =
-    document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
-  isRotatedSe.value = bottomOffset < 2920;
-};
-
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
 </script>
 
 <style scoped>
 /* Your scoped styles go here */
-.ptb {
-  position: relative;
-}
-
-.ptb:before {
-  content: "";
-  transform: translateY(calc(-100%));
-  position: absolute;
-  height: 125px;
-  background-image: url("/src/assets/avif/cloud.avif");
-  background-position: bottom;
-  background-repeat: repeat-x;
-  background-size: contain;
-  -webkit-user-select: none;
-  user-select: none;
-  width: 100%;
-  z-index: 1;
-  background-color: var(--bg-btw);
-}
-
-.ptb:after {
-  content: "";
-  transform: rotate(180deg) scaleX(-1);
-  position: absolute;
-  height: 125px;
-  background-image: url("/src/assets/avif/cloud.avif");
-  background-position: bottom;
-  background-repeat: repeat-x;
-  background-size: contain;
-  -webkit-user-select: none;
-  user-select: none;
-  width: 100%;
-  z-index: 1;
-  background-color: var(--bg-btw);
-}
 </style>

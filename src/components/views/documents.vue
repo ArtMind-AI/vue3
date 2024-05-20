@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-btw flex min-h-screen">
+  <div class="bg-btw h-screen overflow-y-scroll">
     <!-- hidden:slide -->
     <div class="fixed inset-0 z-30" :class="{ hidden: show === false }">
       <div
@@ -45,20 +45,17 @@
         </div>
       </Transition>
     </div>
-    <Header />
-    <div class="mt-[64px] w-full">
-      <div class="border-b border-gray-500 px-4 py-2 lg:hidden">
-        <v-icon name="bi-justify-left" class="h-8 w-8 cursor-pointer" @click="show = !show" />
-      </div>
-      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+    <div class="w-full">
+      <Header />
+      <div class="mx-auto max-w-[88rem]">
         <!-- side -->
         <div
-          class="bg-btw fixed inset-0 bottom-0 left-[max(0px,calc(50%-40rem))] right-auto top-[64px] w-48 space-y-4 border-r border-gray-500 pl-8 pt-8 max-lg:hidden"
+          class="bg-btw fixed inset-0 bottom-0 left-[max(0px,calc(50%-44rem))] right-auto top-20 w-48 space-y-4 pl-8 pt-8 max-lg:hidden"
         >
           <div class="space-y-1">
-            <div class="text-white">介绍</div>
+            <div class="font-bold text-white">介绍</div>
             <div
-              class="sidecursor transition-colors"
+              class="sidecursor font-bold transition-colors"
               :class="{ active: currentnum === 0 }"
               @click="change(0)"
             >
@@ -66,17 +63,17 @@
             </div>
           </div>
           <div class="space-y-1">
-            <div class="text-white">上手</div>
+            <div class="font-bold text-white">上手</div>
             <ul class="space-y-1">
               <li
-                class="sidecursor transition-colors"
+                class="sidecursor font-bold transition-colors"
                 :class="{ active: currentnum === 1 }"
                 @click="change(1)"
               >
                 AI对话
               </li>
               <li
-                class="sidecursor transition-colors"
+                class="sidecursor font-bold transition-colors"
                 :class="{ active: currentnum === 2 }"
                 @click="change(2)"
               >
@@ -84,13 +81,21 @@
               </li>
             </ul>
           </div>
-          <div class="text-white">费用</div>
-          <div class="text-white">社区</div>
+          <div class="font-bold text-white">费用</div>
+          <div class="font-bold text-white">社区</div>
         </div>
         <!-- container -->
-        <div class="lg:pl-48">
+        <div class="mt-6 lg:pl-48">
           <div class="mx-auto max-w-4xl lg:ml-0">
-            <div class="divide-y divide-gray-500" v-if="currentnum === 0">
+            <!-- sidebar -->
+            <div class="mx-6 border-b border-gray-500 pb-2 lg:hidden">
+              <v-icon
+                name="bi-justify-left"
+                class="h-8 w-8 cursor-pointer"
+                @click="show = !show"
+              />
+            </div>
+            <div class="px-6" v-if="currentnum === 0">
               <div class="text-ptb py-6 text-4xl font-bold">简介</div>
               <div class="space-y-2 py-6">
                 <div class="text-ptb text-3xl font-bold">什么是数字人</div>
@@ -110,7 +115,7 @@
                 </p>
               </div>
             </div>
-            <div class="divide-y divide-gray-500" v-if="currentnum === 1">
+            <div class="px-6" v-if="currentnum === 1">
               <div class="text-ptb py-6 text-4xl font-bold">Ai对话</div>
               <div class="space-y-2 py-6">
                 <div class="text-ptb text-3xl font-bold">基础</div>
@@ -135,7 +140,7 @@
                 </div>
               </div>
             </div>
-            <div class="divide-y" v-if="currentnum === 2">
+            <div class="px-6" v-if="currentnum === 2">
               <div class="text-ptb py-6 text-4xl font-bold">视频生成</div>
               <div class="space-y-2 py-6">
                 <div class="text-ptb text-3xl font-bold">基础</div>
@@ -163,5 +168,5 @@ const change = (index) => {
 </script>
 
 <style>
-@import "../../assets/components/aiChat.css";
+@import url("../../assets/components/aiChat.css");
 </style>

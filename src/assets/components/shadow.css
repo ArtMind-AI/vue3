@@ -1,0 +1,5 @@
+.myshadow{
+    background-color: #454857 !important;
+    box-shadow: inset 0 0 0 3px rgba(35, 33, 45, 0.3),
+    0 0 0 3px rgba(185, 185, 185, 0.3);
+}

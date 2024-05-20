@@ -1,6 +1,6 @@
 <template>
-  <footer class="bg-btw">
-    <div class="container mx-auto flex flex-col p-4 md:p-8 lg:flex-row">
+  <footer>
+    <div class="container mx-auto flex flex-col lg:flex-row">
       <ul
         class="text-ptb flex flex-1 justify-start gap-4 py-6 text-center max-lg:justify-center"
       >

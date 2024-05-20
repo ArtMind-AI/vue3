@@ -333,5 +333,5 @@ const uploadbyaudio = async () => {
 </script>
 
 <style scoped>
-@import "../../assets/components/aiChat.css";
+@import url('../../assets/components/aiChat.css');
 </style>
