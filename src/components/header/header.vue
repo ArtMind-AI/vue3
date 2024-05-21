@@ -1,6 +1,8 @@
 <template>
   <div class="bg-btw h-14">
-    <div class="mx-auto flex h-full px-6 max-w-[88rem] items-center justify-between">
+    <div
+      class="mx-auto flex h-full max-w-7xl items-center justify-between px-6"
+    >
       <div class="text-ptg z-20 flex gap-6 text-lg">
         <!-- begin default -->
         <div class="flex items-center gap-2">
@@ -16,7 +18,11 @@
           <span class="font-bold">{{ $t("docs") }}</span>
         </router-link>
         <!-- begin function -->
-        <router-link to="ai">
+        <router-link
+          to="talk"
+          class="hover:text-[#7480ff]"
+          :class="{ 'text-[#7480ff]': $route.path === '/talk' }"
+        >
           <span class="font-bold">{{ $t("function") }}</span>
         </router-link>
         <!-- begin community -->
@@ -57,7 +63,7 @@
           </ul>
         </div>
         <!-- begin avator -->
-        <img src="../../assets/img/0.jpg" class="w-8 h-8 rounded-xl" />
+        <img src="../../assets/img/0.jpg" class="h-8 w-8 rounded-xl" />
         <!-- begin login -->
         <router-link
           to="/login"

@@ -2,24 +2,25 @@
   margin-bottom: 0.5rem;
   word-wrap: break-word;
   word-break: break-all;
-  width: fit-content;
+  float: inline-end;
+}
+
+.diyborder{
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
 }
 
 .other-message {
   margin-bottom: 0.5rem; /* 保持与用户聊天框的间距一致 */
   word-wrap: break-word;
   word-break: break-all;
-  max-width: fit-content;
+  float: inline-start;
 }
 
 .scrollable-div::-webkit-scrollbar {
   width: 8px; /* 滚动条宽度 */
   height: 8px; /* 滚动条高度 */
   display: none; /* 初始状态隐藏滚动条 */
-}
-
-.back {
-  background-image: url("../img/backimg.jpg");
 }
 
 .nested-enter-active, .nested-leave-active {

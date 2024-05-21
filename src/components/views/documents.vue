@@ -47,10 +47,10 @@
     </div>
     <div class="w-full">
       <Header />
-      <div class="mx-auto max-w-[88rem]">
+      <div class="mx-auto max-w-7xl ">
         <!-- side -->
         <div
-          class="bg-btw fixed inset-0 bottom-0 left-[max(0px,calc(50%-44rem))] right-auto top-20 w-48 space-y-4 pl-8 pt-8 max-lg:hidden"
+          class="bg-btw fixed inset-0 bottom-0 left-[max(0px,calc(50%-40rem))] right-auto top-20 w-48 space-y-4 pl-8 max-lg:hidden"
         >
           <div class="space-y-1">
             <div class="font-bold text-white">介绍</div>
@@ -85,7 +85,7 @@
           <div class="font-bold text-white">社区</div>
         </div>
         <!-- container -->
-        <div class="mt-6 lg:pl-48">
+        <div class="lg:pl-48">
           <div class="mx-auto max-w-4xl lg:ml-0">
             <!-- sidebar -->
             <div class="mx-6 border-b border-gray-500 pb-2 lg:hidden">

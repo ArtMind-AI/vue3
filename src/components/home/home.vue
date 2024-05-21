@@ -2,7 +2,7 @@
   <div>
     <Header />
     <div class="bg-btw">
-      <div class="mx-auto max-w-[88rem] px-6">
+      <div class="mx-auto max-w-7xl  px-6">
         <!-- top -->
         <div class="flex">
           <div class="mx-auto mt-6 flex">

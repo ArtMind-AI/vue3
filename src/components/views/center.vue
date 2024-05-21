@@ -1,20 +1,27 @@
 <template>
   <div class="bg-btw h-screen overflow-y-scroll">
     <Header />
-    <div class="mx-auto max-w-[88rem] px-6">
+    <div class="mx-auto max-w-7xl px-6">
       <div class="mt-6">
         <div class="flex gap-4 max-md:flex-col md:items-end">
           <div>
-            <img src="../../assets/img/0.jpg" class="h-64 w-64 rounded-xl" />
+            <img
+              src="../../assets/img/0.jpg"
+              class="diyborder h-64 w-64 rounded-xl"
+            />
           </div>
-          <div class="flex flex-col gap-4 p-4 bg-[#454857] rounded-xl">
-            <div class="h-8 w-40 flex items-center justify-center rounded-xl bg-[#1d232a]">
-              <span>tillicofess</span>
+          <div
+            class="diyborder flex flex-col gap-4 rounded-xl bg-[#525e7b] p-4"
+          >
+            <div
+              class="diyborder flex h-8 w-40 items-center justify-center rounded-xl bg-[#f5f5dc]"
+            >
+              <span class="text-black">tillicofess</span>
             </div>
-            <div class="h-8 w-64 rounded-xl bg-[#1d232a]"></div>
+            <div class="diyborder h-8 w-64 rounded-xl bg-[#f5f5dc]"></div>
           </div>
         </div>
-        <div role="tablist" class="tabs-boxed tabs mt-6 w-96 myshadow">
+        <div role="tablist" class="myshadow tabs-boxed tabs mt-6 w-96">
           <a
             role="tab"
             class="tab"
@@ -37,7 +44,9 @@
             >上传</a
           >
         </div>
-        <div class="mb-6 mt-3 h-128 w-full rounded-xl border-[#54555e] border-2"></div>
+        <div
+          class="mb-6 mt-3 h-128 w-full rounded-xl border-2 border-[#54555e]"
+        ></div>
       </div>
     </div>
   </div>
@@ -55,5 +64,5 @@ const changenum = (index) => {
 </script>
 
 <style scoped>
-@import url('../../assets/components/shadow.css');
+@import url("../../assets/components/shadow.css");
 </style>

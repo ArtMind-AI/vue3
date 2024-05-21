@@ -7,6 +7,7 @@ import documents from "@/components/views/documents.vue";
 import ai from "@/components/views/ai.vue";
 import community from "@/components/views/community.vue";
 import center from "@/components/views/center.vue";
+import talk from "@/components/views/talk.vue";
 // 创建路由实例
 const router = createRouter({
   history: createWebHistory(),
@@ -19,6 +20,7 @@ const router = createRouter({
     { path: "/ai", component: ai },
     { path: "/community", component: community },
     { path: "/center", component: center },
+    { path: "/talk", component: talk },
   ],
 });
 

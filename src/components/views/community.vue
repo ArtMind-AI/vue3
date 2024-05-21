@@ -1,7 +1,7 @@
 <template>
   <div class="bg-btw">
     <Header />
-    <div class="mx-auto flex min-h-screen w-[1280px] pt-12">
+    <div class="mx-auto mt-6 flex min-h-screen max-w-7xl px-6">
       <div class="flex h-full flex-1 flex-col gap-8">
         <div class="flex h-72 flex-row gap-8">
           <div class="bg-grey h-72 w-3/5 rounded-md"></div>

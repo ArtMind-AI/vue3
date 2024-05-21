@@ -1,136 +1,138 @@
 <template>
-  <Header class="hidden" />
-  <div class="back relative flex h-screen overflow-auto">
-    <div class="flex flex-1 flex-col justify-center px-4">
-      <div class="flex max-xl:w-full justify-center items-end gap-2">
-        <!-- chat -->
-        <div class="relative flex h-128 w-2/5 min-w-80 flex-col xl:w-128">
-          <!-- 选项卡 -->
-          <div role="tablist" class="tabs-boxed tabs absolute -top-12 z-50">
-            <a
-              role="tab"
-              class="tab"
-              :class="{ 'tab-active': currentNum === 0 }"
-              @click="changenum(0)"
-              >对话</a
-            >
-            <a
-              role="tab"
-              class="tab"
-              :class="{ 'tab-active': currentNum === 1 }"
-              @click="changenum(1)"
-              >个性化</a
-            >
-          </div>
-          <!-- 对话 -->
-          <div
-            class="bg-grey border-ptb flex flex-1 flex-col gap-8 rounded-xl border-2 p-6"
-            v-if="currentNum === 0"
-          >
+  <div class=" h-screen">
+    <Header />
+    <div class="back relative h-[calc(100%-56px)] flex overflow-auto">
+      <div class="flex flex-1 flex-col justify-center px-4">
+        <div class="flex items-end justify-center gap-2 max-xl:w-full">
+          <!-- chat -->
+          <div class="relative flex h-128 w-2/5 min-w-80 flex-col xl:w-128">
+            <!-- 选项卡 -->
+            <div role="tablist" class="tabs-boxed tabs absolute -top-12 z-50">
+              <a
+                role="tab"
+                class="tab"
+                :class="{ 'tab-active': currentNum === 0 }"
+                @click="changenum(0)"
+                >对话</a
+              >
+              <a
+                role="tab"
+                class="tab"
+                :class="{ 'tab-active': currentNum === 1 }"
+                @click="changenum(1)"
+                >个性化</a
+              >
+            </div>
+            <!-- 对话 -->
             <div
-              class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto"
+              class="bg-grey border-ptb flex flex-1 flex-col gap-8 rounded-xl border-2 p-6"
+              v-if="currentNum === 0"
             >
-              <div class="other-message text-ptb text-lg">AI</div>
               <div
-                v-for="(message, index) in messages"
-                :key="index"
-                :class="
-                  message.sender === 'user' ? 'user-message' : 'other-message'
-                "
-                class="text-ptb py-1 text-lg"
+                class="scrollable-div flex max-h-[370px] flex-1 flex-col overflow-y-auto"
               >
-                {{ message.text }}
+                <div class="other-message text-ptb text-lg">AI</div>
+                <div
+                  v-for="(message, index) in messages"
+                  :key="index"
+                  :class="
+                    message.sender === 'user' ? 'user-message' : 'other-message'
+                  "
+                  class="text-ptb py-1 text-lg"
+                >
+                  {{ message.text }}
+                </div>
+              </div>
+              <div class="flex-0 flex items-center">
+                <div class="bg-ptb flex h-12 w-full items-center rounded-lg">
+                  <textarea
+                    class="bg-ptb mx-4 w-full resize-none text-lg text-black outline-none"
+                    placeholder=""
+                    v-model="chat"
+                    :rows="rows"
+                    @keydown.enter.prevent="addBox"
+                  ></textarea>
+                </div>
+                <button
+                  @click="addBox1"
+                  class="bg-btw text-ptg btn btn-md ml-2 rounded-md border-0"
+                >
+                  发送
+                </button>
               </div>
             </div>
-            <div class="flex-0 flex items-center">
-              <div class="bg-ptb flex h-12 w-full items-center rounded-lg">
-                <textarea
-                  class="bg-ptb mx-4 w-full resize-none text-lg text-black outline-none"
-                  placeholder=""
-                  v-model="chat"
-                  :rows="rows"
-                  @keydown.enter.prevent="addBox"
-                ></textarea>
-              </div>
-              <button
-                @click="addBox1"
-                class="bg-btw text-ptg btn btn-md ml-2 rounded-md border-0"
-              >
-                发送
-              </button>
-            </div>
-          </div>
-          <!-- 个性化 -->
-          <div
-            class="bg-grey border-ptb flex flex-1 flex-col gap-2 rounded-xl border-2 p-2"
-            v-if="currentNum === 1"
-          >
-            <!-- begin：声线 -->
-            <div class="flex gap-2">
-              <select
-                id="selectFruit"
-                v-model="selectedFruit"
-                class="bg-ptb text-grey h-10 w-1/2 rounded-lg text-center outline-none transition-colors duration-300 hover:border-blue-500"
-              >
-                <option value="普通话女声">普通话女声</option>
-                <option value="粤语男声">粤语男声</option>
-              </select>
-              <!-- begin：添加图片 -->
-              <input
-                ref="fileInput"
-                type="file"
-                @change="handleFileChange"
-                style="display: none"
-              />
-              <button
-                class="bg-ptb text-grey h-10 w-1/2 rounded-lg text-center"
-                @click="$refs.fileInput.click()"
-              >
-                添加图片
-              </button>
-            </div>
-            <!-- begin：生成 -->
-            <div>
-              <button
-                class="bg-ptb text-grey w-full rounded-lg p-2 text-center hover:bg-opacity-80"
-                @click="uploadImg()"
-              >
-                生成
-              </button>
-            </div>
-            <!-- begin：img -->
-            <div class="grid max-h-96 grid-cols-4 gap-4 overflow-y-auto">
-              <div
-                v-for="(image, index) in images"
-                :key="index"
-                class="aspect-square select-none rounded-lg border-2 transition-colors duration-300"
-                :class="{ 'border-ptb': selectimg === index }"
-                @click="selectImage(index)"
-              >
-                <img
-                  :src="image"
-                  alt="image"
-                  class="aspect-square w-full rounded-lg object-cover"
+            <!-- 个性化 -->
+            <div
+              class="bg-grey border-ptb flex flex-1 flex-col gap-2 rounded-xl border-2 p-2"
+              v-if="currentNum === 1"
+            >
+              <!-- begin：声线 -->
+              <div class="flex gap-2">
+                <select
+                  id="selectFruit"
+                  v-model="selectedFruit"
+                  class="bg-ptb text-grey h-10 w-1/2 rounded-lg text-center outline-none transition-colors duration-300 hover:border-blue-500"
+                >
+                  <option value="普通话女声">普通话女声</option>
+                  <option value="粤语男声">粤语男声</option>
+                </select>
+                <!-- begin：添加图片 -->
+                <input
+                  ref="fileInput"
+                  type="file"
+                  @change="handleFileChange"
+                  style="display: none"
                 />
+                <button
+                  class="bg-ptb text-grey h-10 w-1/2 rounded-lg text-center"
+                  @click="$refs.fileInput.click()"
+                >
+                  添加图片
+                </button>
+              </div>
+              <!-- begin：生成 -->
+              <div>
+                <button
+                  class="bg-ptb text-grey w-full rounded-lg p-2 text-center hover:bg-opacity-80"
+                  @click="uploadImg()"
+                >
+                  生成
+                </button>
+              </div>
+              <!-- begin：img -->
+              <div class="grid max-h-96 grid-cols-4 gap-4 overflow-y-auto">
+                <div
+                  v-for="(image, index) in images"
+                  :key="index"
+                  class="aspect-square select-none rounded-lg border-2 transition-colors duration-300"
+                  :class="{ 'border-ptb': selectimg === index }"
+                  @click="selectImage(index)"
+                >
+                  <img
+                    :src="image"
+                    alt="image"
+                    class="aspect-square w-full rounded-lg object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
+          <!-- video -->
+          <div
+            class="flex aspect-square w-3/5 min-w-128 max-w-168 gap-4 xl:w-168"
+          >
+            <video
+              ref="videoPlayer"
+              id="media"
+              autoplay
+              class="bg-grey border-ptb rounded-xl border-2"
+              :src="videoUrl"
+            ></video>
+          </div>
         </div>
-        <!-- video -->
-        <div
-          class="flex aspect-square w-3/5 min-w-128 max-w-168 gap-4 xl:w-168"
-        >
-          <video
-            ref="videoPlayer"
-            id="media"
-            autoplay
-            class="bg-grey border-ptb rounded-xl border-2"
-            :src="videoUrl"
-          ></video>
-        </div>
+        <!-- select -->
+        <!-- <Menu /> -->
       </div>
-      <!-- select -->
-      <Menu />
     </div>
   </div>
 </template>
@@ -358,5 +360,5 @@ const addBox1 = async () => {
 </script>
 
 <style scoped>
-@import url('../../assets/components/aiChat.css');
+@import url("../../assets/components/aiChat.css");
 </style>
