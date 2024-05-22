@@ -2,10 +2,10 @@
   margin-bottom: 0.5rem;
   word-wrap: break-word;
   word-break: break-all;
-  float: inline-end;
+  background-color: #f5f5dc;
 }
 
-.diyborder{
+.diyborder {
   border: 2px solid black;
   box-shadow: 4px 4px black;
 }
@@ -14,7 +14,7 @@
   margin-bottom: 0.5rem; /* 保持与用户聊天框的间距一致 */
   word-wrap: break-word;
   word-break: break-all;
-  float: inline-start;
+  background-color: #add8e6;
 }
 
 .scrollable-div::-webkit-scrollbar {
@@ -23,8 +23,9 @@
   display: none; /* 初始状态隐藏滚动条 */
 }
 
-.nested-enter-active, .nested-leave-active {
-	transition: all 0.2s ease-in-out;
+.nested-enter-active,
+.nested-leave-active {
+  transition: all 0.2s ease-in-out;
 }
 /* delay leave of parent element */
 .nested-leave-active {
@@ -37,14 +38,14 @@
   opacity: 0;
 }
 
-.sidecursor{
+.sidecursor {
   cursor: pointer;
 }
 
-.sidecursor:hover{
+.sidecursor:hover {
   color: white;
 }
 
-.active{
+.active {
   color: #7480ff !important;
 }

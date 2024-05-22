@@ -47,55 +47,58 @@
     </div>
     <div class="w-full">
       <Header />
-      <div class="mx-auto max-w-7xl ">
+      <div class="mx-auto max-w-7xl px-6">
         <!-- side -->
-        <div
-          class="bg-btw fixed inset-0 bottom-0 left-[max(0px,calc(50%-40rem))] right-auto top-20 w-48 space-y-4 pl-8 max-lg:hidden"
-        >
-          <div class="space-y-1">
-            <div class="font-bold text-white">介绍</div>
-            <div
-              class="sidecursor font-bold transition-colors"
-              :class="{ active: currentnum === 0 }"
-              @click="change(0)"
-            >
-              简介
+        <transition name="slide-left">
+          <div
+            class="bg-btw fixed inset-0 bottom-0 left-[max(0px,calc(50%-40rem))] right-auto top-16 w-48 space-y-4 overflow-y-scroll pl-8"
+            v-if="!isHidden"
+          >
+            <div class="mt-6 space-y-1">
+              <div class="font-bold text-white">介绍</div>
+              <div
+                class="sidecursor font-bold transition-colors"
+                :class="{ active: currentnum === 0 }"
+                @click="change(0)"
+              >
+                简介
+              </div>
             </div>
+            <div class="space-y-1">
+              <div class="font-bold text-white">上手</div>
+              <ul class="space-y-1">
+                <li
+                  class="sidecursor font-bold transition-colors"
+                  :class="{ active: currentnum === 1 }"
+                  @click="change(1)"
+                >
+                  AI对话
+                </li>
+                <li
+                  class="sidecursor font-bold transition-colors"
+                  :class="{ active: currentnum === 2 }"
+                  @click="change(2)"
+                >
+                  视频生成
+                </li>
+              </ul>
+            </div>
+            <div class="font-bold text-white">费用</div>
+            <div class="font-bold text-white">社区</div>
           </div>
-          <div class="space-y-1">
-            <div class="font-bold text-white">上手</div>
-            <ul class="space-y-1">
-              <li
-                class="sidecursor font-bold transition-colors"
-                :class="{ active: currentnum === 1 }"
-                @click="change(1)"
-              >
-                AI对话
-              </li>
-              <li
-                class="sidecursor font-bold transition-colors"
-                :class="{ active: currentnum === 2 }"
-                @click="change(2)"
-              >
-                视频生成
-              </li>
-            </ul>
-          </div>
-          <div class="font-bold text-white">费用</div>
-          <div class="font-bold text-white">社区</div>
-        </div>
+        </transition>
         <!-- container -->
         <div class="lg:pl-48">
           <div class="mx-auto max-w-4xl lg:ml-0">
             <!-- sidebar -->
-            <div class="mx-6 border-b border-gray-500 pb-2 lg:hidden">
+            <div class="border-b border-gray-500 pb-2 lg:hidden">
               <v-icon
                 name="bi-justify-left"
                 class="h-8 w-8 cursor-pointer"
                 @click="show = !show"
               />
             </div>
-            <div class="px-6" v-if="currentnum === 0">
+            <div v-if="currentnum === 0">
               <div class="text-ptb py-6 text-4xl font-bold">简介</div>
               <div class="space-y-2 py-6">
                 <div class="text-ptb text-3xl font-bold">什么是数字人</div>
@@ -115,7 +118,7 @@
                 </p>
               </div>
             </div>
-            <div class="px-6" v-if="currentnum === 1">
+            <div v-if="currentnum === 1">
               <div class="text-ptb py-6 text-4xl font-bold">Ai对话</div>
               <div class="space-y-2 py-6">
                 <div class="text-ptb text-3xl font-bold">基础</div>
@@ -140,7 +143,7 @@
                 </div>
               </div>
             </div>
-            <div class="px-6" v-if="currentnum === 2">
+            <div v-if="currentnum === 2">
               <div class="text-ptb py-6 text-4xl font-bold">视频生成</div>
               <div class="space-y-2 py-6">
                 <div class="text-ptb text-3xl font-bold">基础</div>
@@ -156,10 +159,26 @@
 
 <script setup>
 import Header from "../header/header.vue";
-import { ref } from "vue";
+import { onMounted, onBeforeUnmount, ref } from "vue";
 
 const currentnum = ref(0);
 const show = ref(false);
+const screenWidth = ref(window.innerWidth);
+const isHidden = ref(window.innerWidth < 1024);
+
+const onResize = () => {
+  screenWidth.value = window.innerWidth;
+  isHidden.value = screenWidth.value < 1024;
+};
+
+onMounted(() => {
+  window.addEventListener("resize", onResize);
+  onResize(); // 初次加载时执行
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", onResize);
+});
 
 const change = (index) => {
   currentnum.value = index;
@@ -169,4 +188,5 @@ const change = (index) => {
 
 <style>
 @import url("../../assets/components/aiChat.css");
+@import url("../../assets/components/shadow.css");
 </style>

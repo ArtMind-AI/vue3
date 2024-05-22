@@ -167,8 +167,6 @@
           ></video>
         </div>
       </div>
-      <!-- select -->
-      <Menu />
     </div>
   </div>
 </template>
@@ -176,7 +174,6 @@
 <script setup>
 import { ref } from "vue";
 import Header from "../header/header.vue";
-import Menu from "../others/menu.vue";
 import axios from "axios";
 
 const videoUrl = ref(null);

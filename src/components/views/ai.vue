@@ -130,8 +130,6 @@
             ></video>
           </div>
         </div>
-        <!-- select -->
-        <!-- <Menu /> -->
       </div>
     </div>
   </div>
@@ -141,7 +139,6 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import Header from "../header/header.vue";
-import Menu from "../others/menu.vue";
 
 const messages = ref([]); //聊天板文字
 const defaultVideoUrl = ref(""); // 你需要提前定义 defaultVideoUrl 的值

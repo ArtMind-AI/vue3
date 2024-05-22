@@ -3,3 +3,13 @@
     box-shadow: inset 0 0 0 3px rgba(35, 33, 45, 0.3),
     0 0 0 3px rgba(185, 185, 185, 0.3);
 }
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: transform 0.75s;
+}
+
+.slide-left-enter,
+.slide-left-leave-to {
+  transform: translateX(-100%);
+}

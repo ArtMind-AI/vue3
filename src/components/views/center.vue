@@ -10,18 +10,16 @@
               class="diyborder h-64 w-64 rounded-xl"
             />
           </div>
-          <div
-            class="diyborder flex flex-col gap-4 rounded-xl bg-[#525e7b] p-4"
-          >
+          <div class="diyborder max-w-fit gap-4 rounded-xl bg-[#525e7b] p-4">
             <div
               class="diyborder flex h-8 w-40 items-center justify-center rounded-xl bg-[#f5f5dc]"
             >
               <span class="text-black">tillicofess</span>
             </div>
-            <div class="diyborder h-8 w-64 rounded-xl bg-[#f5f5dc]"></div>
+            <div class="diyborder mt-4 h-8 w-64 rounded-xl bg-[#f5f5dc]"></div>
           </div>
         </div>
-        <div role="tablist" class="myshadow tabs-boxed tabs mt-6 w-96">
+        <div role="tablist" class="myshadow tabs-boxed tabs ml-1 mt-6 w-96">
           <a
             role="tab"
             class="tab"
@@ -46,7 +44,44 @@
         </div>
         <div
           class="mb-6 mt-3 h-128 w-full rounded-xl border-2 border-[#54555e]"
-        ></div>
+        >
+          <div class="overflow-x-auto">
+            <table class="table">
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Job</th>
+                  <th>Favorite Color</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- row 1 -->
+                <tr>
+                  <th>1</th>
+                  <td>Cy Ganderton</td>
+                  <td>Quality Control Specialist</td>
+                  <td>Blue</td>
+                </tr>
+                <!-- row 2 -->
+                <tr>
+                  <th>2</th>
+                  <td>Hart Hagerty</td>
+                  <td>Desktop Support Technician</td>
+                  <td>Purple</td>
+                </tr>
+                <!-- row 3 -->
+                <tr>
+                  <th>3</th>
+                  <td>Brice Swyre</td>
+                  <td>Tax Accountant</td>
+                  <td>Red</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
