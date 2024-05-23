@@ -9,7 +9,7 @@
         <div class="flex h-[calc(100vh-64px)] gap-4 lg:justify-center xl:pl-48">
           <!-- container-left -->
           <div
-            class="diyborder my-6 flex w-1/2 min-w-96 flex-col rounded-xl bg-[#525e7b] max-w-128"
+            class="diyborder my-6 flex w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b]"
           >
             <!-- begin：声线 -->
             <div class="mt-6 flex gap-6 px-6">
@@ -35,11 +35,28 @@
                 添加图片
               </button>
             </div>
+            <!-- begin name -->
+            <div class="mt-6 px-6">
+              <div class="relative w-full">
+                <label
+                  for="input"
+                  class="bg-ptb absolute -top-3 left-2 z-20 rounded-md px-1 text-[#7480ff]"
+                  >Name:</label
+                >
+                <input
+                  type="text"
+                  placeholder="Write here..."
+                  name="input"
+                  class="bg-ptb diyborder w-full rounded-md p-2 text-black outline-none"
+                  v-model="img_name"
+                />
+              </div>
+            </div>
             <!-- begin：生成 -->
             <div class="myborder mt-6 px-6">
               <button
                 class="bg-ptb text-grey diyborder w-full rounded-lg p-2 text-center transition-transform active:scale-90"
-                @click="uploadImg()"
+                @click="upload()"
               >
                 生成
               </button>
@@ -55,7 +72,7 @@
                   @click="selectImage(index)"
                 >
                   <img
-                    :src="image"
+                    :src="getImageUrl(image)"
                     alt="image"
                     class="aspect-square w-full rounded-lg"
                   />
@@ -65,14 +82,20 @@
           </div>
           <!-- container-right -->
           <div
-            class="diyborder my-6 flex w-1/2 min-w-96 flex-col rounded-xl bg-[#525e7b] p-6 max-w-128"
+            class="diyborder my-6 flex w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b] p-6"
           >
             <!-- video -->
-            <div>
+            <div class="relative">
               <img
                 src="../../assets/img/0.jpg"
                 class="diyborder mx-auto aspect-square w-48 rounded-lg"
               />
+              <div
+                class="absolute left-[calc(50%-6rem)] top-0 z-30 flex aspect-square h-48 w-48 items-center justify-center rounded-lg bg-white"
+                :class="{ hidden: loading === false }"
+              >
+                <div class="loader aspect-square w-16"></div>
+              </div>
             </div>
             <!-- chat -->
             <div class="mt-6 flex flex-1 flex-col overflow-y-auto">
@@ -118,6 +141,7 @@
 
 <script setup>
 import { ref } from "vue";
+import axios from "axios";
 import Header from "../header/header.vue";
 import sidebar from "../others/Sidebar.vue";
 
@@ -127,23 +151,41 @@ const send = ref(""); //axios上传用户输入
 const selectedFruit = ref("普通话女声"); //默认音色
 const selectimg = ref(0); //选择图片
 const images = ref([]); //图片墙
+const img_name = ref(); //图片名称
+const loading = ref(false);
 
-// 使用 fetch 获取本地图片文件内容 yes
+// 使用 fetch 获取本地图片文件内容
 fetch("src/assets/img/0.jpg")
   .then((response) => response.blob())
   .then((blob) => {
-    // 创建 File 对象
-    const localImageFile = new File([blob], "0.jpg", { type: "image/jpeg" });
-    // 将 File 对象添加到 images 数组中
-    images.value.push(URL.createObjectURL(localImageFile));
+    // 直接将 Blob 对象存储到 images 数组中
+    images.value.push(blob);
   });
 
-//用户上传图片到图片墙 yes
-const handleFileChange = (event) => {
+//得到blob对象的url数据
+const getImageUrl = (blob) => {
+  return URL.createObjectURL(blob);
+};
+
+// 获取 Blob URL 对应的 Blob 对象
+async function getBlobFromUrl(blobUrl) {
+  try {
+    const response = await fetch(blobUrl);
+    const blob = await response.blob();
+    return blob;
+  } catch (error) {
+    console.error("Error fetching blob:", error);
+    return null;
+  }
+}
+
+// 用户上传图片到图片墙
+const handleFileChange = async (event) => {
   const file = event.target.files[0];
   if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
-    images.value.push(URL.createObjectURL(file));
-    console.log(images.value);
+    const blob = await getBlobFromUrl(URL.createObjectURL(file));
+    images.value.push(blob);
+    console.log("images.value = " + images.value);
     // 处理文件逻辑，例如上传文件等
   } else {
     console.error("请选择JPEG或PNG格式的图片文件.");
@@ -153,26 +195,118 @@ const handleFileChange = (event) => {
 //图片高亮 yes
 const selectImage = (index) => {
   selectimg.value = index;
-  console.log("selectimg = " + selectimg.value);
-  console.log("index = " + index);
-  if (selectimg.value === index) {
-    console.log(true);
-  }
 };
 
 const addBox = async () => {
-  try {
-    console.log("chat.value = " + chat.value);
-    messages.value.push({ text: chat.value, sender: "user" });
-    send.value = chat.value;
-    console.log("send.value = " + send.value);
-    chat.value = "";
-  } catch (error) {
-    console.error(error);
+  if (chat.value.length != 0) {
+    try {
+      console.log("chat.value = " + chat.value);
+      messages.value.push({ text: chat.value, sender: "user" });
+      send.value = chat.value;
+      console.log("send.value = " + send.value);
+      chat.value = "";
+      console.log(img_name.value);
+    } catch (error) {
+      console.error(error);
+    }
   }
 };
 
-//回车上传文字
+const upload = async () => {
+  if (img_name.value.length != 0) {
+    loading.value = true;
+    const formData = new FormData();
+    formData.append("image", images.value[selectimg.value]);
+    formData.append("name", img_name.value);
+    formData.append("voice", selectedFruit.value);
+    axios
+      .post("http://localhost:3000", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setTimeout(() => {
+          loading.value = false;
+        }, 2000); // 延迟2秒
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+  else{
+    alert('名字不能为空');
+  }
+};
 </script>
 
-<style scoped></style>
+<style scoped>
+@import "@/assets/components/aiChat.css";
+@import "@/assets/components/shadow.css";
+.loader {
+  position: relative;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotate(45deg) translate(30%, 40%);
+  background: #ff9371;
+  box-shadow: 32px -34px 0 5px #ff3d00;
+  animation: slide 2s infinite ease-in-out alternate;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff3d00;
+  transform: rotate(0deg);
+  transform-origin: 35px 145px;
+  animation: rotate 2s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0%,
+  100% {
+    bottom: -35px;
+  }
+
+  25%,
+  75% {
+    bottom: -2px;
+  }
+
+  20%,
+  80% {
+    bottom: 2px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-15deg);
+  }
+
+  25%,
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(25deg);
+  }
+}
+</style>

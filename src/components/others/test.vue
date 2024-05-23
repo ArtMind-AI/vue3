@@ -15,6 +15,7 @@
     <div class="h-14 bg-slate-50"></div>
     <div class="h-full bg-slate-800"></div>
   </div>
+  
 </template>
 
 <script setup></script>

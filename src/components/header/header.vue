@@ -46,12 +46,16 @@
         </router-link>
       </div>
       <!-- begin header-right -->
-      <div class="flex items-center gap-6 max-md:hidden">
+      <div class="flex items-center max-md:hidden">
         <!-- begin theme -->
         <!-- begin: language -->
-        <!-- <div class="dropdown">
-          <div tabindex="0" role="button" class="text-ptg">
-            <v-icon name="co-language" class="h-9 w-9" />
+        <div class="dropdown mr-2">
+          <div tabindex="0" role="button">
+            <button
+              class="text-ptw flex h-9 items-center rounded-md border-2 border-[#607bff] px-4 transition-transform active:scale-90"
+            >
+              <p class="font-bold">语言</p>
+            </button>
           </div>
           <ul
             tabindex="0"
@@ -64,7 +68,7 @@
               <a class="text-ptg" @click="switchLanguage('en')">English</a>
             </li>
           </ul>
-        </div> -->
+        </div>
         <!-- begin login -->
         <router-link
           to="/login"
@@ -73,7 +77,10 @@
           <span class="font-bold tracking-widest">{{ $t("login in") }}</span>
         </router-link>
         <!-- begin avator -->
-        <img src="../../assets/img/0.jpg" class="h-9 w-9 rounded-md" />
+        <div class="flex items-center gap-2 ml-4">
+          <span class="text-lg font-semibold text-[#c1caf4]">tillicofess</span>
+          <img src="../../assets/img/0.jpg" class="h-9 w-9 rounded-md" />
+        </div>
       </div>
     </div>
   </div>

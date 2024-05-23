@@ -35,7 +35,6 @@
       </div>
       <div class="font-bold text-white">费用</div>
       <div class="font-bold text-white">社区</div>
-      <button @click="isHidden = !isHidden">123</button>
     </div>
   </transition>
 </template>
@@ -62,5 +61,5 @@ onBeforeUnmount(() => {
 </script>
 
 <style>
-@import url("../../assets/components/shadow.css");
+@import "@/assets/components/shadow.css";
 </style>

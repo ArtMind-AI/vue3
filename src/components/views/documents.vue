@@ -186,7 +186,7 @@ const change = (index) => {
 };
 </script>
 
-<style>
-@import url("../../assets/components/aiChat.css");
-@import url("../../assets/components/shadow.css");
+<style scoped>
+@import "@/assets/components/aiChat.css";
+@import "@/assets/components/shadow.css";
 </style>

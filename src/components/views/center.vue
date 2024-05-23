@@ -99,5 +99,5 @@ const changenum = (index) => {
 </script>
 
 <style scoped>
-@import url("../../assets/components/shadow.css");
+@import "@/assets/components/shadow.css";
 </style>
