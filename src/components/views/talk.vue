@@ -100,7 +100,7 @@
             <!-- chat -->
             <div class="mt-6 flex flex-1 flex-col overflow-y-auto">
               <div
-                class="other-message diyborder max-w-72 rounded-lg p-2 text-black"
+                class="other-message diyborder w-fit max-w-80 rounded-lg p-2 text-black"
               >
                 may the peace be with us!
               </div>
@@ -110,7 +110,7 @@
                 :class="
                   message.sender === 'user' ? 'user-message' : 'other-message'
                 "
-                class="diyborder max-w-72 rounded-lg p-2 text-black"
+                class="diyborder w-fit max-w-80 rounded-lg p-2 text-black"
               >
                 {{ message.text }}
               </div>
@@ -219,24 +219,25 @@ const upload = async () => {
     formData.append("image", images.value[selectimg.value]);
     formData.append("name", img_name.value);
     formData.append("voice", selectedFruit.value);
-    axios
-      .post("http://localhost:3000", formData, {
+
+    try {
+      const response = await axios.post("http://localhost:3000/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      })
-      .then((response) => {
-        console.log(response.data);
-        setTimeout(() => {
-          loading.value = false;
-        }, 2000); // 延迟2秒
-      })
-      .catch((error) => {
-        console.error(error);
+        timeout: 10000, // 设置超时时间为10秒
       });
-  }
-  else{
-    alert('名字不能为空');
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+      alert("上传失败，请重试");
+    } finally {
+      setTimeout(() => {
+        loading.value = false;
+      }, 2000); // 延迟2秒
+    }
+  } else {
+    alert("名字不能为空");
   }
 };
 </script>
