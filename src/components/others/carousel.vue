@@ -20,27 +20,19 @@ import "vue3-carousel/dist/carousel.css";
 const carouselItems = [
   {
     id: 1,
-    src: "/src/assets/img/ai1.png",
-    iconName: "ai-academia",
-    // routepath: "/ai",
+    src: "/assets/img/backimg.jpg",
   },
   {
     id: 2,
-    src: "/src/assets/img/2.jpg",
-    iconName: "ai-academia",
-    // routepath: "/ai",
+    src: "/assets/img/girl.png",
   },
   {
     id: 3,
-    src: "/src/assets/img/3.png",
-    iconName: "ai-academia",
-    // routepath: "/ai",
+    src: "/assets/img/2.jpg",
   },
   {
     id: 4,
-    src: "/src/assets/img/4.jpg",
-    iconName: "ai-academia",
-    // routepath: "/ai",
+    src: "/assets/img/sea.jpg",
   },
 ];
 const currentSlide = ref(0);

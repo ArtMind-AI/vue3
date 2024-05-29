@@ -2,10 +2,10 @@
   <div>
     <Header />
     <div class="bg-btw">
-      <div class="mx-auto max-w-7xl  px-6">
+      <div class="mx-auto max-w-7xl px-6">
         <!-- top -->
         <div class="flex">
-          <div class="mx-auto mt-6 flex">
+          <div class="mx-auto my-8 flex">
             <div class="flex flex-col justify-center gap-4">
               <div class="text-center text-5xl font-bold text-white">
                 <span class="text-sky-500">Art</span> Mind
@@ -14,11 +14,11 @@
                 Interstellar Development Experience
               </div>
               <!-- button -->
-              <div class="mt-4 flex justify-center gap-4">
+              <div class="mt-4 flex justify-center gap-4 max-sm:flex-col">
                 <!-- function -->
-                <router-link to="/talk">
+                <router-link to="/model/talk">
                   <button
-                    class="group relative flex h-14 w-52 cursor-pointer items-center justify-center overflow-hidden rounded-md border bg-sky-800 p-2 font-extrabold text-sky-50 duration-500 hover:border-sky-600"
+                    class="group relative flex h-14 w-52 cursor-pointer items-center justify-center overflow-hidden rounded-md border bg-sky-800 p-2 font-extrabold text-sky-50 duration-500 hover:border-sky-600 max-sm:w-full"
                   >
                     <div
                       class="absolute z-10 h-48 w-48 rounded-full bg-sky-900 transition-all delay-150 duration-500 ease-in-out group-hover:scale-150 group-hover:delay-75"
@@ -41,7 +41,7 @@
                 <!-- docs -->
                 <router-link to="/documents">
                   <button
-                    class="before:content[''] after:content[''] group relative h-14 w-52 origin-left overflow-hidden rounded-lg border bg-sky-800 p-3 text-left text-base font-bold text-gray-50 underline underline-offset-2 duration-500 before:absolute before:right-1 before:top-1 before:z-10 before:h-12 before:w-12 before:rounded-full before:bg-sky-400 before:blur-lg before:duration-500 after:absolute after:right-8 after:top-3 after:z-10 after:h-20 after:w-20 after:rounded-full after:bg-cyan-600 after:blur after:duration-500 hover:border-sky-300 hover:bg-sky-300 hover:text-sky-900 hover:underline hover:decoration-2 hover:underline-offset-4 hover:duration-500 hover:before:-bottom-8 hover:before:right-16 hover:before:top-8 hover:before:blur-none hover:after:-right-2 hover:after:scale-150 hover:after:blur-none group-hover:before:duration-500 group-hover:after:duration-1000"
+                    class="before:content[''] after:content[''] group relative h-14 w-52 origin-left overflow-hidden rounded-lg border bg-sky-800 p-3 text-left text-base font-bold text-gray-50 underline underline-offset-2 duration-500 before:absolute before:right-1 before:top-1 before:z-10 before:h-12 before:w-12 before:rounded-full before:bg-sky-400 before:blur-lg before:duration-500 after:absolute after:right-8 after:top-3 after:z-10 after:h-20 after:w-20 after:rounded-full after:bg-cyan-600 after:blur after:duration-500 hover:border-sky-300 hover:bg-sky-300 hover:text-sky-900 hover:underline hover:decoration-2 hover:underline-offset-4 hover:duration-500 hover:before:-bottom-8 hover:before:right-16 hover:before:top-8 hover:before:blur-none hover:after:-right-2 hover:after:scale-150 hover:after:blur-none group-hover:before:duration-500 group-hover:after:duration-1000 max-sm:w-full"
                   >
                     Docs
                   </button>
@@ -101,12 +101,8 @@
 
           <div class="stat">
             <div class="stat-figure text-secondary">
-              <div class="avatar online">
-                <div class="w-16 rounded-full">
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  />
-                </div>
+              <div class="w-8 rounded-full">
+                <img src="/assets/img/0.jpg" class="rounded-full" />
               </div>
             </div>
             <div class="stat-value">86%</div>
@@ -121,7 +117,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import Footer from "../others/footer.vue";
 import carousel from "../others/carousel.vue";
 </script>

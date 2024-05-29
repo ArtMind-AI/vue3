@@ -1,9 +1,8 @@
 <template>
-  <div class="bg-btw h-16">
-    <div
-      class="mx-auto flex h-full max-w-7xl items-center justify-between px-6"
-    >
-      <div class="text-ptg z-20 flex gap-6 text-lg">
+  <div class="bg-btw">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <!-- begin left -->
+      <div class="text-ptg z-20 flex gap-4 text-lg">
         <!-- begin default -->
         <div class="flex items-center gap-2">
           <v-icon name="fc-linux" class="h-7 w-7" />
@@ -12,40 +11,42 @@
             Mind</router-link
           >
         </div>
-        <!-- begin chat -->
-        <router-link
-          to="/documents"
-          class="hover:text-[#7480ff]"
-          :class="{ 'text-[#7480ff]': $route.path === '/documents' }"
-        >
-          <span class="font-bold tracking-widest">{{ $t("docs") }}</span>
-        </router-link>
-        <!-- begin function -->
-        <router-link
-          to="talk"
-          class="hover:text-[#7480ff]"
-          :class="{ 'text-[#7480ff]': $route.path === '/talk' }"
-        >
-          <span class="font-bold tracking-widest">{{ $t("function") }}</span>
-        </router-link>
-        <!-- begin community -->
-        <router-link
-          to="/community"
-          class="hover:text-[#7480ff]"
-          :class="{ 'text-[#7480ff]': $route.path === '/community' }"
-        >
-          <span class="font-bold tracking-widest">{{ $t("community") }}</span>
-        </router-link>
-        <!-- begin center -->
-        <router-link
-          to="/center"
-          class="hover:text-[#7480ff]"
-          :class="{ 'text-[#7480ff]': $route.path === '/center' }"
-        >
-          <span class="font-bold tracking-widest">个人中心</span>
-        </router-link>
+        <div class="flex gap-4 max-md:hidden">
+          <!-- begin docs -->
+          <router-link
+            to="/documents"
+            class="hover:text-[#7480ff]"
+            :class="{ 'text-[#7480ff]': $route.path === '/documents' }"
+          >
+            <span class="font-bold tracking-widest">{{ $t("docs") }}</span>
+          </router-link>
+          <!-- begin function -->
+          <router-link
+            to="/model/talk"
+            class="hover:text-[#7480ff]"
+            :class="{ 'text-[#7480ff]': $route.path.match(/^\/model/) }"
+          >
+            <span class="font-bold tracking-widest">{{ $t("function") }}</span>
+          </router-link>
+          <!-- begin community -->
+          <router-link
+            to="/community"
+            class="hover:text-[#7480ff]"
+            :class="{ 'text-[#7480ff]': $route.path === '/community' }"
+          >
+            <span class="font-bold tracking-widest">{{ $t("community") }}</span>
+          </router-link>
+          <!-- begin center -->
+          <router-link
+            to="/center"
+            class="hover:text-[#7480ff]"
+            :class="{ 'text-[#7480ff]': $route.path === '/center' }"
+          >
+            <span class="font-bold tracking-widest">个人中心</span>
+          </router-link>
+        </div>
       </div>
-      <!-- begin header-right -->
+      <!-- begin head-right -->
       <div class="flex items-center max-md:hidden">
         <!-- begin theme -->
         <!-- begin: language -->
@@ -77,12 +78,51 @@
           <span class="font-bold tracking-widest">{{ $t("login in") }}</span>
         </router-link>
         <!-- begin avator -->
-        <div class="flex items-center gap-2 ml-4">
+        <div class="ml-4 flex items-center gap-2">
           <span class="text-lg font-semibold text-[#c1caf4]">tillicofess</span>
-          <img src="../../assets/img/0.jpg" class="h-9 w-9 rounded-md" />
+          <img src="/assets/img/0.jpg" class="h-9 w-9 rounded-md" />
         </div>
       </div>
+      <div class="md:hidden">
+        <v-icon
+          name="bi-justify-left"
+          class="h-7 w-7 cursor-pointer"
+          @click="showHead = !showHead"
+        />
+      </div>
     </div>
+    <transition name="slide-head">
+      <div
+        class="bg-btw fixed z-50 mx-auto w-full space-y-2 border-b-2 border-gray-500 px-6 pb-4 md:hidden"
+        v-if="showHead"
+      >
+        <!-- begin docs -->
+        <router-link
+          to="/documents"
+          class="block border-b border-gray-400 pb-2 text-center"
+        >
+          <span class="font-bold tracking-widest">{{ $t("docs") }}</span>
+        </router-link>
+        <!-- begin function -->
+        <router-link
+          to="talk"
+          class="block border-b border-gray-400 pb-2 text-center"
+        >
+          <span class="font-bold tracking-widest">{{ $t("function") }}</span>
+        </router-link>
+        <!-- begin community -->
+        <router-link
+          to="/community"
+          class="block border-b border-gray-400 pb-2 text-center"
+        >
+          <span class="font-bold tracking-widest">{{ $t("community") }}</span>
+        </router-link>
+        <!-- begin center -->
+        <router-link to="/center" class="block text-center">
+          <span class="font-bold tracking-widest">个人中心</span>
+        </router-link>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -100,6 +140,7 @@ const switchLanguage = (lang) => {
 //theme记忆棒
 const theme = localStorage.getItem("theme");
 const themeref = ref(false);
+const showHead = ref(false);
 
 if (theme === "light") {
   themeref.value = true;
@@ -112,4 +153,6 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+@import "/src/assets/components/shadow.css";
+</style>

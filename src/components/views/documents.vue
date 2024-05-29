@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-btw h-screen overflow-y-scroll">
+  <div class="bg-btw h-screen">
     <!-- hidden:slide -->
     <div class="fixed inset-0 z-30" :class="{ hidden: show === false }">
       <div
@@ -88,10 +88,10 @@
           </div>
         </transition>
         <!-- container -->
-        <div class="lg:pl-48">
+        <div class="lg:pl-52">
           <div class="mx-auto max-w-4xl lg:ml-0">
             <!-- sidebar -->
-            <div class="border-b border-gray-500 pb-2 lg:hidden">
+            <div class="lg:hidden">
               <v-icon
                 name="bi-justify-left"
                 class="h-8 w-8 cursor-pointer"
@@ -187,6 +187,5 @@ const change = (index) => {
 </script>
 
 <style scoped>
-@import "@/assets/components/aiChat.css";
-@import "@/assets/components/shadow.css";
+@import "/src/assets/components/shadow.css";
 </style>

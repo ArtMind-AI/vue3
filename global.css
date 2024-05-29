@@ -1,5 +1,5 @@
 /* 为深色主题设置黑色背景颜色 */
-[data-theme="dark"] {
+:root {
   --bg-btw: #282a36;
 
   --bg-grey: #414868;
@@ -21,32 +21,6 @@
   --text-grey: #414868;
 
   --border-ptb: #c1caf4;
-
-}
-
-/* 为浅色主题设置粉色背景颜色 */
-[data-theme="light"] {
-  --bg-btw: #fff;
-
-  --bg-grey: #f0f3f8;
-
-  --bg-dg: #858585;
-
-  --bg-ptg: #f5f5f5;
-
-  --bg-ptb: #94a3b8;
-
-  --text-ptw: #fff;
-
-  --text-ptb: #000;
-
-  --text-ptg: #858585;
-
-  --text-gtb: #000;
-
-  --text-grey: #f0f3f8;
-
-  --border-ptb: #94a3b8;
 
 }
 

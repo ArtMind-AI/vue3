@@ -1,15 +1,131 @@
-.myshadow{
-    background-color: #454857 !important;
-    box-shadow: inset 0 0 0 3px rgba(35, 33, 45, 0.3),
+.myshadow {
+  background-color: #454857 !important;
+  box-shadow:
+    inset 0 0 0 3px rgba(35, 33, 45, 0.3),
     0 0 0 3px rgba(185, 185, 185, 0.3);
 }
 
+.diyborder {
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+}
+
+.loader {
+  position: relative;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotate(45deg) translate(30%, 40%);
+  background: #ff9371;
+  box-shadow: 32px -34px 0 5px #ff3d00;
+  animation: slide 2s infinite ease-in-out alternate;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff3d00;
+  transform: rotate(0deg);
+  transform-origin: 35px 145px;
+  animation: rotate 2s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0%,
+  100% {
+    bottom: -35px;
+  }
+
+  25%,
+  75% {
+    bottom: -2px;
+  }
+
+  20%,
+  80% {
+    bottom: 2px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-15deg);
+  }
+
+  25%,
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(25deg);
+  }
+}
+
+/* sidebar */
 .slide-left-enter-active,
 .slide-left-leave-active {
-  transition: transform 0.75s;
+  transition: transform 0.25s;
 }
 
 .slide-left-enter,
 .slide-left-leave-to {
   transform: translateX(-100%);
+}
+
+/* header */
+.slide-head-enter-active {
+  transition: all 0.3s ease-out;
+}
+.slide-head-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-head-enter-from,
+.slide-head-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+/* documents 隐藏侧边栏 */
+.nested-enter-active,
+.nested-leave-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.nested-leave-active {
+  transition-delay: 0.15s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+  transform: translateX(-100px);
+  opacity: 0;
+}
+
+/* documents */
+.sidecursor {
+  cursor: pointer;
+}
+
+.sidecursor:hover {
+  color: white;
+}
+
+.active {
+  color: #7480ff !important;
 }

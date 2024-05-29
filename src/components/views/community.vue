@@ -31,13 +31,13 @@ import Header from "../header/header.vue";
 
 // 假设 images 数据是一个包含图片 URL 的数组
 const images = [
-  { url: "/src/assets/img/0.jpg", text: "1" },
-  { url: "/src/assets/img/7.png", text: "2" },
-  { url: "/src/assets/img/6.png", text: "3" },
-  { url: "/src/assets/img/8.jpg", text: "4" },
-  { url: "/src/assets/img/0797.png", text: "5" },
-  { url: "/src/assets/img/4.jpg", text: "6" },
-  { url: "/src/assets/img/3.png", text: "7" },
+  { url: "/assets/img/0.jpg", text: "1" },
+  { url: "/assets/img/7.png", text: "2" },
+  { url: "/assets/img/6.png", text: "3" },
+  { url: "/assets/img/8.jpg", text: "4" },
+  { url: "/assets/img/0797.png", text: "5" },
+  { url: "/assets/img/4.jpg", text: "6" },
+  { url: "/assets/img/3.png", text: "7" },
 ];
 </script>
 

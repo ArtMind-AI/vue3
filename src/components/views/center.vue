@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-btw h-screen overflow-y-scroll">
+  <div class="bg-btw h-screen">
     <Header />
     <div class="mx-auto max-w-7xl px-6">
       <div class="mt-6">
         <div class="flex gap-4 max-md:flex-col md:items-end">
           <div>
             <img
-              src="../../assets/img/0.jpg"
+              src="/assets/img/0.jpg"
               class="diyborder h-64 w-64 rounded-xl"
             />
           </div>
@@ -99,5 +99,5 @@ const changenum = (index) => {
 </script>
 
 <style scoped>
-@import "@/assets/components/shadow.css";
+@import "/src/assets/components/shadow.css";
 </style>
