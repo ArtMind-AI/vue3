@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-btw h-screen">
+  <div>
     <!-- hidden:slide -->
     <div class="fixed inset-0 z-30" :class="{ hidden: show === false }">
       <div
         class="fixed inset-0 z-40 bg-black opacity-30"
         @click="show = false"
       ></div>
-      <!-- 侧边栏 -->
+      <!-- 隐藏菜单栏 -->
       <Transition :duration="350" name="nested">
         <div
           class="bg-btw fixed inset-0 bottom-0 left-0 z-50 w-48 space-y-4 overflow-y-scroll pl-8 pt-8"
@@ -45,10 +45,23 @@
         </div>
       </Transition>
     </div>
-    <div class="w-full">
-      <Header />
+    <div class="min-h-[calc(100vh-64px)] w-full">
+      <!-- 隐藏header菜单 -->
+      <div
+        class="flex h-12 items-center justify-between border-y border-gray-400 px-6 lg:hidden"
+      >
+        <div class="flex items-center">
+          <v-icon
+            name="md-list-round"
+            class="h-6 w-6 cursor-pointer"
+            @click="show = !show"
+          />
+          <span>菜单</span>
+        </div>
+        <span class="text-ptb font-bold">文档</span>
+      </div>
       <div class="mx-auto max-w-7xl px-6">
-        <!-- side -->
+        <!-- 侧边栏 -->
         <transition name="slide-left">
           <div
             class="bg-btw fixed inset-0 bottom-0 left-[max(0px,calc(50%-40rem))] right-auto top-16 w-48 space-y-4 overflow-y-scroll pl-8"
@@ -90,14 +103,7 @@
         <!-- container -->
         <div class="lg:pl-52">
           <div class="mx-auto max-w-4xl lg:ml-0">
-            <!-- sidebar -->
-            <div class="lg:hidden">
-              <v-icon
-                name="bi-justify-left"
-                class="h-8 w-8 cursor-pointer"
-                @click="show = !show"
-              />
-            </div>
+            <!-- 响应内容 -->
             <div v-if="currentnum === 0">
               <div class="text-ptb py-6 text-4xl font-bold">简介</div>
               <div class="space-y-2 py-6">
@@ -158,7 +164,6 @@
 </template>
 
 <script setup>
-import Header from "../header/header.vue";
 import { onMounted, onBeforeUnmount, ref } from "vue";
 
 const currentnum = ref(0);

@@ -1,19 +1,15 @@
 <template>
-  <div class="bg-btw h-screen">
-    <div>
-      <Header />
-      <div class="mx-auto overflow-x-auto px-6 lg:max-w-[80rem]">
-        <!-- side -->
-        <sidebar />
-        <!-- container -->
-        <router-view />
-      </div>
+  <div>
+    <div class="mx-auto min-h-[calc(100vh-64px)] flex flex-col overflow-x-auto lg:max-w-[80rem] px-6">
+      <!-- side -->
+      <sidebar />
+      <!-- container -->
+      <router-view />
     </div>
   </div>
 </template>
 
 <script setup>
-import Header from "../header/header.vue";
 import sidebar from "../others/Sidebar.vue";
 </script>
 

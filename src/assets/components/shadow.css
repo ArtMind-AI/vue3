@@ -89,15 +89,14 @@
 
 /* header */
 .slide-head-enter-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.25s ease-in;
 }
 .slide-head-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.25s ease-out
 }
 
 .slide-head-enter-from,
 .slide-head-leave-to {
-  transform: translateY(-20px);
   opacity: 0;
 }
 
@@ -115,6 +114,22 @@
 .nested-leave-to {
   transform: translateX(-100px);
   opacity: 0;
+}
+
+/* 下拉菜单按钮变化 */
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
 }
 
 /* documents */
