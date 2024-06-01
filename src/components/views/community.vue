@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto min-h-[calc(100vh-64px)] max-w-7xl px-6 pt-6">
+  <div class="mx-auto min-h-[calc(100vh-68px)] max-w-7xl px-6 pt-6">
     <div class="flex h-full flex-1 flex-col gap-4">
       <div class="flex h-72 flex-row gap-4">
         <div class="bg-grey h-72 w-3/5 rounded-md diyborder"></div>

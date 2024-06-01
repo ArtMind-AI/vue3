@@ -7,27 +7,40 @@
         <div class="flex items-center text-2xl">
           <router-link to="/" class="text-ptg font-bold tracking-wide">
             <span :class="{ 'text-sky-500': $route.path === '/' }">Art</span>
-            Mind</router-link>
+            Mind</router-link
+          >
         </div>
         <div class="flex gap-3 max-md:hidden">
           <!-- begin docs -->
-          <router-link to="/documents" class="hover:text-[#7480ff]"
-            :class="{ 'text-[#7480ff]': $route.path === '/documents' }">
+          <router-link
+            to="/documents"
+            class="hover:text-[#7480ff]"
+            :class="{ 'text-[#7480ff]': $route.path === '/documents' }"
+          >
             <span class="font-bold tracking-widest">{{ $t("docs") }}</span>
           </router-link>
           <!-- begin function -->
-          <router-link to="/model/talk" class="hover:text-[#7480ff]"
-            :class="{ 'text-[#7480ff]': $route.path.match(/^\/model/) }">
+          <router-link
+            to="/model/talk"
+            class="hover:text-[#7480ff]"
+            :class="{ 'text-[#7480ff]': $route.path.match(/^\/model/) }"
+          >
             <span class="font-bold tracking-widest">{{ $t("function") }}</span>
           </router-link>
           <!-- begin community -->
-          <router-link to="/community" class="hover:text-[#7480ff]"
-            :class="{ 'text-[#7480ff]': $route.path === '/community' }">
+          <router-link
+            to="/community"
+            class="hover:text-[#7480ff]"
+            :class="{ 'text-[#7480ff]': $route.path === '/community' }"
+          >
             <span class="font-bold tracking-widest">{{ $t("community") }}</span>
           </router-link>
           <!-- begin center -->
-          <router-link to="/center" class="hover:text-[#7480ff]"
-            :class="{ 'text-[#7480ff]': $route.path === '/center' }">
+          <router-link
+            to="/center"
+            class="hover:text-[#7480ff]"
+            :class="{ 'text-[#7480ff]': $route.path === '/center' }"
+          >
             <span class="font-bold tracking-widest">个人中心</span>
           </router-link>
         </div>
@@ -37,11 +50,16 @@
         <!-- begin: language -->
         <div class="dropdown">
           <div tabindex="0" role="button">
-            <button class="text-ptw h-9 rounded-md border-2 border-[#607bff] px-4 transition-transform active:scale-90">
+            <button
+              class="text-ptw h-9 rounded-md border-2 border-[#607bff] px-4 transition-transform active:scale-90"
+            >
               <span class="font-bold">语言</span>
             </button>
           </div>
-          <ul tabindex="0" class="bg-grey menu dropdown-content z-[1] mt-5 w-32 rounded-box p-2 shadow">
+          <ul
+            tabindex="0"
+            class="bg-grey menu dropdown-content z-[1] mt-5 w-32 rounded-box p-2 shadow"
+          >
             <li>
               <a class="text-ptg" @click="switchLanguage('zh')">中文简体</a>
             </li>
@@ -51,8 +69,10 @@
           </ul>
         </div>
         <!-- begin login -->
-        <router-link to="/login"
-          class="text-ptg h-9 rounded-md bg-gradient-to-l from-blue-500 to-purple-600 px-4 text-center leading-9 transition-transform hover:brightness-90 active:scale-95">
+        <router-link
+          to="/login"
+          class="text-ptg h-9 rounded-md bg-gradient-to-l from-blue-500 to-purple-600 px-4 text-center leading-9 transition-transform hover:brightness-90 active:scale-95"
+        >
           <span class="font-bold tracking-widest">{{ $t("login in") }}</span>
         </router-link>
         <!-- list-button -->
@@ -70,24 +90,56 @@
     </div>
     <!-- list -->
     <transition name="slide-head">
-      <div class="bg-btw w-full border-b-2 border-gray-400 py-12 md:hidden" v-if="showHead">
-        <div class="mx-auto w-64 divide-y-2 divide-gray-400">
-          <!-- begin docs -->
-          <router-link to="/documents" class="block h-10 text-center leading-10">
-            <span class="font-bold tracking-widest">{{ $t("docs") }}</span>
-          </router-link>
-          <!-- begin function -->
-          <router-link to="/model/talk" class="block h-10 text-center leading-10">
-            <span class="font-bold tracking-widest">{{ $t("function") }}</span>
-          </router-link>
-          <!-- begin community -->
-          <router-link to="/community" class="block h-10 text-center leading-10">
-            <span class="font-bold tracking-widest">{{ $t("community") }}</span>
-          </router-link>
-          <!-- begin center -->
-          <router-link to="/center" class="block h-10 text-center leading-10">
-            <span class="font-bold tracking-widest">个人中心</span>
-          </router-link>
+      <div
+        class="bg-btw w-full border-b-2 border-gray-400 py-12 md:hidden"
+        v-if="showHead"
+      >
+        <div class="mx-auto w-64">
+          <div class="divide-y-2 divide-gray-400">
+            <!-- begin docs -->
+            <router-link
+              to="/documents"
+              class="block h-10 text-center leading-10"
+            >
+              <span class="font-bold tracking-widest">{{ $t("docs") }}</span>
+            </router-link>
+            <!-- begin community -->
+            <router-link
+              to="/community"
+              class="block h-10 text-center leading-10"
+            >
+              <span class="font-bold tracking-widest">{{
+                $t("community")
+              }}</span>
+            </router-link>
+            <!-- begin center -->
+            <router-link to="/center" class="block h-10 text-center leading-10">
+              <span class="font-bold tracking-widest">个人中心</span>
+            </router-link>
+          </div>
+          <div class="my-12">
+            <p class="mb-2 text-center font-bold">功能</p>
+            <div class="divide-y-2 divide-gray-400">
+              <router-link
+                to="/model/talk"
+                class="block h-10 text-center leading-10"
+              >
+                <span class="font-bold tracking-widest">个性化对话</span>
+              </router-link>
+              <router-link
+                to="/model/audio"
+                class="block h-10 text-center leading-10"
+              >
+                <span class="font-bold tracking-widest">音频生成</span>
+              </router-link>
+              <router-link
+                to="/model/word"
+                class="block h-10 text-center leading-10"
+              >
+                <span class="font-bold tracking-widest">文字生成</span>
+              </router-link>
+            </div>
+          </div>
         </div>
       </div>
     </transition>
@@ -118,6 +170,7 @@ const switchLanguage = (language) => {
   localStorage.setItem("language", language);
 };
 
+// 语言记忆棒
 onMounted(() => {
   // 在组件挂载时，从 localStorage 获取已保存的语言并设置
   if (localStorage.getItem("language")) {

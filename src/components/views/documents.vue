@@ -45,7 +45,7 @@
         </div>
       </Transition>
     </div>
-    <div class="min-h-[calc(100vh-64px)] w-full">
+    <div class="min-h-[calc(100vh-68px)] w-full">
       <!-- 隐藏header菜单 -->
       <div
         class="flex h-12 items-center justify-between border-y border-gray-400 px-6 lg:hidden"

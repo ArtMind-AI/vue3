@@ -1,20 +1,40 @@
 <template>
-  <div class="mx-auto max-w-7xl min-h-[calc(100vh-64px)] px-6 pt-6">
+  <div class="mx-auto min-h-[calc(100vh-68px)] max-w-7xl px-6 pt-6">
     <div class="flex gap-4 max-md:flex-col md:items-end">
       <div>
         <img src="/assets/img/0.jpg" class="diyborder h-64 w-64 rounded-xl" />
       </div>
       <div class="diyborder max-w-fit gap-4 rounded-xl bg-[#525e7b] p-4">
-        <div class="diyborder flex h-8 w-40 items-center justify-center rounded-xl bg-[#f5f5dc]">
+        <div
+          class="diyborder flex h-8 w-40 items-center justify-center rounded-xl bg-[#f5f5dc]"
+        >
           <span class="text-black">tillicofess</span>
         </div>
         <div class="diyborder mt-4 h-8 w-64 rounded-xl bg-[#f5f5dc]"></div>
       </div>
     </div>
     <div role="tablist" class="myshadow tabs-boxed tabs ml-1 mt-6 w-96">
-      <a role="tab" class="tab" :class="{ 'tab-active': Num === 0 }" @click="changenum(0)">喜爱</a>
-      <a role="tab" class="tab" :class="{ 'tab-active': Num === 1 }" @click="changenum(1)">仓库</a>
-      <a role="tab" class="tab" :class="{ 'tab-active': Num === 2 }" @click="changenum(2)">上传</a>
+      <a
+        role="tab"
+        class="tab"
+        :class="{ 'tab-active': Num === 0 }"
+        @click="changenum(0)"
+        >喜爱</a
+      >
+      <a
+        role="tab"
+        class="tab"
+        :class="{ 'tab-active': Num === 1 }"
+        @click="changenum(1)"
+        >仓库</a
+      >
+      <a
+        role="tab"
+        class="tab"
+        :class="{ 'tab-active': Num === 2 }"
+        @click="changenum(2)"
+        >上传</a
+      >
     </div>
     <div class="mb-6 mt-3 h-128 w-full rounded-xl border-2 border-[#54555e]">
       <div class="overflow-x-auto">

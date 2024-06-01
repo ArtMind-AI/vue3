@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="mx-auto min-h-[calc(100vh-64px)] flex flex-col overflow-x-auto lg:max-w-[80rem] px-6">
+    <div
+      class="mx-auto flex min-h-[calc(100vh-68px)] flex-col overflow-x-auto px-6 lg:max-w-[80rem]"
+    >
       <!-- side -->
       <sidebar />
       <!-- container -->
