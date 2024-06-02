@@ -1,96 +1,57 @@
 <template>
   <div class="flex flex-1 items-center gap-4 lg:justify-center xl:pl-48">
     <!-- container-left -->
-    <div
-      class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b]"
-    >
+    <div class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b]">
       <!-- begin：声线 -->
       <div class="mt-6 flex gap-6 px-6">
-        <select
-          id="selectFruit"
-          v-model="selectedvoice"
-          class="bg-ptb text-grey diyborder h-10 w-1/2 rounded-lg text-center outline-none"
-        >
+        <select id="selectFruit" v-model="selectedvoice"
+          class="bg-ptb text-grey diyborder h-10 w-1/2 rounded-lg text-center outline-none">
           <option value="普通话女声">普通话女声</option>
           <option value="粤语男声">粤语男声</option>
         </select>
         <!-- begin：添加图片 -->
-        <input
-          ref="fileInput"
-          type="file"
-          @change="handleFileChange"
-          style="display: none"
-        />
+        <input ref="fileInput" type="file" @change="handleFileChange" style="display: none" />
         <button
           class="bg-ptb text-grey diyborder h-10 w-1/2 rounded-lg text-center transition-transform active:scale-90"
-          @click="$refs.fileInput.click()"
-        >
+          @click="$refs.fileInput.click()">
           添加图片
         </button>
       </div>
       <!-- begin: text -->
       <div class="mt-6 px-6">
         <div class="relative w-full">
-          <label
-            for="input"
-            class="bg-ptb absolute -top-3 left-2 z-20 rounded-md px-1 text-[#7480ff]"
-            >特征:</label
-          >
-          <textarea
-            class="bg-ptb diyborder w-full resize-none rounded-lg p-2 text-black outline-none"
-            placeholder="write here..."
-            v-model="feature"
-            :rows="rows"
-          ></textarea>
+          <label for="input" class="bg-ptb absolute -top-3 left-2 z-20 rounded-md px-1 text-[#7480ff]">特征:</label>
+          <textarea class="bg-ptb diyborder w-full resize-none rounded-lg p-2 text-black outline-none"
+            placeholder="write here..." v-model="feature" :rows="rows"></textarea>
         </div>
       </div>
       <!-- begin：生成 -->
       <div class="myborder mt-6 px-6">
         <button
           class="bg-ptb text-grey diyborder w-full rounded-lg p-2 text-center transition-transform active:scale-90"
-          @click="uploadbyword()"
-        >
+          @click="uploadbyword()">
           生成
         </button>
       </div>
       <!-- begin：img -->
       <div class="mt-6 flex-1 overflow-y-auto px-6">
         <div class="grid grid-cols-3 gap-4 lg:grid-cols-4">
-          <div
-            v-for="(image, index) in imagesStore.images"
-            :key="index"
-            class="diyborder rounded-lg active:scale-95"
-            :class="{ 'opacity-50': selectimg === index }"
-            @click="selectImage(index)"
-          >
-            <img
-              :src="getImageUrl(image)"
-              alt="image"
-              class="aspect-square w-full rounded-lg"
-            />
+          <div v-for="(image, index) in imagesStore.images" :key="index" class="diyborder rounded-lg active:scale-95"
+            :class="{ 'opacity-50': selectimg === index }" @click="selectImage(index)">
+            <img :src="getImageUrl(image)" alt="image" class="aspect-square w-full rounded-lg" />
           </div>
         </div>
       </div>
     </div>
     <!-- container-right -->
-    <div
-      class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b] p-6"
-    >
+    <div class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b] p-6">
       <!-- video -->
       <div class="relative mt-6">
-        <video
-          autoplay
-          :controls="isShowOperate"
-          @mouseover="handleMouseOver()"
-          @mouseout="handleMouseOut()"
-          :src="videoUrl"
-          ref="videoplay"
-          class="diyborder mx-auto aspect-square w-72 rounded-lg"
-        ></video>
+        <video autoplay :controls="isShowOperate" @mouseover="handleMouseOver()" @mouseout="handleMouseOut()"
+          :src="videoUrl" ref="videoplay" class="diyborder mx-auto aspect-square w-72 rounded-lg"></video>
         <div
           class="absolute left-[calc(50%-9rem)] top-0 z-30 flex aspect-square h-72 w-72 items-center justify-center rounded-lg bg-white"
-          :class="{ hidden: loading === false }"
-        >
+          :class="{ hidden: loading === false }">
           <div class="loader aspect-square w-16"></div>
         </div>
       </div>
@@ -110,7 +71,6 @@ const feature = ref(null); // 特征文字
 const rows = ref(4); // 特征输入行数
 const loading = ref(false); // 视频加载
 const videoUrl = ref(null); // 视频url
-const defaultUrl = "/assets/mp4/city.mp4"; // 视频默认url
 const videoplay = ref(null); // 视频ref
 const isShowOperate = ref(false); // 视频控制台
 
@@ -138,7 +98,6 @@ onMounted(() => {
 
 // 视频结束后切换会默认视频
 const handleVideoEnded = () => {
-  videoUrl.value = defaultUrl;
   videoplay.value.load();
 };
 
@@ -221,9 +180,7 @@ const uploadbyword = async () => {
     console.log(error);
     alert("上传失败，请重试");
   } finally {
-    setTimeout(() => {
-      loading.value = false;
-    }, 2000); // 延迟2秒
+    loading.value = false;
   }
 };
 </script>
