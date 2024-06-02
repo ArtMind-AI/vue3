@@ -2,7 +2,7 @@
   <div class="flex flex-1 items-center gap-4 lg:justify-center xl:pl-48">
     <!-- container-left -->
     <div
-      class="diyborder flex h-[calc(100vh-120px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b]"
+      class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b]"
     >
       <!-- begin：声线 -->
       <div class="mt-6 flex gap-6 px-6">
@@ -75,7 +75,7 @@
     </div>
     <!-- container-right -->
     <div
-      class="diyborder flex h-[calc(100vh-120px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b] p-6"
+      class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b] p-6"
     >
       <!-- video -->
       <div class="relative">
@@ -129,7 +129,7 @@
 
 <script setup>
 import { ref, onBeforeMount } from "vue";
-import { useImagesStore } from "/src/store/image.js";
+import { useImagesStore } from "@/store/image.js";
 import axios from "axios";
 
 const imagesStore = useImagesStore();

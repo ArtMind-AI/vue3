@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import sidebar from "../others/Sidebar.vue";
+import sidebar from "@/components/others/Sidebar.vue";
 </script>
 
 <style>

@@ -112,8 +112,8 @@
 </template>
 
 <script setup>
-import Footer from "../others/footer.vue";
-import carousel from "../others/carousel.vue";
+import Footer from "@/components/others/footer.vue";
+import carousel from "@/components/others/carousel.vue";
 </script>
 
 <style scoped>
