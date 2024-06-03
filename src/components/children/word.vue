@@ -1,7 +1,8 @@
 <template>
-  <div class="flex flex-1 items-center gap-4 lg:justify-center xl:pl-48">
+  <div class="flex flex-1 max-sm:flex-col-reverse items-center gap-4 lg:justify-center xl:pl-48">
     <!-- container-left -->
-    <div class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b]">
+    <div
+      class="diyborder flex h-[calc(100vh-130px)] w-1/2 max-sm:w-full min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b]">
       <!-- begin：声线 -->
       <div class="mt-6 flex gap-6 px-6">
         <select id="selectFruit" v-model="selectedvoice"
@@ -44,11 +45,13 @@
       </div>
     </div>
     <!-- container-right -->
-    <div class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b] p-6">
+    <div
+      class="diyborder flex h-[calc(100vh-130px)] w-1/2 max-sm:w-full min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b] p-6">
       <!-- video -->
       <div class="relative mt-6">
-        <video autoplay :controls="isShowOperate" @mouseover="handleMouseOver()" @mouseout="handleMouseOut()"
-          :src="videoUrl" ref="videoplay" class="diyborder mx-auto aspect-square w-72 rounded-lg"></video>
+        <video playsinline autoplay :controls="isShowOperate" @mouseover="handleMouseOver()"
+          @mouseout="handleMouseOut()" :src="videoUrl" ref="videoplay"
+          class="diyborder mx-auto aspect-square w-72 rounded-lg"></video>
         <div
           class="absolute left-[calc(50%-9rem)] top-0 z-30 flex aspect-square h-72 w-72 items-center justify-center rounded-lg bg-white"
           :class="{ hidden: loading === false }">
@@ -60,11 +63,12 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useImagesStore } from "@/store/image.js";
+const imagesStore = useImagesStore(); // pinia中图片全局变量
+import { getImageUrl, getBlobFromUrl, useFetchImage } from "@/utils/utils.js"
 import axios from "axios";
 
-const imagesStore = useImagesStore(); // pinia中图片全局变量
 const selectimg = ref(0); // 选择图片
 const selectedvoice = ref("普通话女声"); // 默认音色
 const feature = ref(null); // 特征文字
@@ -75,17 +79,7 @@ const videoplay = ref(null); // 视频ref
 const isShowOperate = ref(false); // 视频控制台
 
 // 使用 fetch 获取本地图片文件内容
-onBeforeMount(() => {
-  if (imagesStore.images.length === 0) {
-    // 使用 fetch 获取本地图片文件内容
-    fetch("/assets/img/0.jpg")
-      .then((response) => response.blob())
-      .then((blob) => {
-        // 直接将 Blob 对象存储到 images 数组中
-        imagesStore.addImage(blob);
-      });
-  }
-});
+useFetchImage();
 
 // 页面加载好组件后为视频组件添加事件
 onMounted(() => {
@@ -111,22 +105,10 @@ const handleMouseOut = () => {
   isShowOperate.value = false;
 };
 
-// 得到blob对象的url数据
-const getImageUrl = (blob) => {
-  return URL.createObjectURL(blob);
+//图片高亮 yes
+const selectImage = (index) => {
+  selectimg.value = index;
 };
-
-// 获取 Blob URL 对应的 Blob 对象
-async function getBlobFromUrl(blobUrl) {
-  try {
-    const response = await fetch(blobUrl);
-    const blob = await response.blob();
-    return blob;
-  } catch (error) {
-    console.error("Error fetching blob:", error);
-    return null;
-  }
-}
 
 // 用户上传图片到图片墙
 const handleFileChange = async (event) => {
@@ -134,17 +116,11 @@ const handleFileChange = async (event) => {
   if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
     const blob = await getBlobFromUrl(getImageUrl(file));
     imagesStore.addImage(blob);
-    console.log("images.value = " + images.value);
     // 处理文件逻辑，例如上传文件等
   } else {
     console.error("请选择JPEG或PNG格式的图片文件.");
     alert("请选择JPEG或PNG格式的图片文件.");
   }
-};
-
-//图片高亮 yes
-const selectImage = (index) => {
-  selectimg.value = index;
 };
 
 //生成数字人

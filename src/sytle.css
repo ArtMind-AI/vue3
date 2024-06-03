@@ -1,4 +1,81 @@
 #app {
-    padding: 2px;
-    background-color: var(--bg-btw);
+  padding: 2px;
+  background-color: var(--bg-btw);
+}
+
+/* 为深色主题设置黑色背景颜色 */
+:root {
+  --bg-btw: #282a36;
+
+  --bg-grey: #414868;
+
+  --bg-dg: #414868;
+
+  --bg-ptg: #c1caf4;
+
+  --bg-ptb: #c1caf4;
+
+  --text-ptw: #c1caf4;
+
+  --text-ptb: #c1caf4;
+
+  --text-ptg: #c1caf4;
+
+  --text-gtb: #414868;
+
+  --text-grey: #414868;
+
+  --border-ptb: #c1caf4;
+}
+
+/* 宇宙黑/白 */
+.bg-btw {
+  background-color: var(--bg-btw);
+}
+
+/* 背景灰 */
+.bg-grey {
+  background-color: var(--bg-grey);
+}
+
+/* 背景深灰 */
+.bg-dg {
+  background-color: var(--bg-dg);
+}
+
+/* 粉/灰白 */
+.bg-ptg {
+  background-color: var(--bg-ptg);
+}
+
+/* 粉/黑 */
+.bg-ptb {
+  background-color: var(--bg-ptb);
+}
+
+/* 粉/白 */
+.text-ptw {
+  color: var(--text-ptw);
+}
+
+/* 粉/黑 */
+.text-ptb {
+  color: var(--text-ptb);
+}
+
+/* 粉/灰 */
+.text-ptg {
+  color: var(--text-ptg);
+}
+
+.text-gtb {
+  color: var(--text-gtb);
+}
+
+.text-grey {
+  color: var(--text-grey);
+}
+
+.border-ptb {
+  border-color: var(--border-ptb);
 }

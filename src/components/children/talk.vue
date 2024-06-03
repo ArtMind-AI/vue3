@@ -1,7 +1,8 @@
 <template>
-  <div class="flex flex-1 items-center gap-4 lg:justify-center xl:pl-48">
+  <div class="flex flex-1 items-center max-sm:flex-col-reverse gap-4 lg:justify-center xl:pl-48">
     <!-- container-left -->
-    <div class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b]">
+    <div
+      class="diyborder flex h-[calc(100vh-130px)] w-1/2 max-sm:w-full  min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b]">
       <!-- begin：声线 -->
       <div class="mt-6 flex gap-6 px-6">
         <select id="selectFruit" v-model="selectedFruit"
@@ -36,12 +37,14 @@
       </div>
     </div>
     <!-- container-right -->
-    <div class="diyborder flex h-[calc(100vh-130px)] w-1/2 min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b] p-6">
+    <div
+      class="diyborder flex h-[calc(100vh-130px)] w-1/2 max-sm:w-full  min-w-96 max-w-128 flex-col rounded-xl bg-[#525e7b] p-6">
       <!-- video -->
       <div class="relative">
         <!-- 视频 -->
-        <video autoplay :controls="isShowOperate" @mouseover="handleMouseOver()" @mouseout="handleMouseOut()"
-          :src="videoUrl" ref="videoplay" class="diyborder mx-auto aspect-square w-48 rounded-lg"></video>
+        <video playsinline autoplay :controls="isShowOperate" @mouseover="handleMouseOver()"
+          @mouseout="handleMouseOut()" :src="videoUrl" ref="videoplay"
+          class="diyborder mx-auto aspect-square w-48 rounded-lg"></video>
         <!-- 骨架屏 -->
         <div
           class="absolute left-[calc(50%-6rem)] top-0 z-30 flex aspect-square h-48 w-48 items-center justify-center rounded-lg bg-white"
@@ -77,15 +80,16 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useImagesStore } from "@/store/image.js";
+import { getImageUrl, getBlobFromUrl, useFetchImage } from "@/utils/utils.js"
 import axios from "axios";
 
 const imagesStore = useImagesStore();
+const selectimg = ref(0); //选择图片
 const messages = ref([]); //聊天板文字
 const chat = ref(""); //用户输入
 const selectedFruit = ref("普通话女声"); //默认音色
-const selectimg = ref(0); //选择图片
 const loading = ref(false);
 const videoUrl = ref(null); // 视频url
 const defaultUrl = ref(null); // 视频默认url
@@ -93,17 +97,7 @@ const videoplay = ref(null); // 视频ref
 const isShowOperate = ref(false); // 视频控制台
 
 // 使用 fetch 获取本地图片文件内容
-onBeforeMount(() => {
-  if (imagesStore.images.length === 0) {
-    // 使用 fetch 获取本地图片文件内容
-    fetch("/assets/img/0.jpg")
-      .then((response) => response.blob())
-      .then((blob) => {
-        // 直接将 Blob 对象存储到 images 数组中
-        imagesStore.addImage(blob);
-      });
-  }
-});
+useFetchImage()
 
 // 页面加载好组件后为视频组件添加事件
 onMounted(() => {
@@ -133,22 +127,10 @@ const handleMouseOut = () => {
   isShowOperate.value = false;
 };
 
-// 得到blob对象的url数据
-const getImageUrl = (blob) => {
-  return URL.createObjectURL(blob);
+//图片高亮 yes
+const selectImage = (index) => {
+  selectimg.value = index;
 };
-
-// 获取 Blob URL 对应的 Blob 对象
-async function getBlobFromUrl(blobUrl) {
-  try {
-    const response = await fetch(blobUrl);
-    const blob = await response.blob();
-    return blob;
-  } catch (error) {
-    console.error("Error fetching blob:", error);
-    return null;
-  }
-}
 
 // 用户上传图片到图片墙
 const handleFileChange = async (event) => {
@@ -161,11 +143,6 @@ const handleFileChange = async (event) => {
   } else {
     console.error("请选择JPEG或PNG格式的图片文件.");
   }
-};
-
-// 图片高亮 yes
-const selectImage = (index) => {
-  selectimg.value = index;
 };
 
 // generate-content

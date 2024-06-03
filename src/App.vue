@@ -4,7 +4,7 @@ import Header from "./components/header/header.vue";
 
 <template>
   <Header v-if="$route.path != '/login'" />
-  <div class="bg-btw" :class="{ 'mt-16': $route.path != '/login' }">
+  <div :class="{ 'mt-16': $route.path != '/login' }">
     <router-view />
   </div>
 </template>

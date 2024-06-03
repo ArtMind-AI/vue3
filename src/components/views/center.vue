@@ -13,7 +13,7 @@
         <div class="diyborder mt-4 h-8 w-64 rounded-xl bg-[#f5f5dc]"></div>
       </div>
     </div>
-    <div role="tablist" class="myshadow tabs-boxed tabs ml-1 mt-6 w-96">
+    <div role="tablist" class="tabs-boxed tabs ml-1 mt-6 w-96">
       <a
         role="tab"
         class="tab"

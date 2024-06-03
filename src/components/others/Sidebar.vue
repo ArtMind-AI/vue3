@@ -50,6 +50,6 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style>
+<style scoped>
 @import "/src/assets/components/shadow.css";
 </style>

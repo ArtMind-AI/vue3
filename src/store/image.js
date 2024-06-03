@@ -8,5 +8,5 @@ export const useImagesStore = defineStore("images", () => {
     images.value.push(image);
   };
 
-  return { images, addImage };
+  return { images, addImage};
 });
